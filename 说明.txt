@@ -1,0 +1,4 @@
+PKUYouth-old 是基于gulp构建的，里面有很多做好的页面。
+PKUYouth 是基于labrador(https://github.com/maichong/labrador)的，克服了很多微信小程序的坑。我之前迁移了一半页面。
+
+所以接下来如果继续采用本代码，需要把PKUYouth-old里的代码逐渐迁移到PKUYouth，然后补充好逻辑即可。

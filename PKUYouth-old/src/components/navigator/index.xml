@@ -1,0 +1,8 @@
+<template name="navigator">
+    <view class="nav-container">
+        <navigator class="nav" data-current="0" open-type="redirect" url="/pages/articles/recommandation">推荐</navigator>
+        <navigator class="nav" data-current="1" open-type="redirect" url="/pages/topics/index">栏目</navigator>
+        <navigator class="nav" data-current="2" open-type="redirect" url="/pages/me/index">我的北青</navigator>
+        <view class="active-indicator" style="left: {{currentTab == 0? '0': (currentTab == 1 ? '33.33%':'66.67%') }}"></view>
+    </view>
+</template>

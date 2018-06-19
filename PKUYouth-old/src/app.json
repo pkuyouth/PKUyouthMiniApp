@@ -1,0 +1,58 @@
+{
+    // All pages must be here.
+    // First is default to view
+    // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
+    "pages": [
+        "pages/articles/recommandation",
+        "pages/me/index",
+        "pages/search/index",
+        "pages/me/feedback",
+        "pages/topics/index",
+        "pages/articles/show"
+    ],
+    "tabBar" : {
+        "color": "#7d7d7d",
+        "selectedColor": "#993a3a",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/articles/recommandation",
+                "text": "推荐",
+                "iconPath": "images/tabBar/1.png",
+                "selectedIconPath": "images/tabBar/1_selected.png"
+            },
+            {
+                "pagePath": "pages/topics/index",
+                "text": "栏目",
+                "iconPath": "images/tabBar/2.png",
+                "selectedIconPath": "images/tabBar/2_selected.png"
+            },
+            {
+                "pagePath": "pages/me/index",
+                "text": "我的北青",
+                "iconPath": "images/tabBar/3.png",
+                "selectedIconPath": "images/tabBar/3_selected.png"
+            }
+        ]
+    },
+
+    // Window configuration
+    // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#window
+    "window":{
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#993a3a",
+        "navigationBarTitleText": "北大青年",
+        "navigationBarTextStyle":"white",
+        "enablePullDownRefresh":false
+    },
+    // Network timeout configuration
+    // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#networkTimeout
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    },
+    // Debug log to console
+    // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#debug
+    "debug": true
+}

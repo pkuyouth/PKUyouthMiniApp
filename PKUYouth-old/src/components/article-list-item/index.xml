@@ -1,0 +1,7 @@
+<template name="article-list-item">
+	<navigator class="article-list-item" open-type="navigate" url="{{navurl}}">
+		<image mode="aspectFill" src="{{image}}" />
+		<text class="title">{{title}}</text>
+		<text class="content">{{content}}</text>
+	</navigator>
+</template>

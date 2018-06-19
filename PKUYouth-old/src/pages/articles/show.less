@@ -1,0 +1,81 @@
+
+.page.page-article-read {
+    background: white;
+    padding-bottom: 120rpx;
+    .banner {
+        height: 420rpx;
+        margin-top: 0;
+        image {
+            position: relative;
+            left: -2rpx;
+            top: -3rpx;
+            width: 753rpx;
+            height: 423rpx;
+            border-radius: 0;
+        }
+    }
+    .contents {
+        margin: 0 50rpx;
+        view {
+            padding: 0;
+            margin: 0;
+
+        }
+        .title {
+            color: black;
+            font-size: 40rpx;
+            margin-top: 20rpx;
+        }
+        .desc {
+            color: #888888;
+            font-size: 25rpx;
+            margin-top: 5rpx;
+        }
+        .content {
+            color: black;
+            font-size: 28rpx;
+            margin-top: 30rpx;
+            line-height: 1.8em;
+        }
+    }
+}
+
+.tabbar {
+    position: fixed;
+    height: 109rpx;
+    width: 750rpx;
+    bottom: 0;
+    left: 0;
+    border-top: 1rpx solid #dddddd;
+    background: white;
+    overflow: hidden;
+    transition: height 0.8s;
+    .buttons {
+        position: absolute;
+        bottom: 0;
+        height: 110rpx;
+        width: 750rpx;
+        text-align: center;
+        a {
+            display: inline-block;
+            width: 33%;
+            font-size: 25rpx;
+            color: #993a3a;
+            image {
+                width: 50rpx;
+                height: 50rpx;
+                margin-top: 10rpx;
+            }
+            text {
+
+                display: block;
+            }
+        }
+    }
+    .form {
+        position: absolute;
+        bottom: 110rpx;
+        height: 280rpx;
+        width: 750rpx;
+    }
+}

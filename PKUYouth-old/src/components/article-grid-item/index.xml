@@ -1,0 +1,5 @@
+<template name="article-grid-item">
+	<navigator class="article-grid-item" open-type="navigate" url="{{navurl}}">
+		<image mode="aspectFill" src="{{image}}" />
+	</navigator>
+</template>

@@ -1,0 +1,21 @@
+<script></script>
+<import src="../../components/article-list-item/index"></import>
+
+
+<view scroll-y="true" class="page page-recommandation first-special {{layerLevel != 0?'blur':''}}">
+    <block wx:for="{{articles}}" wx:for-item="article">
+        <template is="article-list-item" data="{{...article}}"></template>
+    </block>
+</view>
+<view class="layer {{layerLevel != 0?'show':''}}">
+    <view class="search-form {{layerLevel != 0?'show':''}}">
+        <view class="search-input"><image src="/images/Search_white.png" mode="aspectFit"></image><input placeholder="搜索题目/作者/内容/日期" placeholder-class="input-placeholder"></input></view>
+        <view class="search-button">搜索</view>
+    </view>
+</view>
+<view class="layer-buttons {{layerLevel != 0?'spread':''}}">
+    <view class="small-button show" bindtap="refreshTrigger"><image src="/images/Shuffle.png" mode="aspectFit"></image><text>换一批</text></view>
+    <view class="small-button show"><image src="/images/Search_red.png" mode="aspectFit"></image><text>搜索文章</text></view>
+    <view class="small-button show"><image src="/images/Feedback.png" mode="aspectFit"></image><text>意见反馈</text></view>
+    <view class="button" bindtap="layerTrigger"><image src="/images/Menu.png" mode="aspectFit"></image><image src="/images/Close.png" mode="aspectFit"></image></view>
+</view>

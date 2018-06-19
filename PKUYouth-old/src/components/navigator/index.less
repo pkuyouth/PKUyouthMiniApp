@@ -1,0 +1,28 @@
+.nav-container {
+    position: absolute;
+    display: table;
+    top: 0;
+    left: 0;
+    width: 750rpx;
+    height: 80rpx;
+    background: #993a3a;
+    color: white;
+    view, navigator {
+        display: table-cell;
+        text-align: center;
+        line-height: 80rpx;
+        font-size: 28rpx;
+        width:33.333%;
+    }
+    .active-indicator {
+        position: absolute;
+        display: inline-block;
+        width: 33.3333%;
+        bottom: 0;
+        left: 0;
+        height: 10rpx;
+        background: white;
+        z-index: 1;
+        transition: all 0.3s ease;
+    }
+}

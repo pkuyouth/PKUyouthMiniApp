@@ -1,0 +1,17 @@
+<import src="../../components/article-grid-item/index"></import>
+
+
+<view scroll-y="true" class="page page-search">
+    <block wx:for="{{articles}}" wx:for-item="article">
+        <template is="article-grid-item" data="{{...article}}"></template>
+    </block>
+</view>
+<view class="layer {{layerLevel != 0?'show':''}}">
+    <view class="search-form {{layerLevel != 0?'show':''}}">
+        <view class="search-input"><image src="/images/Search_white.png" mode="aspectFit"></image><input placeholder="搜索题目/作者/内容/日期" placeholder-class="input-placeholder"></input></view>
+        <view class="search-button">搜索</view>
+    </view>
+</view>
+<view class="layer-buttons {{layerLevel != 0?'spread':''}}">
+    <view class="button" bindtap="layerTrigger"><image src="/images/Menu.png" mode="aspectFit"></image><image src="/images/Close.png" mode="aspectFit"></image></view>
+</view>

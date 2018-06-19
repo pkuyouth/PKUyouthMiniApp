@@ -1,0 +1,8 @@
+<import src="../../components/article-list-item/index"></import>
+
+
+<scroll-view scroll-y="true" class="page page-search">
+    <block wx:for="{{articles}}" wx:for-item="article">
+        <template is="article-list-item" data="{{...article}}"></template>
+    </block>
+</scroll-view>

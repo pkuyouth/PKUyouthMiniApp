@@ -1,0 +1,8 @@
+<import src="../../components/article-list-item/index"></import>
+
+
+<view scroll-y="true" class="page page-me-feedback">
+    <text>意见反馈</text>
+    <textarea placeholder="请输入你的宝贵意见"></textarea>
+    <view class="button">发送</view>
+</view>

@@ -1,0 +1,23 @@
+<view scroll-y="true" class="page page-me-index">
+    <a class="avatar">
+        <image mode="aspectFill" src="{{image}}" />
+    </a>
+    <view class="list">
+        <navigator class="line" open-type="navigate" url="/pages/me/favorite">
+            <image mode="aspectFit" src="/images/Star_red.png"></image>
+            <text>我的收藏</text>
+        </navigator>
+        <a class="line">
+            <image mode="aspectFit" src="/images/Comments_red.png"></image>
+            <text>我的评论</text>
+        </a>
+        <navigator class="line" open-type="navigate" url="/pages/me/feedback">
+            <image mode="aspectFit" src="/images/Feedback.png"></image>
+            <text>意见反馈</text>
+        </navigator>
+        <a class="line">
+            <image mode="aspectFit" src="/images/About.png"></image>
+            <text>关于我们</text>
+        </a>
+    </view>
+</view>

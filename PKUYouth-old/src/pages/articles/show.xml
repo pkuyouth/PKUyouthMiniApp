@@ -1,0 +1,24 @@
+<scroll-view scroll-y="true" class="page page-article-read">
+    <view class="banner">
+        <image mode="aspectFill" src="{{article.image}}"></image>
+    </view>
+<view class="contents">
+    <view class="title">
+        {{article.title}}
+    </view>
+    <view class="desc">
+        {{article.desc}}
+    </view>
+    <view class="content"><text>{{article.content}}</text></view>
+</view>
+</scroll-view>
+<view class="tabbar">
+    <view class="buttons">
+        <a><image src="/images/Like_{{article.approve?'red':'grey'}}.png"></image><text>赞</text></a>
+        <a><image src="/images/Add_to_Favorites_{{article.collect?'red':'grey'}}.png"></image><text>收藏</text></a>
+        <a><image src="/images/Comments_{{article.comments?'red':'grey'}}.png"></image><text>评论</text></a>
+    </view>
+    <view class="form">
+
+    </view>
+</view>
