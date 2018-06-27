@@ -1,0 +1,5 @@
+<navigator class="article-list-item" open-type="navigate" url="{{props.navurl}}">
+	<image mode="aspectFill" src="{{props.image}}" />
+	<text class="title">{{props.title}}</text>
+	<text class="content">{{props.content}}</text>
+</navigator>

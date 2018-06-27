@@ -1,0 +1,23 @@
+.article-grid-item {
+    position: relative;
+    display: inline-block;
+    background: white;
+    width: 333rpx;
+    height: 333rpx;
+    margin: 28rpx 0 0 28rpx;
+    text-align: center;
+    box-shadow: -5rpx 0 5rpx #dddddd, /*左边阴影*/
+    5rpx 0 5rpx #dddddd,
+        0 -10rpx 10rpx white, /*顶部阴影*/
+    0 8rpx 8rpx #bbbbbb;
+    border-top: 1px solid #f1f1f1;
+    image{
+        position: absolute;
+        display: inline-block;
+        overflow: hidden;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

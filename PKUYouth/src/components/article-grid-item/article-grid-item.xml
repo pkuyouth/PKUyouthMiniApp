@@ -1,0 +1,3 @@
+<navigator class="article-grid-item" open-type="navigate" url="{{props.navurl}}">
+  <image mode="aspectFill" src="{{props.image}}" />
+</navigator>
