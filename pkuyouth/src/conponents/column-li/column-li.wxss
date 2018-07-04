@@ -1,0 +1,17 @@
+/* conponents/column-li/column-li.wxss */
+
+.conponent-column-li {
+	display: inline-block;
+	text-align: center;
+	height: 315rpx;
+	width: 315rpx;
+	margin: 30rpx;
+}
+.conponent-column-li .cover {
+	border-radius: 15rpx;
+	width: 100%;
+}
+.conponent-column-li .title {
+	color: #353535;
+	font-size: 32rpx;
+}

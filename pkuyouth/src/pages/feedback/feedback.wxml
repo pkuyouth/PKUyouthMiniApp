@@ -1,0 +1,8 @@
+<!--pages/feedback/feedback.wxml-->
+
+<view class="page-feedback">
+	<text class="title">意见反馈</text>
+	<textarea value="{{feedbackText}}" bindinput="feedbackInput" placeholder="请输入你的宝贵意见"></textarea>
+	<text class="status" style="visibility:{{showStatus ? 'visible' : 'hidden'}}; color:{{feedbackStatus ? '#353535' : 'red'}};">{{feedbackStatus ? '反馈成功！' : '反馈失败！'}}</text>
+	<button bind:tap="feedback">发　送</button>
+</view>

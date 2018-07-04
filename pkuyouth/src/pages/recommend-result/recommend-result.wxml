@@ -1,0 +1,3 @@
+<!--pages/recommend-result/recommend-result.wxml-->
+
+<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>

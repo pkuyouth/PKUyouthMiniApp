@@ -1,0 +1,14 @@
+<!--pages/favorite/favorite.wxml-->
+
+<view class="page-favorite" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+	<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+	<floating-button 
+		num="{{2}}"
+		icon="{{['/images/Feedback.png','/images/Shuffle.png']}}"
+		text="{{['意见反馈','收藏顺序']}}" 
+		tap-change="{{[true,true]}}"
+		has-search-bar="{{false}}"
+		move-action="{{moveAction}}"
+		bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2">
+	</floating-button>	
+</view>

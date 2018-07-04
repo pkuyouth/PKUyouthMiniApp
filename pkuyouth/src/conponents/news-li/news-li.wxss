@@ -1,0 +1,55 @@
+/* conponents/news-li/news-li.wxss */
+
+.conponent-news-li {
+	display: inline-block;
+	margin: 25rpx 40rpx 25rpx 40rpx;
+	border: 1rpx solid #cccccc;
+	border-radius: 10rpx;
+	box-shadow: 0rpx 2rpx 10rpx rgba(0,0,0,0.15);
+	overflow: hidden;
+}
+.conponent-news-li .cover {
+	display: inline-block;
+	margin: 0rpx;
+	overflow: hidden;
+}
+.conponent-news-li .cover .image {
+	display: inline-block;
+	width: 670rpx;
+}
+.conponent-news-li .desc .title {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 40rpx;
+	color: #353535;
+	line-height: 54rpx;
+	margin: 25rpx 25rpx 45rpx 25rpx;
+}
+.conponent-news-li .desc .time {
+	display: inline-block;
+	vertical-align: top;
+	font-size: 32rpx;
+	color: #353535;
+	width: 420rpx;
+	padding-top: 5rpx;
+	margin: 0rpx 25rpx 30rpx 25rpx;
+}
+.conponent-news-li .desc .icon {
+	display: inline-block;
+	width: 160rpx;
+	height: 60rpx;
+	vertical-align: top;
+	margin-bottom: 30rpx;
+}
+.conponent-news-li .desc .icon .star-icon {
+	display: inline-block;
+	width: 60rpx;
+	height: 60rpx;
+	margin-left: 20rpx
+}
+.conponent-news-li .desc .icon .recommend-icon {
+	display: inline-block;
+	width: 60rpx;
+	height: 60rpx;
+	margin-right: 20rpx;
+}

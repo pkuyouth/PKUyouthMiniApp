@@ -1,0 +1,6 @@
+<!--conponents/column-li/column-li.wxml-->
+
+<view class="conponent-column-li">
+	<image class="cover" src="{{cover}}" mode="widthFix"></image>
+	<text class="title">{{title}}</text>
+</view>

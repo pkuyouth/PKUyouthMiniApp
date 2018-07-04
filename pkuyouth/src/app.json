@@ -1,0 +1,54 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/column/column",
+        "pages/recommendation/recommendation",
+        "pages/user/user",
+        "pages/logs/logs",
+        "pages/web-frame/web-frame",
+        "pages/feedback/feedback",
+        "pages/about/about",
+        "pages/favorite/favorite",
+        "pages/search-result/search-result",
+        "pages/recommend-result/recommend-result"
+    ],
+    "tabBar": {
+        "color": "#7d7d7d",
+        "selectedColor": "#993a3a",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/tabBar/column.png",
+                "selectedIconPath": "images/tabBar/column_selected.png"
+            },
+            {
+                "pagePath": "pages/column/column",
+                "text": "栏目",
+                "iconPath": "images/tabBar/column.png",
+                "selectedIconPath": "images/tabBar/column_selected.png"
+            },
+            {
+                "pagePath": "pages/recommendation/recommendation",
+                "text": "推荐",
+                "iconPath": "images/tabBar/recommendation.png",
+                "selectedIconPath": "images/tabBar/recommendation_selected.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的北青",
+                "iconPath": "images/tabBar/user.png",
+                "selectedIconPath": "images/tabBar/user_selected.png"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#993a3a",
+        "navigationBarTitleText": "北大青年",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": false
+    }
+}

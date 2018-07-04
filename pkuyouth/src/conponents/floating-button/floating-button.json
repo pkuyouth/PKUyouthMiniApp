@@ -1,0 +1,7 @@
+{
+	"component": true,
+	"usingComponents": {
+		"mask-layer": "/conponents/mask-layer/mask-layer",
+		"search-bar": "/conponents/search-bar/search-bar"
+	}
+}

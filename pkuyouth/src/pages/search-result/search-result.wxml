@@ -1,0 +1,14 @@
+<!--pages/search-result/search-result.wxml-->
+
+<view class="page-search-result" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+	<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+	<floating-button 
+		num="{{3}}"
+		icon="{{['/images/Feedback.png','/images/Shuffle.png','/images/Shuffle.png']}}"
+		text="{{['意见反馈','时间顺序','相关度顺序']}}"
+		tap-change="{{[true,true,true]}}"
+		has-search-bar="{{false}}"
+		move-action="{{moveAction}}"
+		bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3">
+	</floating-button>	
+</view>

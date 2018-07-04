@@ -1,0 +1,15 @@
+<!--conponents/news-li/news-li.wxml-->
+
+<view class="conponent-news-li">
+	<navigator class="cover" url="/pages/web-frame/web-frame?url={{news_url}}&type=news" open-type="navigate">
+		<image class="image" src="{{cover_url}}" mode="widthFix"></image>
+	</navigator>
+	<view class="desc">
+		<text class="title">{{title}}</text>
+			<text class="time">{{time}}</text>
+			<view class="icon">
+				<image class="recommend-icon" src="/images/Shuffle.png" mode="widthFix" catch:tap="tapRecommend" data-news-id="{{newsID}}"></image>
+				<image class="star-icon" src="/images/Star_{{star ? 'red' : 'grey'}}.png" mode="widthFix" catch:tap="tapStar" data-news-id="{{newsID}}"></image>
+			</view>
+	</view>
+</view>
