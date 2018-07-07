@@ -4,25 +4,64 @@ const requests = require('../../libs/requests.js');
 
 Page({
 	data: {
-		articlesList: [],
+		keyword: '',
+		page: 1,
+		onSearch: false,
+		entirelyGet: false,
 		descByRank: true,
 		descByTime: true,
+		articlesList: [],
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
 	},
 	onLoad: function (options) {
-		requests.post('/search',{
-			keyword: decodeURIComponent(options.keyword),
-			limit: 10,
-		}).then((data)=>{
-			this.setData({
-				articlesList: data.news,
-			});
+		wx.setNavigationBarTitle({
+			title: '搜索结果'
 		});
 		this.setData({
 			descByRank: true,
 			descByTime: true,
+			keyword: decodeURIComponent(options.keyword),
+			page: 1,
+			onSearch: false,
+			entirelyGet: false,
 		});
+		this.search();
+	},
+	onReachBottom() {
+		this.search();
+		if (this.data.entirelyGet === true) {
+			this.setData({ // 触发
+				entirelyGet: true,
+			});
+		};
+	},
+	search() {
+		if (!this.data.onSearch && !this.data.entirelyGet) {
+			wx.showNavigationBarLoading();
+			requests.post('/search',{
+				keyword: this.data.keyword,
+				page: this.data.page,
+				limit: 5,
+			}).then((data)=>{
+				this.setData({
+					articlesList: this.data.articlesList.concat(data.news),
+					page: this.data.page + 1,
+					onSearch: false,
+				});
+				wx.hideNavigationBarLoading();
+				if (!data.news.length) {
+					this.setData({
+						entirelyGet: true,
+					});
+				};
+			}).catch((data)=>{
+				this.setData({
+					onSearch: false,
+				});
+				wx.hideNavigationBarLoading();
+			});
+		};
 	},
 	tapBtn_1() {
 		wx.navigateTo({
@@ -60,75 +99,30 @@ Page({
 		});
 	},
 	handleTouchStart(event) {
-		this.setData({
-			'touch.start.X': event.changedTouches[0].pageX,
-			'touch.start.Y': event.changedTouches[0].pageY,				
-		});
+		if (this.data.articlesList.length) {
+			this.setData({
+				'touch.start.X': event.changedTouches[0].pageX,
+				'touch.start.Y': event.changedTouches[0].pageY,				
+			});			
+		};
 	},
 	handleTouchEnd(event) {
-		this.setData({
-			'touch.end.X': event.changedTouches[0].pageX,
-			'touch.end.Y': event.changedTouches[0].pageY,		
-		});	
-		let dx = this.data.touch.end.X - this.data.touch.start.X;
-		let dy = this.data.touch.end.Y - this.data.touch.start.Y;
-		if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-			this.setData({ // 至少滑动 50 px 。如果是 tap 则 dx == dy == 0
-				moveAction: dx > 0 ? 'right' : 'left'
-			});
-		} else {
+		if (this.data.articlesList.length) {
 			this.setData({
-				moveAction: ''
-			});
-		}
+				'touch.end.X': event.changedTouches[0].pageX,
+				'touch.end.Y': event.changedTouches[0].pageY,		
+			});	
+			let dx = this.data.touch.end.X - this.data.touch.start.X;
+			let dy = this.data.touch.end.Y - this.data.touch.start.Y;
+			if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+				this.setData({ // 至少滑动 50 px 。如果是 tap 则 dx == dy == 0
+					moveAction: dx > 0 ? 'right' : 'left'
+				});
+			} else {
+				this.setData({
+					moveAction: ''
+				});
+			};
+		};
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-	
-	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
-	
-	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
-	
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-	
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-	
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-	
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-	
-	}
 })

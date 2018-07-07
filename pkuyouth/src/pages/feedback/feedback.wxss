@@ -24,7 +24,7 @@
 .page-feedback button {
 	display: inline-block;
 	vertical-align: middle;
-	margin-left: 100rpx;
+	margin-left: 400rpx;
 	height: 48rpx;
 	line-height: 48rpx;
 	width: 248rpx;
@@ -33,11 +33,4 @@
 	color: #993a3a;
 	font-size: 27rpx;
 	text-align: center;
-}
-.page-feedback .status {
-	display: inline-block;
-	vertical-align: middle;
-	width: 300rpx;
-	font-size: 32rpx;
-	color: #353535;
 }

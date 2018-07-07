@@ -10,7 +10,8 @@
         "pages/about/about",
         "pages/favorite/favorite",
         "pages/search-result/search-result",
-        "pages/recommend-result/recommend-result"
+        "pages/recommend-result/recommend-result",
+        "pages/contribute/contribute"
     ],
     "tabBar": {
         "color": "#7d7d7d",
@@ -21,26 +22,26 @@
             {
                 "pagePath": "pages/index/index",
                 "text": "首页",
-                "iconPath": "images/tabBar/column.png",
-                "selectedIconPath": "images/tabBar/column_selected.png"
+                "iconPath": "images/column.png",
+                "selectedIconPath": "images/column_selected.png"
             },
             {
                 "pagePath": "pages/column/column",
                 "text": "栏目",
-                "iconPath": "images/tabBar/column.png",
-                "selectedIconPath": "images/tabBar/column_selected.png"
+                "iconPath": "images/column.png",
+                "selectedIconPath": "images/column_selected.png"
             },
             {
                 "pagePath": "pages/recommendation/recommendation",
                 "text": "推荐",
-                "iconPath": "images/tabBar/recommendation.png",
-                "selectedIconPath": "images/tabBar/recommendation_selected.png"
+                "iconPath": "images/recommendation.png",
+                "selectedIconPath": "images/recommendation_selected.png"
             },
             {
                 "pagePath": "pages/user/user",
                 "text": "我的北青",
-                "iconPath": "images/tabBar/user.png",
-                "selectedIconPath": "images/tabBar/user_selected.png"
+                "iconPath": "images/user.png",
+                "selectedIconPath": "images/user_selected.png"
             }
         ]
     },

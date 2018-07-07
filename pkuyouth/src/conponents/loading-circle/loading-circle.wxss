@@ -1,0 +1,11 @@
+/* conponents/loading-circle/loading-circle.wxss */
+
+.conponent-loading-circle {
+	display: inline-block;
+	height: 120rpx;
+}
+.conponent-loading-circle .icon {
+	width: 60rpx;
+	height: 60rpx;
+	margin: 20rpx 345rpx 30rpx 345rpx;
+}

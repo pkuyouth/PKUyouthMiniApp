@@ -2,11 +2,11 @@
 <view class="page-user">
 	<view class="userinfo">
 		<block wx:if="{{hasUserInfo}}">
-			<image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFit"></image>
+			<image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFit" bind:tap="logout"></image>
 			<text class="nickname">{{userInfo.nickName}}</text>			
 		</block>
 		<block wx:else>
-			<image class="avatar" src="../../images/tabBar/user_selected.png" mode="aspectFit"></image>
+			<image class="avatar" src="/images/user_selected.png" mode="aspectFit"></image>
 			<button wx:if="{{canIUse}}" class="get-info-btn" open-type="getUserInfo" bind:getuserinfo="getUserInfo"> 点我获取头像 </button>
 			<text wx:else class="nickname">微信版本过低，无法获取头像 orz ...</text>
 		</block>
@@ -16,9 +16,9 @@
 			<image mode="aspectFit" src="/images/Star_red.png"></image>
 			<text>我的收藏</text>
 		</navigator>
-		<navigator class="line">
+		<navigator class="line" open-type="navigate" url="/pages/contribute/contribute">
 			<image mode="aspectFit" src="/images/Comments_red.png"></image>
-			<text>我的评论</text>
+			<text>我要投稿</text>
 		</navigator>
 		<navigator class="line" open-type="navigate" url="/pages/feedback/feedback">
 			<image mode="aspectFit" src="/images/Feedback.png"></image>

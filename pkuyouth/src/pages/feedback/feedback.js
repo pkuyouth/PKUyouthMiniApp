@@ -5,8 +5,13 @@ const requests = require("../../libs/requests.js")
 Page({
 	data: {
 		feedbackText: "",
-		feedbackStatus: "",
+		feedbackStatus: true,
 		showStatus: false,
+	},
+	onLoad() {
+		wx.setNavigationBarTitle({
+			title: '意见反馈'
+		});
 	},
 	feedbackInput(event) { // 双向绑定
 		this.setData({
@@ -15,40 +20,29 @@ Page({
 	},
 	feedback() {
 		if (this.data.showStatus === true || this.data.feedbackText === "") {
-			return
+			return;
 		};
 		requests.post("/feedback",{
 			feedback: this.data.feedbackText,
 		}).then((data)=>{
-			let errcode = data.errcode;
-			if (errcode === 0) {
-				this.setData({
-					feedbackText: "", // 成功，则内容清空
-					feedbackStatus: true,
-					showStatus: true,
-				});
-				setTimeout(this.hideStatus,3000);
-			} else {
-				this.setData({
-					feedbackStatus: false,
-					showStatus: true,
-				});
-				setTimeout(this.hideStatus,3000);
-			}
-		})
-	},
-	hideStatus() {
-		this.setData({
-			feedbackStatus: true,
-			showStatus: false,
+			this.setData({
+				feedbackText: "", // 成功，则内容清空
+				feedbackStatus: true,
+				showStatus: true,
+			});
+			setTimeout(this.showStatusDown.bind(this),1500)
+		}).catch((data)=>{
+			this.setData({
+				feedbackStatus: false,
+				showStatus: true,
+			});
+			setTimeout(this.showStatusDown.bind(this),1500)
 		});
 	},
-	onLoad: function () {
-		this.hideStatus();
-
-	},
-	onUnload: function () {
-		this.hideStatus();
+	showStatusDown() {
+		this.setData({
+			showStatus: false,
+		});
 	},
 	/**
 	 * 生命周期函数--监听页面初次渲染完成

@@ -3,54 +3,26 @@
 const tools = require('../../libs/utilfuncs.js');
 
 Component({
-	options: {
-		multipleSlots: true,
-	},
 	properties: {
 		num: { // 按钮数量
 			type: Number,
 			value: 3,
-			observer(newVal) {
-				this.setData({
-					num: newVal,
-				});
-			}
 		},
 		text: { // 按钮文字描述
 			type: Array,
 			value: [],
-			observer(newVal) {
-				this.setData({
-					text: newVal,
-				});
-			}
 		},
 		icon: {
 			type: Array,
 			value: [],
-			observer(newVal) {
-				this.setData({
-					icon: newVal,
-				});
-			}
 		},
 		tapChange: { // 单击后是否自动折叠
 			type: Array,
 			value: [true,true,true],
-			observer(newVal) {
-				this.setData({
-					tapChange: newVal,
-				});
-			}
 		},
 		hasSearchBar: {
 			type: Boolean,
 			value: false,
-			observer(newVal) {
-				this.setData({
-					hasSearchBar: newVal,
-				});
-			}
 		},
 		moveAction: {
 			type: String,
@@ -67,16 +39,10 @@ Component({
 		}
 	},
 	data: {
-		num: 0,
-		text: [],
-		icon: [],
-		tapChange: [],
-		hasSearchBar: false,
 		onInit: true,
 		unfolded: false, // 菜单栏折叠与否
 		display: true, // 折叠打开中控制小按钮的display
 		showMenu: true, // 显示菜单栏，或者隐藏到侧栏
-		animationBase: {},
 		animation_1: {},
 		animation_2: {},
 		animation_3: {},
@@ -84,14 +50,11 @@ Component({
 		animationTotal: {},
 	},
 	created() {
-		let animation = wx.createAnimation({
+		this.animation = wx.createAnimation({
 			duration: 500,
 			timingFunction: 'ease',
 			transformOrigin: 'right bottom',
 	    });
-		this.setData({
-			animationBase: animation,
-		});
 	},
 	ready() {
 		this.setData({ 
@@ -100,13 +63,12 @@ Component({
 		});
 		this.playanimation();
 		
-		let initDone = function (_this) {
-			_this.setData({
+		let initDone = function () {
+			this.setData({
 				onInit: false
 			});
 		};
-		let _this = this;
-		setTimeout(initDone,1000,_this); // 0.7s 后显示图标
+		setTimeout(initDone.bind(this),1000); // 0.7s 后显示图标
 	},
 	methods: {
 		changeStatus() {
@@ -117,17 +79,16 @@ Component({
 				this.playanimation();				
 			}
 		},
-		changeDisplay(_this) {
-			_this.setData({
-				display: !_this.data.display,
+		changeDisplay() {
+			this.setData({
+				display: !this.data.display,
 			});
 		},
 		playanimation() { // 注意！ 进入后属性已经反转！
-			let _this = this;
 			if (this.data.unfolded) { // 关闭时（显示为展开），立即显示，再播放动画
-				this.changeDisplay(_this);
+				this.changeDisplay();
 			} else { // 展开时（显示为关闭），先播放完动画再隐藏
-				setTimeout(this.changeDisplay,1000,_this);
+				setTimeout(this.changeDisplay.bind(this),1000);
 			};
 
 			if (this.data.unfolded) {
@@ -137,34 +98,30 @@ Component({
 			};
 		},
 		foldAnimation() {
-			let animation = this.data.animationBase;
 			this.setData({
-				animation_1: animation.translateX(130).step({delay:200}).export(),
-				animation_2: animation.translateX(130).step({delay:150}).export(),
-				animation_3: animation.translateX(130).step({delay:100}).export(),
-				animation_4: animation.translateX(130).step({delay:50}).export(),
+				animation_1: this.animation.translateX(130).step({delay:200}).export(),
+				animation_2: this.animation.translateX(130).step({delay:150}).export(),
+				animation_3: this.animation.translateX(130).step({delay:100}).export(),
+				animation_4: this.animation.translateX(130).step({delay:50}).export(),
 			});
 		},
 		unfoldAnimation() {
-			let animation = this.data.animationBase;
 			this.setData({
-				animation_1: animation.translateX(0).step({delay:50}).export(),
-				animation_2: animation.translateX(0).step({delay:100}).export(),
-				animation_3: animation.translateX(0).step({delay:150}).export(),
-				animation_4: animation.translateX(0).step({delay:200}).export(),
+				animation_1: this.animation.translateX(0).step({delay:50}).export(),
+				animation_2: this.animation.translateX(0).step({delay:100}).export(),
+				animation_3: this.animation.translateX(0).step({delay:150}).export(),
+				animation_4: this.animation.translateX(0).step({delay:200}).export(),
 			});
 		},
 		showMenu() {
-			let animation = this.data.animationBase;
 			this.setData({
-				animationTotal: animation.translateX(0).step({delay:50}).export(),
+				animationTotal: this.animation.translateX(0).step({delay:50}).export(),
 				showMenu: true,
 			});
 		},
 		hiddenMenu() {
-			let animation = this.data.animationBase;
 			this.setData({
-				animationTotal: animation.translateX(65).step({delay:50}).export(),
+				animationTotal: this.animation.translateX(65).step({delay:50}).export(),
 				showMenu: false,
 			});
 		},

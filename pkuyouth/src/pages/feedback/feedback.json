@@ -1,1 +1,5 @@
-{}
+{
+	"usingComponents": {
+		"alert-layer": "/conponents/alert-layer/alert-layer"
+	}
+}

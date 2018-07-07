@@ -1,19 +1,16 @@
 <!--index.wxml-->
 
-<!--<button bind:tap="get_random" size="default"> get random </button>-->
-
 <view class="index-page" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
-	<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>	
+	<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+	<!--<loading-circle wx:if="{{articlesList.length}}"></loading-circle>-->
 	<floating-button 
-		num="{{2}}"
-		icon="{{['/images/Feedback.png','/images/Shuffle.png']}}"
-		text="{{['意见反馈','换一批']}}" 
-		tap-change="{{[true,true]}}"
+		num="{{3}}"
+		icon="{{['/images/Feedback.png','/images/Shuffle.png','/images/Shuffle.png']}}"
+		text="{{['意见反馈','换一批','回到顶端']}}" 
+		tap-change="{{[true,true,true]}}"
 		has-search-bar="{{true}}"
 		move-action="{{moveAction}}"
-		bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2">
+		bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3">
 	</floating-button>
 </view>
-
-
 

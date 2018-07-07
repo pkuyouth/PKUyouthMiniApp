@@ -1,0 +1,20 @@
+/* conponents/alert-bar/alert-bar.wxss */
+
+.conponent-alert-bar {
+	position: fixed;
+	z-index: 30;
+	top: -60px;	
+	height: 60px;
+	width: 750rpx;
+	background: rgba(0,0,0,0.4);
+	text-align: center;
+}
+
+.conponent-alert-bar .text {
+	display: inline-block;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	width: 650rpx;
+	margin: 25px 50rpx 0rpx 50rpx;
+}

@@ -7,6 +7,10 @@ Page({
 		articlesList: [],
 	},
 	onLoad: function (options) {
+		wx.setNavigationBarTitle({
+			title: '相似推荐'
+		});
+		wx.showNavigationBarLoading();
 		requests.post('/recommend',{
 			newsID: parseInt(options.newsid),
 			limit: 10,
@@ -14,6 +18,9 @@ Page({
 			this.setData({
 				articlesList: data.news,
 			});
+			wx.hideNavigationBarLoading();
+		}).catch((data)=>{
+			wx.hideNavigationBarLoading();
 		});
 	},
 

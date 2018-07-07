@@ -16,6 +16,7 @@ Component({
         rank: -1,
         cover_url: "",
         news_url: "",
+        title_encode: "",
 	},
     ready() { // created 在获得属性之前，如果用 created 则 props 均为 null !
         let newsInfo = this.data.newsInfo;
@@ -28,6 +29,7 @@ Component({
             starTime: newsInfo.starTime === undefined ? -1 : newsInfo.starTime,
             cover_url: newsInfo.cover_url,
             news_url: encodeURIComponent(this.unifyUrl(newsInfo.news_url)),
+            title_encode: encodeURIComponent(newsInfo.title),
         }); // news_url 需要事先转义，否则其中含有的 ? 会影响 navigator 对参数的匹配
     },
 	methods: {

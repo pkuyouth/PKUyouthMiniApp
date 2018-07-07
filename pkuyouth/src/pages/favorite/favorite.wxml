@@ -1,14 +1,21 @@
 <!--pages/favorite/favorite.wxml-->
 
 <view class="page-favorite" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
-	<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
-	<floating-button 
-		num="{{2}}"
-		icon="{{['/images/Feedback.png','/images/Shuffle.png']}}"
-		text="{{['意见反馈','收藏顺序']}}" 
-		tap-change="{{[true,true]}}"
-		has-search-bar="{{false}}"
-		move-action="{{moveAction}}"
-		bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2">
-	</floating-button>	
+	<view class="no-collection" wx:if="{{!articlesList.length}}">
+		<image src="/images/No_Collection.png" mode="aspectFit"></image>
+		<text>快去丰富你的收藏吧～</text>
+	</view>
+	<block wx:else>
+		<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+		<floating-button 
+			num="{{2}}"
+			icon="{{['/images/Feedback.png','/images/Shuffle.png']}}"
+			text="{{['意见反馈','收藏顺序']}}" 
+			tap-change="{{[true,true]}}"
+			has-search-bar="{{false}}"
+			move-action="{{moveAction}}"
+			bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2">
+		</floating-button>
+		<alert-bar show="{{entirelyGet}}" text="{{'你的收藏只有这么多啦~'}}"></alert-bar>
+	</block>
 </view>

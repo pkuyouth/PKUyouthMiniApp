@@ -2,7 +2,8 @@
 
 <view class="page-feedback">
 	<text class="title">意见反馈</text>
+	<text class="test">　输入false提交，可见反馈失败</text>
 	<textarea value="{{feedbackText}}" bindinput="feedbackInput" placeholder="请输入你的宝贵意见"></textarea>
-	<text class="status" style="visibility:{{showStatus ? 'visible' : 'hidden'}}; color:{{feedbackStatus ? '#353535' : 'red'}};">{{feedbackStatus ? '反馈成功！' : '反馈失败！'}}</text>
 	<button bind:tap="feedback">发　送</button>
 </view>
+<alert-layer show="{{showStatus}}" image="{{feedbackStatus ? '/images/Ok.png' : '/images/Close.png'}}" text="{{feedbackStatus ? '反馈成功！' : '反馈失败orz'}}"></alert-layer>

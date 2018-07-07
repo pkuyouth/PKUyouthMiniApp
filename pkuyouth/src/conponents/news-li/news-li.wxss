@@ -23,15 +23,17 @@
 	font-size: 40rpx;
 	color: #353535;
 	line-height: 54rpx;
+	padding-left: 5rpx;
 	margin: 25rpx 25rpx 45rpx 25rpx;
 }
 .conponent-news-li .desc .time {
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: bottom;
 	font-size: 32rpx;
 	color: #353535;
 	width: 420rpx;
 	padding-top: 5rpx;
+	padding-left: 10rpx;
 	margin: 0rpx 25rpx 30rpx 25rpx;
 }
 .conponent-news-li .desc .icon {

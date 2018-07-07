@@ -1,5 +1,5 @@
 <!--conponents/mask-layer/mask-layer.wxml-->
 
-<view wx:if="{{display}}" class="conponent-mask-layer">
-	<view class="mask" catch:tap="shield"></view>
+<view wx:if="{{show}}" class="conponent-mask-layer">
+	<view class="mask" catch:tap="shield" catch:touchmove="shield"></view>
 </view>

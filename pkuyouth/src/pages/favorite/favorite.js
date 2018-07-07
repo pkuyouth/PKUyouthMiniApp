@@ -6,18 +6,61 @@ Page({
 	data: {
 		articlesList: [],
 		descByStarTime: false,
+		page: 1,
+		onGetFavorite: false,
+		entirelyGet: false,
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
 	},
 	onLoad: function () {
-		requests.get('/get_favorite').then((data)=>{
-			this.setData({
-				articlesList: data.news,
-			});
+		wx.setNavigationBarTitle({
+			title: '我的收藏'
 		});
 		this.setData({
 			descByStarTime: false,
-		})
+			limit: 10,
+			page: 1,
+			onGetFavorite: false,
+			entirelyGet: false,
+		});
+		this.get_favorite();
+	},
+	onReachBottom() {
+		this.get_favorite();
+		if (this.data.entirelyGet === true) {
+			this.setData({
+				entirelyGet: true,
+			});
+		};
+	},
+	get_favorite() {
+		if (!this.data.onGetFavorite && !this.data.entirelyGet) {
+			wx.showNavigationBarLoading();
+			this.setData({
+				onGetFavorite: true,
+			});
+			requests.post('/get_favorite',{
+				limit: 10,
+				page: this.data.page,
+			}).then((data)=>{
+				this.setData({
+					articlesList: this.data.articlesList.concat(data.news),
+					page: this.data.page + 1,
+					onGetFavorite: false,
+				});
+				if (!data.news.length) {
+					this.setData({
+						entirelyGet: true,
+					});
+					wx.hideNavigationBarLoading();
+				};
+			}).catch((data)=>{
+				this.setData({
+					onGetFavorite: false,
+				});	
+				wx.hideNavigationBarLoading();			
+			});
+		};
 	},
 	tapBtn_1() {
 		wx.navigateTo({
@@ -40,75 +83,30 @@ Page({
 		});
 	},
 	handleTouchStart(event) {
-		this.setData({
-			'touch.start.X': event.changedTouches[0].pageX,
-			'touch.start.Y': event.changedTouches[0].pageY,				
-		});
+		if (this.data.articlesList.length) {
+			this.setData({
+				'touch.start.X': event.changedTouches[0].pageX,
+				'touch.start.Y': event.changedTouches[0].pageY,				
+			});	
+		};
 	},
 	handleTouchEnd(event) {
-		this.setData({
-			'touch.end.X': event.changedTouches[0].pageX,
-			'touch.end.Y': event.changedTouches[0].pageY,		
-		});	
-		let dx = this.data.touch.end.X - this.data.touch.start.X;
-		let dy = this.data.touch.end.Y - this.data.touch.start.Y;
-		if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-			this.setData({ // 至少滑动 50 px 。如果是 tap 则 dx == dy == 0
-				moveAction: dx > 0 ? 'right' : 'left'
-			});
-		} else {
+		if (this.data.articlesList.length) {
 			this.setData({
-				moveAction: ''
-			});
-		}
+				'touch.end.X': event.changedTouches[0].pageX,
+				'touch.end.Y': event.changedTouches[0].pageY,		
+			});	
+			let dx = this.data.touch.end.X - this.data.touch.start.X;
+			let dy = this.data.touch.end.Y - this.data.touch.start.Y;
+			if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+				this.setData({ // 至少滑动 50 px 。如果是 tap 则 dx == dy == 0
+					moveAction: dx > 0 ? 'right' : 'left'
+				});
+			} else {
+				this.setData({
+					moveAction: ''
+				});
+			};
+		};
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-	
-	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
-	
-	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
-	
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-	
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-	
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-	
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-	
-	}
 })

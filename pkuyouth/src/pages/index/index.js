@@ -14,7 +14,6 @@ Page({
 		moveAction: '',
 	},
 	onLoad() {
-		let _this = this;
 		let init = function () {
 			/*
 			wx.switchTab({
@@ -23,11 +22,18 @@ Page({
 			 */		
 			/*
 			wx.navigateTo({
-				url: '/pages/search-result/search-result?keyword=' + '地铁',
+				url: '/pages/favorite/favorite',
+			});
+			 */
+			/*
+			wx.navigateTo({
+				url: '/pages/search-result/search-result?keyword=' + '嫁给我',
 			});			
 			 */
-			_this.get_random();
-		};
+
+			this.get_random();
+		
+		}.bind(this);
 
 		api.login().then((res)=>{
 			api.getUserInfo().then((res)=>{});
@@ -35,13 +41,20 @@ Page({
 		});
 
 	},
+	onReachBottom() {
+		this.get_random();
+	},
 	get_random() {
-		requests.get('/get_random',{
+		wx.showNavigationBarLoading();
+		requests.post('/get_random',{
 			count: 5,
 		}).then((data)=>{
 			this.setData({
-				articlesList: data.news
+				articlesList: this.data.articlesList.concat(data.news)
 			});
+			wx.hideNavigationBarLoading();
+		}).catch((data)=>{
+			wx.hideNavigationBarLoading();
 		})
 	},
 	tapBtn_1() {
@@ -51,6 +64,12 @@ Page({
 	},
 	tapBtn_2() {
 		this.get_random();
+	},
+	tapBtn_3() {
+		wx.pageScrollTo({
+			scrollTop: 0,
+			duration: 500,
+		});
 	},
 	handleTouchStart(event) {
 		this.setData({
