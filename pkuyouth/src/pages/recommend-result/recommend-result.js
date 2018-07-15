@@ -1,18 +1,19 @@
 // pages/recommend-result/recommend-result.js
 
 const requests = require('../../libs/requests.js');
+const btnFuncs = require('../../conponents/floating-button/page-funcs.js');
+
 
 Page({
 	data: {
 		articlesList: [],
+		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
+		moveAction: '',
 	},
 	onLoad: function (options) {
-		wx.setNavigationBarTitle({
-			title: '相似推荐'
-		});
 		wx.showNavigationBarLoading();
 		requests.post('/recommend',{
-			newsID: parseInt(options.newsid),
+			newsID: options.newsid,
 			limit: 10,
 		}).then((data)=>{
 			this.setData({
@@ -23,53 +24,19 @@ Page({
 			wx.hideNavigationBarLoading();
 		});
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-	
+	tapBtn_1() {
+		btnFuncs.feedback.call(this);
 	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
-	
+	tapBtn_2() {
+		btnFuncs.sortedByTime.call(this);
 	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
-	
+	tapBtn_3() {
+		btnFuncs.pageBack.call(this);
 	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-	
+	handleTouchStart(event) {
+		btnFuncs.handleTouchStart.call(this, event);
 	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-	
+	handleTouchEnd(event) {
+		btnFuncs.handleTouchEnd.call(this, event);
 	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-	
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-	
-	}
 })

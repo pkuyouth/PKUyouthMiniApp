@@ -1,0 +1,11 @@
+/* pages/column/column.wxss */
+
+.page-column-list {
+
+}
+.page-column-list .column-li {
+    border-bottom: 10rpx solid #eeeeee;
+}
+.page-column-list .column-li:last-child {
+    border-bottom: none;
+}

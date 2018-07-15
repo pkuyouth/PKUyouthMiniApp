@@ -2,19 +2,19 @@
 
 <view class="page-favorite" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
 	<view class="no-collection" wx:if="{{!articlesList.length}}">
-		<image src="/images/No_Collection.png" mode="aspectFit"></image>
+		<image src="../../images/No_collection.png" mode="aspectFit"></image>
 		<text>快去丰富你的收藏吧～</text>
 	</view>
 	<block wx:else>
 		<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
-		<floating-button 
-			num="{{2}}"
-			icon="{{['/images/Feedback.png','/images/Shuffle.png']}}"
-			text="{{['意见反馈','收藏顺序']}}" 
-			tap-change="{{[true,true]}}"
+		<floating-button
+			num="{{3}}"
+			icon="{{['/images/Feedback.png','/images/Star_red.png','/images/Scroll_to_top_red.png']}}"
+			text="{{['意见反馈','收藏顺序','回到顶端']}}"
+			tap-change="{{[true,true,true]}}"
 			has-search-bar="{{false}}"
 			move-action="{{moveAction}}"
-			bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2">
+			bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3">
 		</floating-button>
 		<alert-bar show="{{entirelyGet}}" text="{{'你的收藏只有这么多啦~'}}"></alert-bar>
 	</block>

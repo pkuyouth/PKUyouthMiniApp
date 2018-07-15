@@ -1,0 +1,14 @@
+<!--pages/collection-hot/collection-hot.wxml-->
+
+<view class="page-collection-hot" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+    <news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+    <floating-button
+        num="{{2}}"
+        icon="{{['/images/Feedback.png','/images/Scroll_to_top_red.png']}}"
+        text="{{['意见反馈','回到顶端']}}"
+        tap-change="{{[true,true]}}"
+        has-search-bar="{{true}}"
+        move-action="{{moveAction}}"
+        bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2">
+    </floating-button>
+</view>

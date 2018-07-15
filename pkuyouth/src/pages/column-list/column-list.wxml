@@ -1,0 +1,16 @@
+<!--pages/column/column.wxml-->
+
+<view class="page-column-list"><!-- bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">-->
+    <view class="column-li" wx:for="{{columnsInfo}}" wx:key="id">
+        <column-li column-info="{{item}}"></column-li>
+    </view>
+    <!--<floating-button
+        num="{{1}}"
+        icon="{{['/images/Feedback.png']}}"
+        text="{{['意见反馈']}}"
+        tap-change="{{[true]}}"
+        has-search-bar="{{false}}"
+        move-action="{{moveAction}}"
+        bind:tap-btn-one="tapBtn_1">
+    </floating-button>-->
+</view>

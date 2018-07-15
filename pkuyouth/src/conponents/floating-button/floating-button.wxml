@@ -1,6 +1,10 @@
 <!--conponents/floating-button/floating-button.wxml-->
 
 <view class="conponent-floating-button" animation="{{animationTotal}}">
+	<view wx:if="{{num>=5}}" class="button-option" style="display:{{display && !onInit ? 'inline-block' : 'none'}};" animation="{{animation_5}}" catch:tap="tapBtn_5">
+		<image class="icon" src="{{icon[4]}}" mode="aspectFit"></image>
+		<text class="text">{{text[4]}}</text>
+	</view>
 	<view wx:if="{{num>=4}}" class="button-option" style="display:{{display && !onInit ? 'inline-block' : 'none'}};" animation="{{animation_4}}" catch:tap="tapBtn_4">
 		<image class="icon" src="{{icon[3]}}" mode="aspectFit"></image>
 		<text class="text">{{text[3]}}</text>
@@ -19,7 +23,7 @@
 	</view>
 	<view class="button-control" catch:tap="changeStatus">
 		<image class="icon menu" style="display:{{unfolded ? 'none' : 'inline-block'}};" src="/images/Menu.png" mode="aspectFit"></image>
-		<image class="icon close" style="display:{{unfolded ? 'inline-block' : 'none'}};"src="/images/Close.png" mode="aspectFit"></image>	
+		<image class="icon close" style="display:{{unfolded ? 'inline-block' : 'none'}};"src="/images/Close.png" mode="aspectFit"></image>
 	</view>
 </view>
 <mask-layer show="{{unfolded}}"></mask-layer>

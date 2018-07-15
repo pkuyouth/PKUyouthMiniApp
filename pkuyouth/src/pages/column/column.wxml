@@ -1,9 +1,0 @@
-<!--pages/column/column.wxml-->
-
-<column-li wx:for="{{columnsInfo}}" column-info="{{item}}" wx:key="id"></column-li>
-
-<floating-button 
-	text="{{['意见反馈','搜索文章','换一批']}}"
-	tap-change="{{[true,false,false]}}"
-	bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3">
-</floating-button>

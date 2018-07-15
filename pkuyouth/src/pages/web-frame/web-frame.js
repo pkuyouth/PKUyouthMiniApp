@@ -7,7 +7,6 @@ Page({
 		title: ""
 	},
 	onLoad(options) {
-		console.log(options)
 		this.setData({
 			url: decodeURIComponent(options.url),
 			type: options.type,
@@ -17,7 +16,7 @@ Page({
 	onReady() {
 		wx.setNavigationBarTitle({
 			title: this.data.title,
-		});	
+		});
 	},
 	tapBtn_1() {
 		console.log('tap btn 1 !');

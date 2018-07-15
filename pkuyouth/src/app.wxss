@@ -8,10 +8,14 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
 
 .test {
 	font-size: 30rpx;
 	font-weight: bold;
 	color: red;
+}
+
+.bold-text {
+  font-weight: bold;
 }

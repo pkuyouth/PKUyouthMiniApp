@@ -1,5 +1,7 @@
 'use strict';
 
+const app = getApp();
+
 String.prototype.trim = function (char, type) {
 	if (char) {
 		if (type == 'left') {
@@ -21,7 +23,7 @@ function urlJoin() {
 	for (let i = 0; i < arguments.length; i++) {
 		let arg = arguments[i];
 		if (typeof arg == "string") {
-			urlArray.push(arg.trim('/'));		
+			urlArray.push(arg.trim('/'));
 		} else if (typeof arg == "object") {
 			for (var name in arg) {
 				queryArray.push(name + "=" + arg[name]);
@@ -34,7 +36,7 @@ function urlJoin() {
 	if (!queryArray.length) {
 		return urlArray.join('/')
 	} else {
-		return urlArray.join('/') + "?" + queryArray.join("&")	
+		return urlArray.join('/') + "?" + queryArray.join("&")
 	}
 };
 
@@ -65,8 +67,14 @@ function sleep(milliseconds) {
 	}
 };
 
+
+function rpx2px(rpx) {
+	return rpx / 750 * app.globalData.systemInfo.screenWidth;
+};
+
 module.exports = {
 	urlJoin: urlJoin,
 	parseQuery: parseQuery,
-	sleep: sleep,
+	//sleep: sleep,
+	rpx2px: rpx2px,
 };

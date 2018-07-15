@@ -33,7 +33,7 @@ Component({
 						this.showMenu();
 					} else if (newVal == 'right' && this.data.showMenu) {
 						this.hiddenMenu();
-					};					
+					};
 				};
 			}
 		}
@@ -47,6 +47,7 @@ Component({
 		animation_2: {},
 		animation_3: {},
 		animation_4: {},
+		animation_5: {},
 		animationTotal: {},
 	},
 	created() {
@@ -57,12 +58,12 @@ Component({
 	    });
 	},
 	ready() {
-		this.setData({ 
+		this.setData({
 			unfolded: false,
 			display: true, // 之后播放动画时还会反转，最后保持同步
 		});
 		this.playanimation();
-		
+
 		let initDone = function () {
 			this.setData({
 				onInit: false
@@ -76,7 +77,7 @@ Component({
 				this.setData({
 					unfolded: !this.data.unfolded,
 				});
-				this.playanimation();				
+				this.playanimation();
 			}
 		},
 		changeDisplay() {
@@ -99,10 +100,11 @@ Component({
 		},
 		foldAnimation() {
 			this.setData({
-				animation_1: this.animation.translateX(130).step({delay:200}).export(),
-				animation_2: this.animation.translateX(130).step({delay:150}).export(),
-				animation_3: this.animation.translateX(130).step({delay:100}).export(),
-				animation_4: this.animation.translateX(130).step({delay:50}).export(),
+				animation_1: this.animation.translateX(130).step({delay:250}).export(),
+				animation_2: this.animation.translateX(130).step({delay:200}).export(),
+				animation_3: this.animation.translateX(130).step({delay:150}).export(),
+				animation_4: this.animation.translateX(130).step({delay:100}).export(),
+				animation_5: this.animation.translateX(130).step({delay:50}).export(),
 			});
 		},
 		unfoldAnimation() {
@@ -111,6 +113,7 @@ Component({
 				animation_2: this.animation.translateX(0).step({delay:100}).export(),
 				animation_3: this.animation.translateX(0).step({delay:150}).export(),
 				animation_4: this.animation.translateX(0).step({delay:200}).export(),
+				animation_5: this.animation.translateX(0).step({delay:250}).export(),
 			});
 		},
 		showMenu() {
@@ -146,8 +149,14 @@ Component({
 		tapBtn_4() {
 			this.triggerEvent("tap-btn-four");
 			if (this.data.tapChange[3]) {
-				this.changeStatus();		
-			};			
+				this.changeStatus();
+			};
+		},
+		tapBtn_5() {
+			this.triggerEvent("tap-btn-five");
+			if (this.data.tapChange[4]) {
+				this.changeStatus();
+			};
 		}
 	}
 })

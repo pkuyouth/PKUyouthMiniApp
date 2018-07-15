@@ -1,57 +1,96 @@
 /* conponents/news-li/news-li.wxss */
 
 .conponent-news-li {
-	display: inline-block;
-	margin: 25rpx 40rpx 25rpx 40rpx;
+	display: block;
+	margin: 40rpx;
 	border: 1rpx solid #cccccc;
 	border-radius: 10rpx;
 	box-shadow: 0rpx 2rpx 10rpx rgba(0,0,0,0.15);
 	overflow: hidden;
 }
 .conponent-news-li .cover {
-	display: inline-block;
+	display: block;
 	margin: 0rpx;
 	overflow: hidden;
 }
 .conponent-news-li .cover .image {
-	display: inline-block;
 	width: 670rpx;
 }
-.conponent-news-li .desc .title {
-	display: inline-block;
+.conponent-news-li .info .header {
+	display: block;
+	padding-left: 5rpx;
+	margin: 35rpx 25rpx 25rpx 25rpx;
+}
+.conponent-news-li .info .header .title {
 	font-weight: bold;
-	font-size: 40rpx;
+	font-size: 38rpx;
 	color: #353535;
 	line-height: 54rpx;
-	padding-left: 5rpx;
-	margin: 25rpx 25rpx 45rpx 25rpx;
 }
-.conponent-news-li .desc .time {
+.conponent-news-li .info .detail {
 	display: inline-block;
-	vertical-align: bottom;
-	font-size: 32rpx;
+	font-size: 28rpx;
 	color: #353535;
-	width: 420rpx;
 	padding-top: 5rpx;
 	padding-left: 10rpx;
 	margin: 0rpx 25rpx 30rpx 25rpx;
+	line-height: 48rpx;
 }
-.conponent-news-li .desc .icon {
+
+.conponent-news-li .info .detail .left-box {
 	display: inline-block;
-	width: 160rpx;
-	height: 60rpx;
-	vertical-align: top;
-	margin-bottom: 30rpx;
+	width: 200rpx;
+	vertical-align: bottom;
 }
-.conponent-news-li .desc .icon .star-icon {
+.conponent-news-li .info .detail .right-box {
 	display: inline-block;
-	width: 60rpx;
-	height: 60rpx;
-	margin-left: 20rpx
+	text-align: right;
+	width: 405rpx;
+	vertical-align: bottom;
 }
-.conponent-news-li .desc .icon .recommend-icon {
+
+.conponent-news-li .info .detail .left-box image.icon {
 	display: inline-block;
-	width: 60rpx;
-	height: 60rpx;
-	margin-right: 20rpx;
+	width: 40rpx;
+	height: 40rpx;
+	vertical-align: middle;
+	opacity: 0.6;
+}
+.conponent-news-li .info .detail .left-box text.num {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 20rpx;
+	letter-spacing: 3rpx;
+}
+.conponent-news-li .info .detail .left-box .like-num .num { /* 修饰 */
+	padding-top: 8rpx;
+}
+
+
+.conponent-news-li .info .detail .right-box .time {
+	display: block;
+	color: #888888;
+	margin-bottom: 6rpx;
+}
+
+.conponent-news-li .info .detail .right-box view {
+	display: inline-block;
+	text-align: right;
+	vertical-align: bottom;
+}
+.conponent-news-li .info .detail .right-box view text.label {
+	display: inline-block;
+	margin-left: 25rpx;
+	vertical-align: middle;
+}
+
+.conponent-news-li .info .detail .right-box view image.btn {
+	display: inline-block;
+	width: 45rpx;
+	height: 45rpx;
+	margin-left: 10rpx;
+	vertical-align: middle;
+}
+.conponent-news-li .info .detail .right-box view.recommend image.btn {
+	margin-left: 15rpx;
 }

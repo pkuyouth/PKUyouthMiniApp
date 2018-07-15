@@ -1,7 +1,7 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/column/column",
+        "pages/column-list/column-list",
         "pages/recommendation/recommendation",
         "pages/user/user",
         "pages/logs/logs",
@@ -11,37 +11,43 @@
         "pages/favorite/favorite",
         "pages/search-result/search-result",
         "pages/recommend-result/recommend-result",
-        "pages/contribute/contribute"
+        "pages/contribute/contribute",
+        "pages/column-news/column-news",
+        "pages/reporter-list/reporter-list",
+        "pages/reporter-home/reporter-home",
+        "pages/collection-random/collection-random",
+        "pages/collection-hot/collection-hot"
     ],
     "tabBar": {
+        "position": "bottom",
         "color": "#7d7d7d",
         "selectedColor": "#993a3a",
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "white",
         "borderStyle": "black",
         "list": [
             {
                 "pagePath": "pages/index/index",
                 "text": "首页",
-                "iconPath": "images/column.png",
-                "selectedIconPath": "images/column_selected.png"
+                "iconPath": "images/Homepage_grey.png",
+                "selectedIconPath": "images/Homepage_red.png"
             },
             {
-                "pagePath": "pages/column/column",
-                "text": "栏目",
-                "iconPath": "images/column.png",
-                "selectedIconPath": "images/column_selected.png"
+                "pagePath": "pages/column-list/column-list",
+                "text": "看栏目",
+                "iconPath": "images/Column_grey.png",
+                "selectedIconPath": "images/Column_red.png"
             },
             {
-                "pagePath": "pages/recommendation/recommendation",
-                "text": "推荐",
-                "iconPath": "images/recommendation.png",
-                "selectedIconPath": "images/recommendation_selected.png"
+                "pagePath": "pages/reporter-list/reporter-list",
+                "text": "看作者",
+                "iconPath": "images/Author_grey.png",
+                "selectedIconPath": "images/Author_red.png"
             },
             {
                 "pagePath": "pages/user/user",
                 "text": "我的北青",
-                "iconPath": "images/user.png",
-                "selectedIconPath": "images/user_selected.png"
+                "iconPath": "images/User_grey.png",
+                "selectedIconPath": "images/User_red.png"
             }
         ]
     },
@@ -51,5 +57,8 @@
         "navigationBarTitleText": "北大青年",
         "navigationBarTextStyle": "white",
         "enablePullDownRefresh": false
+    },
+    "networkTimeout": {
+        "request": 10000
     }
 }

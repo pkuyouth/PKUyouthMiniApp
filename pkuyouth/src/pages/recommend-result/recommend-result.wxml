@@ -1,3 +1,14 @@
 <!--pages/recommend-result/recommend-result.wxml-->
 
-<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+<view class="page-recommend-result" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+    <news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+    <floating-button
+        num="{{3}}"
+        icon="{{['/images/Feedback.png','/images/Time_red.png','/images/Homepage_red.png']}}"
+        text="{{['意见反馈','时间顺序','退出推荐页']}}"
+        tap-change="{{[true,true,false]}}"
+        has-search-bar="{{true}}"
+        move-action="{{moveAction}}"
+        bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3">
+    </floating-button>
+</view>

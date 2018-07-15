@@ -1,0 +1,13 @@
+<!--conponents/news-slide-item/news-slide-item.wxml-->
+
+<view class="conponent-news-slide-item">
+    <navigator url="/pages/web-frame/web-frame?url={{news_url}}&title={{title_encode}}&type=news" open-type="navigate">
+        <image class="cover" src="{{cover_url}}" mode="widthFix"></image>
+    </navigator>
+    <view class="desc">
+        <text class="title">{{title}}</text>
+        <text class="digest">{{digest}}</text>
+        <text class="time">{{time}}</text>
+    </view>
+</view>
+

@@ -6,13 +6,13 @@
 App({
 	globalData: {
 		userInfo: null,
+		systemInfo: {},
 	},
 	onLaunch: function () {
 		// 展示本地存储能力
 		var logs = wx.getStorageSync('logs') || [];
 		logs.unshift(Date.now());
 		wx.setStorageSync('logs', logs);
-
 		/*
 		// 登录
 		wx.login({
@@ -50,5 +50,10 @@ App({
 			}
 		});
 		 */
+		wx.getSystemInfo({ // 获取屏幕信息
+			success: (res) => {
+				this.globalData.systemInfo = res;
+			}
+		})
 	},
 })

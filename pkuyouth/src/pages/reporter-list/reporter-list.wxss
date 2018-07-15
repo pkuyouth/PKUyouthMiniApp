@@ -1,0 +1,8 @@
+/* pages/reporter-home/reporter-home.wxss */
+
+.page-reporter-list .line {
+    border-bottom: 2rpx solid #dddddd;
+}
+.page-reporter-list .line:last-child {
+    border-bottom: none;
+}

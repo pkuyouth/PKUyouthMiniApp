@@ -2,7 +2,7 @@
 
 .conponent-floating-button {
 	position: fixed;
-	bottom: 100rpx;
+	bottom: 140rpx;
 	right: 40rpx;
 	width: 124rpx;
 	text-align: center;

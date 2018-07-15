@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "news-li": "/conponents/news-li/news-li",
+        "floating-button": "/conponents/floating-button/floating-button",
+        "mask-layer": "/conponents/mask-layer/mask-layer",
+        "alert-bar": "/conponents/alert-bar/alert-bar"
+    }
+}

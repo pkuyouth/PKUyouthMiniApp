@@ -1,19 +1,93 @@
 /**index.wxss**/
 
-.userinfo {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.page-index {
+
 }
-.userinfo-avatar {
-	width: 128rpx;
-	height: 128rpx;
-	margin: 20rpx;
-	border-radius: 50%;
+.page-index .slider {
+    width: 750rpx;
+    height: 735rpx;
+    background-color: white;
 }
-.userinfo-nickname {
-	color: #aaa;
+.page-index .slider .wx-swiper-dots { /* 内部选择器 ！ */
+    text-align: right;
+    top: 370rpx;
+    right: -300rpx;
 }
-.usermotto {
-	margin-top: 200px;
+
+/*
+.page-index .trans-bar {
+    display: block;
+    width: 750rpx;
+    height: 106rpx;
+    border-top: 10rpx solid #eeeeee;
+    text-align: center;
 }
+.page-index .trans-bar text {
+    display: flex;
+    justify-content: center;
+    padding: 30rpx 30rpx;
+    font-size: 36rpx;
+    color: #888888;
+    letter-spacing: 18rpx;
+}
+ */
+
+
+
+.page-index .col-card {
+    display: block;
+    width: 750rpx;
+    border-top: 10rpx solid #eeeeee;
+}
+.page-index .col-card .cover {
+    display: inline-block;
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 75rpx;
+    box-shadow: 0rpx 4rpx 10rpx #aaaaaa;
+    margin: 30rpx 60rpx 30rpx 40rpx;
+}
+.page-index .col-card .text-box {
+    display: inline-block;
+    width: 500rpx;
+    height: 100%;
+    text-align: justify;
+    vertical-align: top;
+}
+.page-index .col-card .text-box .title {
+    display: block;
+    margin: 50rpx 0rpx 30rpx 0rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #353535;
+    vertical-align: top;
+}
+.page-index .col-card .text-box .desc {
+    display: block;
+    font-size: 26rpx;
+    color: #888888;
+}
+
+/*
+.page-index .nav-bar {
+    display: flex;
+    flex-direction: row nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    border: 1rpx solid #dddddd;
+}
+.page-index .nav-bar .btn {
+    font-size: 32rpx;
+    color: #888888;
+    padding: 20rpx 0rpx;
+    vertical-align: middle;
+    text-align: center;
+    flex-grow: 1;
+}
+.page-index .nav-bar .btn:first-child {
+    color: #993a3a;
+    background-color: #fefefe;
+    border: 2rpx solid #dddddd;
+}
+ */
+

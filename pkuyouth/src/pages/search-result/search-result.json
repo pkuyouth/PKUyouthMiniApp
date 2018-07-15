@@ -3,5 +3,6 @@
 		"news-li": "/conponents/news-li/news-li",
 		"floating-button": "/conponents/floating-button/floating-button",
 		"alert-bar": "/conponents/alert-bar/alert-bar"
-	}
+	},
+    "navigationBarTitleText": "搜索结果"
 }

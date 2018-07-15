@@ -2,6 +2,7 @@
 	"usingComponents": {
 		"news-li": "/conponents/news-li/news-li",
 		"floating-button": "/conponents/floating-button/floating-button",
-		"loading-circle": "/conponents/loading-circle/loading-circle"
-	}
+        "news-slide-item": "/conponents/news-slide-item/news-slide-item"
+	},
+    "navigationBarTitleText": "首页精选"
 }

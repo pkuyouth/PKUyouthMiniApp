@@ -1,0 +1,18 @@
+<!--conponents/reporter-li/reporter-li.wxml-->
+
+<!--<view class="conponent-reporter-li" bind:tap="tapRptCard">
+    <view class="left-box">
+        <image class="avatar" src="{{avatar}}" mode="widthFix"></image>
+        <text class="name">{{name}}</text>
+    </view>
+    <view class="right-box">
+        <text class="news-count">文章数{{newsCount}}</text>
+        <text class="like">喜欢{{like}}</text>
+    </view>
+</view>-->
+<view class="conponent-reporter-li" bind:tap="tapRptCard">
+    <image class="avatar" src="{{avatar}}" mode="widthFix"></image>
+    <text class="name">{{name}}</text>
+    <text class="label">文章数：</text><text class="num">{{newsCount}}</text>
+    <text class="label">鲜花数：</text><text class="num">{{like}}</text>
+</view>

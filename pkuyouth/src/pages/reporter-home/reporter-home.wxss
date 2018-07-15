@@ -1,0 +1,101 @@
+/* pages/reporter-home/reporter-home.wxss */
+
+.page-reporter-home {
+
+}
+.page-reporter-home .rpt-info {
+    display: flex;
+    position: fixed;
+    top: 0rpx;
+    width: 100%;
+    height: 100%;
+    color: #353535;
+    font-size: 32rpx;
+    text-align: center;
+    padding-bottom: 30rpx;
+    background-color: #fafafa;
+    border: 1rpx solid #aaaaaa;
+    z-index: 30;
+}
+.page-reporter-home .news-li {
+    display: flex;
+    position: absolute;
+    top: 0rpx;
+    z-index: 0;
+}
+.page-reporter-home .rpt-info .mask-layer {
+    opacity: 0;
+}
+.page-reporter-home .rpt-info .avatar {
+    position: absolute;
+    width: 150rpx;
+    height: 150rpx;
+    left: 300rpx;
+    top: 80rpx;
+    border-radius: 75rpx;
+    box-shadow: 0rpx 4rpx 10rpx #aaaaaa;
+}
+.page-reporter-home .rpt-info .name {
+    position: absolute;
+    width: 150rpx;
+    left: 300rpx;
+    top: 280rpx;
+    font-weight: bold;
+}
+.page-reporter-home .rpt-info .num-box {
+    position: absolute;
+    width: 550rpx;
+    left: 100rpx;
+    top: 400rpx;
+}
+.page-reporter-home .rpt-info .num-box view {
+    display: inline-block;
+    margin: 0rpx 50rpx;
+}
+.page-reporter-home .rpt-info .num-box view text {
+    display: block;
+    letter-spacing: 5rpx;
+    line-height: 56rpx;
+}
+.page-reporter-home .rpt-info .num-box view text:last-child {
+    display: block;
+    color: #993a3a;
+    font-weight: bold;
+}
+.page-reporter-home .rpt-info .desc {
+    position: absolute;
+    width: 550rpx;
+    left: 100rpx;
+    top: 600rpx;
+    font-size: 24rpx;
+    line-height: 45rpx;
+}
+.page-reporter-home .star-btn {
+    position: absolute;
+    top: 800rpx;
+    left: 310rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 65rpx;
+    vertical-align: middle;
+    padding: 25rpx;
+    border: 1rpx solid #aaaaaa;
+}
+.page-reporter-home .slide-tip {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    width: 550rpx;
+    left: 100rpx;
+    bottom: 120rpx;
+}
+.page-reporter-home .slide-tip text {
+    margin-right: 30rpx;
+    font-size: 28rpx;
+    color: #888888;
+}
+.page-reporter-home .slide-tip image.icon {
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: bottom;
+}

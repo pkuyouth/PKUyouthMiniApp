@@ -4,94 +4,103 @@
 
 const requests = require('../../libs/requests.js');
 const api = require('../../libs/api.js');
+const btnFuncs = require('../../conponents/floating-button/page-funcs.js');
+const sort = require('../../libs/sort.js');
 
-const app = getApp();
 
 Page({
 	data: {
-		articlesList: [],
+		sliderArticles: [],
+		colCardData: [
+			{
+				id: 1,
+				cover: 'http://mmbiz.qpic.cn/mmbiz/l9iadYXd83Z5OV4NVbHzf2J9mJkbmsNRGPQSomQIjiabHsTMxhsNdicAnbqgElOxibunfxMMZkykUU8VSNJanMYYzw/0',
+				title: '随便看看',
+				desc: '随机来一些文章噢',
+				navUrl: '/pages/collection-random/collection-random',
+			}, {
+				id: 2,
+				cover: 'http://mmbiz.qpic.cn/mmbiz_jpg/l9iadYXd83Z6JsLCgGD2zhOPcXibzsf2p4mOElxIllPm2paDBg4FG8vFiabyUGKg4qiaXbxtXkSyr72Y2tKSVjmB3Q/0?wx_fmt=jpeg',
+				title: '热门推荐',
+				desc: '按阅读量排序的文章噢',
+				navUrl: '/pages/collection-hot/collection-hot',
+			}, {
+				id: 3,
+				cover: 'http://mmbiz.qpic.cn/mmbiz_jpg/l9iadYXd83Z4XUjqCtXonTcyXL1Qb8SgRo5TPiakMCCKg3MFAAW5Qfc0JoFofxIHO5Gicj8qs5iatHxHfaRRlzIYjQ/0?wx_fmt=jpeg',
+				title: '还有更多',
+				desc: '还可以做其他的文集',
+				navUrl: '',
+			},
+		],
+		descByHot: false,
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
 	},
 	onLoad() {
 		let init = function () {
+
 			/*
 			wx.switchTab({
-				url: '/pages/user/user',
+				url: '/pages/reporter-list/reporter-list',
 			});
-			 */		
+			 */
+
 			/*
 			wx.navigateTo({
 				url: '/pages/favorite/favorite',
 			});
 			 */
+
 			/*
 			wx.navigateTo({
 				url: '/pages/search-result/search-result?keyword=' + '嫁给我',
-			});			
+			});
 			 */
 
-			this.get_random();
-		
+			this.get_latest_news();
+
 		}.bind(this);
 
 		api.login().then((res)=>{
 			api.getUserInfo().then((res)=>{});
 			init();
 		});
-
 	},
-	onReachBottom() {
-		this.get_random();
-	},
-	get_random() {
+	get_latest_news() {
 		wx.showNavigationBarLoading();
-		requests.post('/get_random',{
-			count: 5,
+		requests.post('/get_latest_news',{
+			count: 8,
 		}).then((data)=>{
+			console.log(data);
 			this.setData({
-				articlesList: this.data.articlesList.concat(data.news)
+				sliderArticles: data.news,
 			});
 			wx.hideNavigationBarLoading();
 		}).catch((data)=>{
 			wx.hideNavigationBarLoading();
-		})
-	},
-	tapBtn_1() {
-		wx.navigateTo({
-			url: '/pages/feedback/feedback',
 		});
+	},
+	get_col_info() {
+		requests.get('/get_col_info',).then((data)=>{
+			console.log(data);
+		});
+	},
+	/*
+	tapBtn_1() {
+		btnFuncs.feedback.call(this);
 	},
 	tapBtn_2() {
-		this.get_random();
+		sort.newsByReadNum.call(this);
 	},
 	tapBtn_3() {
-		wx.pageScrollTo({
-			scrollTop: 0,
-			duration: 500,
-		});
+		btnFuncs.scrollToUpper.call(this);
 	},
 	handleTouchStart(event) {
-		this.setData({
-			'touch.start.X': event.changedTouches[0].pageX,
-			'touch.start.Y': event.changedTouches[0].pageY,				
-		});
+		btnFuncs.handleTouchStart.call(this, event);
 	},
 	handleTouchEnd(event) {
-		this.setData({
-			'touch.end.X': event.changedTouches[0].pageX,
-			'touch.end.Y': event.changedTouches[0].pageY,		
-		});	
-		let dx = this.data.touch.end.X - this.data.touch.start.X;
-		let dy = this.data.touch.end.Y - this.data.touch.start.Y;
-		if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-			this.setData({ // 至少滑动 50 px 。如果是 tap 则 dx == dy == 0
-				moveAction: dx > 0 ? 'right' : 'left'
-			});
-		} else {
-			this.setData({
-				moveAction: ''
-			});
-		}
+		btnFuncs.handleTouchEnd.call(this, event);
 	}
+	 */
 })
+
