@@ -1,8 +1,8 @@
 {
 	"usingComponents": {
-		"news-li": "/conponents/news-li/news-li",
-		"floating-button": "/conponents/floating-button/floating-button",
-        "news-slide-item": "/conponents/news-slide-item/news-slide-item"
+		"news-li": "/components/news-li/news-li",
+		"floating-button": "/components/floating-button/floating-button",
+        "news-slide-item": "/components/news-slide-item/news-slide-item"
 	},
     "navigationBarTitleText": "首页精选"
 }

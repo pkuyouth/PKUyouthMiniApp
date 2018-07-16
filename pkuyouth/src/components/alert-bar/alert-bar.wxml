@@ -1,0 +1,5 @@
+<!--components/alert-bar/alert-bar.wxml-->
+
+<view class="component-alert-bar" animation="{{animation}}">
+	<text class="text">{{text}}</text>
+</view>

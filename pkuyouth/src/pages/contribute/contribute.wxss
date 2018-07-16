@@ -1,1 +1,19 @@
 /* pages/contribute/contribute.wxss */
+
+.page-contribute {
+    padding: 80rpx 60rpx;
+    line-height: 1.6em;
+}
+.page-contribute text {
+    display: block;
+    color: #353535;
+    font-size: 32rpx;
+}
+.page-contribute text.email {
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-bottom: 40rpx;
+}
+.page-contribute text.welcome {
+    margin-top: 80rpx;
+}

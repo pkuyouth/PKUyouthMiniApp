@@ -3,8 +3,7 @@
 'use strict';
 
 const requests = require('../../libs/requests.js');
-const btnFuncs = require('../../conponents/floating-button/page-funcs.js');
-const sort = require('../../libs/sort.js');
+const btnFuncs = require('../../components/floating-button/page-funcs.js');
 
 const app = getApp();
 
@@ -36,7 +35,7 @@ Page({
 		this.animation = wx.createAnimation({
 			duration: 500,
 			timingFunction: 'ease',
-	    });
+		});
 		this.setData({
 			page: 1,
 			onGetNews: false,
@@ -66,7 +65,6 @@ Page({
 		requests.post("/get_reporter_info",{
 			name: this.data.name,
 		}).then((data)=>{
-			console.log(data);
 			let baseAvatarUrl = "https://rabbitzxh.top/static/image/miniprogram_api/reporter_avatar/";
 			let rptInfo = data.reporter;
 			this.setData({
@@ -91,7 +89,6 @@ Page({
 			page: this.data.page,
 			limit: 10,
 		}).then((data)=>{
-			console.log(data);
 			this.setData({
 				articlesList: this.data.articlesList.concat(data.news),
 				page: this.data.page + 1,
@@ -119,7 +116,6 @@ Page({
 			name: this.data.name,
 			action: this.data.star ? 'unstar' : 'star',
 		}).then((data)=>{
-			console.log(data);
 			let like = this.data.like;
 			this.setData({
 				star: !this.data.star,
@@ -178,7 +174,20 @@ Page({
 		this.unfoldedCard();
 	},
 	tapBtn_3() { // 按权重排序
-		sort.newsByWeight.call(this);
+		let articlesList = this.data.articlesList;
+		if (articlesList.length === 0) return;
+		articlesList.sort((news1,news2)=>{
+			if (news1.weight > news2.weight) {
+				return -1
+			} else if (news1.weight == news2.weight && news1.time > news2.time) {
+				return -1
+			} else {
+				return 1
+			};
+		});
+		this.setData({
+			articlesList: articlesList,
+		});
 	},
 	tapBtn_4() { // 按时间排序
 		btnFuncs.sortedByTime.call(this);

@@ -17,12 +17,16 @@
 			<text>我的收藏</text>
 		</navigator>
 		<navigator class="line" open-type="navigate" url="/pages/contribute/contribute">
-			<image mode="aspectFit" src="../../images/Comments_red.png"></image>
+			<image mode="aspectFit" src="../../images/Contribute_red.png"></image>
 			<text>我要投稿</text>
 		</navigator>
 		<navigator class="line" open-type="navigate" url="/pages/feedback/feedback">
 			<image mode="aspectFit" src="../../images/Feedback.png"></image>
 			<text>意见反馈</text>
+		</navigator>
+		<navigator class="line" open-type="navigate" url="/pages/update-log/update-log">
+			<image mode="aspectFit" src="../../images/Update_log_red.png"></image>
+			<text>更新日志</text>
 		</navigator>
 		<navigator class="line" open-type="navigate" url="/pages/about/about">
 			<image mode="aspectFit" src="../../images/About.png"></image>

@@ -1,13 +1,16 @@
 // pages/search-result/search-result.js
 
+'use strict';
+
 const requests = require('../../libs/requests.js');
-const btnFuncs = require("../../conponents/floating-button/page-funcs.js");
-const sort = require("../../libs/sort.js");
+const btnFuncs = require("../../components/floating-button/page-funcs.js");
 
 
 Page({
 	data: {
 		keyword: '',
+		range: '',
+		notFound: '',
 		page: 1,
 		onSearch: false,
 		entirelyGet: false,
@@ -18,16 +21,15 @@ Page({
 		moveAction: '',
 	},
 	onLoad(options) {
-		wx.setNavigationBarTitle({
-			title: '搜索结果'
-		});
+		let range = decodeURIComponent(options.range);
+		if (['column','rpt'].indexOf(range.split("-")[0]) !== -1) { // column-xxx | rpt-xxx
+			range = range.split("-")[1];
+		};
+		console.log(range);
 		this.setData({
-			descByRank: true,
-			descByTime: true,
 			keyword: decodeURIComponent(options.keyword),
-			page: 1,
-			onSearch: false,
-			entirelyGet: false,
+			range: range,
+			notFound: decodeURIComponent(options.notfound),
 		});
 		this.search();
 	},
@@ -49,6 +51,7 @@ Page({
 		requests.post('/search',{
 			keyword: this.data.keyword,
 			page: this.data.page,
+			range: this.data.range,
 			limit: 5,
 		}).then((data)=>{
 			this.setData({

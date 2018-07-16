@@ -1,52 +1,5 @@
 'use strict';
 
-function _baseFuncs (goal, key, descVar) {
-    let articlesList = this.data.articlesList;
-    if (articlesList.length === 0) return;
-    articlesList.sort((news1,news2)=>{
-        if (this.data.descByTime) {
-            return (news1.time > news2.time ? -1 : 1);
-        } else {
-            return (news2.time > news1.time ? -1 : 1);
-        };
-    });
-    this.setData({
-        articlesList: articlesList,
-        descByTime: !this.data.descByTime,
-    });
-}
-
-function newsByTime() {
-    let articlesList = this.data.articlesList;
-    if (articlesList.length === 0) return;
-    articlesList.sort((news1,news2)=>{
-        if (this.data.descByTime) {
-            return (news1.time > news2.time ? -1 : 1);
-        } else {
-            return (news2.time > news1.time ? -1 : 1);
-        };
-    });
-    this.setData({
-        articlesList: articlesList,
-        descByTime: !this.data.descByTime,
-    });
-};
-
-function newsByRank() {
-    let articlesList = this.data.articlesList;
-    if (articlesList.length === 0) return;
-    articlesList.sort((news1,news2)=>{
-        if (this.data.descByRank) {
-            return (news1.rank > news2.rank ? -1 : 1);
-        } else {
-            return (news2.rank > news1.rank ? -1 : 1);
-        };
-    });
-    this.setData({
-        articlesList: articlesList,
-        descByRank: !this.data.descByRank,
-    });
-};
 
 function newsByWeight() {
     let articlesList = this.data.articlesList;
@@ -65,21 +18,6 @@ function newsByWeight() {
     });
 };
 
-function newsByReadNum() {
-    let articlesList = this.data.articlesList;
-    if (articlesList.length === 0) return;
-    articlesList.sort((news1,news2)=>{
-        if (this.data.descByReadNum) {
-            return (news1.read_num > news2.read_num ? -1 : 1);
-        } else {
-            return (news2.read_num > news1.read_num ? -1 : 1);
-        };
-    });
-    this.setData({
-        articlesList: articlesList,
-        descByReadNum: !this.data.descByReadNum,
-    });
-};
 
 function newsByStarTime() {
     let articlesList = this.data.articlesList;
@@ -130,10 +68,7 @@ function rptByNewsCount() {
 };
 
 module.exports = {
-    newsByTime: newsByTime,
-    newsByRank: newsByRank,
     newsByWeight: newsByWeight,
-    newsByReadNum: newsByReadNum,
     newsByStarTime: newsByStarTime,
     rptByNameSpell: rptByNameSpell,
     rptByNewsCount: rptByNewsCount,

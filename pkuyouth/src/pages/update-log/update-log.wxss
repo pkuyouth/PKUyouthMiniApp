@@ -1,0 +1,41 @@
+/* pages/update-log/update-log.wxss */
+
+.page-update-log {
+    padding: 20rpx 40rpx;
+    color: #353535;
+}
+.page-update-log text {
+    display: block;
+}
+.page-update-log text.header {
+    display: block;
+    font-size: 40rpx;
+    font-weight: bold;
+    letter-spacing: 20rpx;
+    padding: 40rpx 0rpx 10rpx 20rpx;
+}
+.page-update-log .log .title {
+    display: block;
+    font-size: 32rpx;
+    margin: 50rpx 0rpx 25rpx 0rpx;
+}
+.page-update-log .log .title text.version {
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing: 2rpx;
+}
+.page-update-log .log .title text.time {
+    display: inline-block;
+    font-size: 28rpx;
+    color: #888888;
+    padding-left: 20rpx;
+}
+.page-update-log .log text.content {
+    font-size: 28rpx;
+    padding-left: 20rpx;
+    line-height: 1.6em;
+}
+.page-update-log .log text.strong {
+    font-weight: bold;
+    color: #e64340;
+}

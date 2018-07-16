@@ -3,7 +3,7 @@
 'use strict';
 
 const requests = require('../../libs/requests.js');
-const btnFuncs = require('../../conponents/floating-button/page-funcs.js');
+const btnFuncs = require('../../components/floating-button/page-funcs.js');
 
 Page({
 	data: {
@@ -16,9 +16,6 @@ Page({
 		moveAction: '',
 	},
 	onLoad: function (options) {
-		wx.setNavigationBarTitle({
-			title: '栏目精选'
-		});
 		wx.showNavigationBarLoading();
 		this.setData({
 			column: decodeURIComponent(options.column),

@@ -2,10 +2,12 @@
 //获取应用实例
 //
 
+'use strict';
+
 const requests = require('../../libs/requests.js');
 const api = require('../../libs/api.js');
-const btnFuncs = require('../../conponents/floating-button/page-funcs.js');
-const sort = require('../../libs/sort.js');
+const btnFuncs = require('../../components/floating-button/page-funcs.js');
+// const sort = require('../../libs/sort.js');
 
 
 Page({
@@ -41,13 +43,13 @@ Page({
 
 			/*
 			wx.switchTab({
-				url: '/pages/reporter-list/reporter-list',
+				url: '/pages/search-reporter/search-reporter',
 			});
 			 */
 
 			/*
 			wx.navigateTo({
-				url: '/pages/favorite/favorite',
+				url: '/pages/contribute/contribute',
 			});
 			 */
 
@@ -71,7 +73,6 @@ Page({
 		requests.post('/get_latest_news',{
 			count: 8,
 		}).then((data)=>{
-			console.log(data);
 			this.setData({
 				sliderArticles: data.news,
 			});

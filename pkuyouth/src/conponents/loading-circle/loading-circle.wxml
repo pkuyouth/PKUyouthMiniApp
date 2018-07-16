@@ -1,5 +1,0 @@
-<!--conponents/loading-circle/loading-circle.wxml-->
-
-<view class="conponent-loading-circle">
-	<image class="icon" src="/images/Loading.png" mode="aspectFit" animation="{{animation}}"></image>
-</view>

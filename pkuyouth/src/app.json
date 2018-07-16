@@ -2,9 +2,7 @@
     "pages": [
         "pages/index/index",
         "pages/column-list/column-list",
-        "pages/recommendation/recommendation",
         "pages/user/user",
-        "pages/logs/logs",
         "pages/web-frame/web-frame",
         "pages/feedback/feedback",
         "pages/about/about",
@@ -16,7 +14,9 @@
         "pages/reporter-list/reporter-list",
         "pages/reporter-home/reporter-home",
         "pages/collection-random/collection-random",
-        "pages/collection-hot/collection-hot"
+        "pages/collection-hot/collection-hot",
+        "pages/search-reporter/search-reporter",
+        "pages/update-log/update-log"
     ],
     "tabBar": {
         "position": "bottom",
@@ -38,7 +38,7 @@
                 "selectedIconPath": "images/Column_red.png"
             },
             {
-                "pagePath": "pages/reporter-list/reporter-list",
+                "pagePath": "pages/search-reporter/search-reporter",
                 "text": "看作者",
                 "iconPath": "images/Author_grey.png",
                 "selectedIconPath": "images/Author_red.png"
@@ -60,5 +60,6 @@
     },
     "networkTimeout": {
         "request": 10000
-    }
+    },
+    "debug": false
 }

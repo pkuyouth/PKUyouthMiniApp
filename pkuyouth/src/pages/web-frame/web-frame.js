@@ -1,5 +1,7 @@
 // pages/web_tmp/web_tmp.js
 
+'use strict';
+
 Page({
 	data: {
 		url: "",
@@ -17,14 +19,5 @@ Page({
 		wx.setNavigationBarTitle({
 			title: this.data.title,
 		});
-	},
-	tapBtn_1() {
-		console.log('tap btn 1 !');
-	},
-	tapBtn_2() {
-		console.log('tap btn 2 !');
-	},
-	tapBtn_3() {
-		console.log('tap btn 3 !');
 	},
 })

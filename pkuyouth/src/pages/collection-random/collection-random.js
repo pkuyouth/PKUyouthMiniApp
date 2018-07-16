@@ -1,7 +1,9 @@
 // pages/collection-random/collection-random.js
 
+'use strict';
+
 const requests = require('../../libs/requests.js');
-const btnFuncs = require('../../conponents/floating-button/page-funcs.js');
+const btnFuncs = require('../../components/floating-button/page-funcs.js');
 
 Page({
 	data: {

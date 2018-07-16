@@ -3,7 +3,8 @@
 	background: white;
 }
 .page-user .userinfo {
-	height: 450rpx;
+	display: block;
+	height: 435rpx;
 	text-align: center;
 }
 .page-user .menu-lines {
@@ -41,7 +42,7 @@
 .page-user .menu-lines .line {
 	display: inline-block;
 	width: 667rpx;
-	hight: 105rpx;
+	height: 105rpx;
 	line-height: 105rpx;
 	color: #353535;
 	font-size: 30rpx;

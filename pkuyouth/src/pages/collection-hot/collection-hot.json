@@ -1,7 +1,7 @@
 {
     "usingComponents": {
-        "news-li": "/conponents/news-li/news-li",
-        "floating-button": "/conponents/floating-button/floating-button"
+        "news-li": "/components/news-li/news-li",
+        "floating-button": "/components/floating-button/floating-button"
     },
     "navigationBarTitleText": "热门文章"
 }

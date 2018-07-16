@@ -1,5 +1,7 @@
 // pages/user/user.js
 
+'use strict';
+
 const app = getApp();
 
 Page({

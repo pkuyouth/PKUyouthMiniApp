@@ -1,1 +1,47 @@
 /* pages/about/about.wxss */
+
+.page-about {
+
+}
+.page-about > view {
+    position: fixed;
+    width: 750rpx;
+}
+.page-about text {
+    display: block;
+    color: #888888;
+    text-align: center;
+    line-height: 1.6em;
+    font-size: 28rpx;
+}
+.page-about .info {
+    top: 110rpx;
+}
+.page-about .acknowledgement {
+    bottom: 230rpx;
+}
+.page-about .footer {
+    bottom: 80rpx;
+}
+.page-about .info image.brand {
+    display: block;
+    width: 180rpx;
+    height: 180rpx;
+    margin-left: 285rpx;
+}
+.page-about .info text.name {
+    margin-top: 80rpx;
+    color: #353535;
+    font-size: 36rpx;
+    font-weight: bold;
+    letter-spacing: 9rpx;
+}
+.page-about .info text.version {
+    margin-top: 20rpx;
+}
+
+
+.page-about .footer text {
+
+}
+

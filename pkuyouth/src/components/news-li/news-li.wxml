@@ -1,0 +1,35 @@
+<!--components/news-li/news-li.wxml-->
+
+<view class="component-news-li">
+	<navigator class="cover" url="/pages/web-frame/web-frame?url={{news_url}}&title={{title_encode}}&type=news" open-type="navigate">
+		<image class="image" src="{{cover_url}}" mode="widthFix"></image>
+	</navigator>
+	<view class="info">
+		<view class="header">
+			<text class="title">{{title}}</text>
+		</view>
+		<view class="detail">
+			<view class="left-box">
+				<view class="read-num">
+					<image class="icon" src="../../images/Read_num_grey.png" mode="widthFix"></image>
+					<text class="num">{{read_num}}</text>
+				</view>
+				<view class="like-num">
+					<image class="icon" src="../../images/Thumbs_up_grey.png" mode="widthFix"></image>
+					<text class="num">{{like_num}}</text>
+				</view>
+			</view>
+			<view class="right-box">
+				<text class="time">{{time}}</text>
+				<view class="recommend">
+					<text class="label">找相似</text>
+					<image class="btn" src="../../images/Similarity_match_grey.png" mode="widthFix" catch:tap="tapRecommend"></image>
+				</view>
+				<view class="star">
+					<text class="label">喜欢</text>
+					<image class="btn" src="../../images/Add_to_favorites_{{star ? 'red' : 'grey'}}.png" mode="widthFix" catch:tap="tapStar"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

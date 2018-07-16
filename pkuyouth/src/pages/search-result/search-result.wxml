@@ -3,7 +3,7 @@
 <view class="page-search-result" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
 	<view class="no-result" wx:if="{{!articlesList.length}}">
 		<image src="../../images/Not_found.png" mode="aspectFit"></image>
-		<text>你好像发现了北青未涉及的领地～</text>
+		<text>{{notFound}}</text>
 	</view>
 	<block wx:else>
 		<news-li  wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>

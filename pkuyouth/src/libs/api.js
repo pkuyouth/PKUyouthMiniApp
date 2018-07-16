@@ -1,12 +1,11 @@
 'use strict';
 
-
-
 const requests = require('requests.js');
 
 const app = getApp();
 
-var setStorage = function (key, value, async=true) { // wx.setStorage | wx.setStorageSync
+
+function setStorage(key, value, async=true) { // wx.setStorage | wx.setStorageSync
 	if (async) {
 		return new Promise((resolve,reject)=>{
 			wx.setStorage({
@@ -29,7 +28,7 @@ var setStorage = function (key, value, async=true) { // wx.setStorage | wx.setSt
 	};
 };
 
-var getStorage = function (key, async=false) { // wx.getStorage | wx.getStorageSync
+function getStorage(key, async=false) { // wx.getStorage | wx.getStorageSync
 	if (async) {
 		return new Promise((resolve,reject)=>{
 			wx.getStorage({
@@ -53,7 +52,7 @@ var getStorage = function (key, async=false) { // wx.getStorage | wx.getStorageS
 	};
 };
 
-var login = function () {
+function login() {
 	return new Promise((resolve,reject)=>{
 		wx.login({
 			success: (resp)=>{
@@ -62,6 +61,7 @@ var login = function () {
 						js_code: resp.code,
 					}).then((data)=>{
 						setStorage("token", data.token, false);
+						app.globalData.config = data.config;
 						resolve();
 					});
 				} else {
@@ -69,7 +69,7 @@ var login = function () {
 					reject();
 				};
 			}
-		});	
+		});
 	});
 	/*
 	return new Promise((resolve, reject)=>{
@@ -78,7 +78,7 @@ var login = function () {
 				resolve();
 			},
 			fail: (res) => {
-				// ... 
+				// ...
 			}
 		});
 	});
@@ -86,7 +86,7 @@ var login = function () {
 };
 
 
-var getUserInfo = function () {
+function getUserInfo() {
 	return new Promise((resolve,reject)=>{
 		wx.getSetting({
 			success: (res) => {
@@ -115,7 +115,7 @@ var getUserInfo = function () {
 			fail: (res) => {
 				reject(res);
 			}
-		});	
+		});
 	});
 }
 

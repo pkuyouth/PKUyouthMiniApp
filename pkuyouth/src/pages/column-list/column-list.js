@@ -1,7 +1,9 @@
 // pages/column/column.js
 
+'use strict';
+
 const requests = require("../../libs/requests.js");
-const btnFuncs = require("../../conponents/floating-button/page-funcs.js");
+const btnFuncs = require("../../components/floating-button/page-funcs.js");
 
 
 Page({
@@ -12,7 +14,6 @@ Page({
 	},
 	onLoad() {
 		requests.get("/get_column_list").then((data)=>{
-			console.log(data);
 			this.setData({
 				columnsInfo: data.columns,
 			})

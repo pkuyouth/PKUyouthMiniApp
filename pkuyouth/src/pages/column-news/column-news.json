@@ -1,7 +1,8 @@
 {
     "usingComponents": {
-        "news-li": "/conponents/news-li/news-li",
-        "floating-button": "/conponents/floating-button/floating-button",
-        "alert-bar": "/conponents/alert-bar/alert-bar"
-    }
+        "news-li": "/components/news-li/news-li",
+        "floating-button": "/components/floating-button/floating-button",
+        "alert-bar": "/components/alert-bar/alert-bar"
+    },
+    "navigationBarTitleText": "栏目分类"
 }

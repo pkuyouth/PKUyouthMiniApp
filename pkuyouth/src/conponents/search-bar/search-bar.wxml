@@ -1,9 +1,0 @@
-<!--conponents/search-layer/search-layer.wxml-->
-
-<view wx:if="{{show}}" class="conponent-search-bar">
-	<view class="input-line">
-		<image class="icon" src="../../images/Search_white.png" mode="aspectFit"></image>
-		<input class="input" placeholder="搜索题目｜作者｜内容" placeholder-class="input-placeholder" confirm-type="search" value="{{keyword}}" bindinput="keywordInput" bind:confirm="tapConfirm"></input>	
-	</view>
-	<view class="submit-btn" catch:tap="searchSubmit">搜　索</view>
-</view>

@@ -7,7 +7,9 @@
         icon="{{['/images/Feedback.png','/images/Time_red.png','/images/Read_num_red.png','/images/Scroll_to_top_red.png']}}"
         text="{{['意见反馈','时间顺序','阅读量顺序','回到顶端']}}"
         tap-change="{{[true,true,true,true]}}"
-        has-search-bar="{{false}}"
+        has-search-bar="{{true}}"
+        search-range="{{'column-' + column}}"
+        search-bar-placeholder="{{'栏目内搜索'}}"
         move-action="{{moveAction}}"
         bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3" bind:tap-btn-four="tapBtn_4">
     </floating-button>

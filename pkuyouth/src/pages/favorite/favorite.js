@@ -1,8 +1,10 @@
 // pages/favorite/favorite.js
 
+'use strict';
+
 const requests = require('../../libs/requests.js');
-const btnFuncs = require('../../conponents/floating-button/page-funcs.js');
-const sort = require('../../libs/sort.js');
+const btnFuncs = require('../../components/floating-button/page-funcs.js');
+
 
 Page({
 	data: {
@@ -15,9 +17,6 @@ Page({
 		moveAction: '',
 	},
 	onLoad() {
-		wx.setNavigationBarTitle({
-			title: '我的收藏'
-		});
 		this.setData({
 			descByStarTime: false,
 			page: 1,
@@ -27,7 +26,7 @@ Page({
 		this.get_favorite();
 	},
 	onReachBottom() {
-		if (this.data.entirelyGet === true) {
+		if (this.data.entirelyGet === true | this.data.page === 0) { // page = 0 说明 entirelyGet
 			this.setData({
 				entirelyGet: true,
 			});
@@ -35,27 +34,35 @@ Page({
 			this.get_favorite();
 		}
 	},
-	get_favorite() {
+	get_favorite(get_all=false) {
 		if (!this.data.onGetFavorite && !this.data.entirelyGet) {
 			wx.showNavigationBarLoading();
 			this.setData({
 				onGetFavorite: true,
 			});
 			requests.post('/get_favorite',{
-				limit: 10,
-				page: this.data.page,
+				limit: 5,
+				page: get_all ? 0 : this.data.page, // get_all 则 page = 0
 			}).then((data)=>{
-				this.setData({
-					articlesList: this.data.articlesList.concat(data.news),
-					page: this.data.page + 1,
-					onGetFavorite: false,
-				});
-				if (!data.news.length) {
+				if (get_all) {
 					this.setData({
-						entirelyGet: true,
+						articlesList: data.news,
+						page: 0,
+						onGetFavorite: false,
+					}); // 此时不设置 entirelyGet 而是在随后的触底再设置，并触发提示
+				} else {
+					this.setData({
+						articlesList: this.data.articlesList.concat(data.news),
+						page: this.data.page + 1,
+						onGetFavorite: false,
 					});
-					wx.hideNavigationBarLoading();
+					if (!data.news.length) {
+						this.setData({
+							entirelyGet: true,
+						});
+					};
 				};
+				wx.hideNavigationBarLoading();
 			}).catch((data)=>{
 				this.setData({
 					onGetFavorite: false,
@@ -68,9 +75,27 @@ Page({
 		btnFuncs.feedback.call(this);
 	},
 	tapBtn_2() { // 点赞时间排序
-		sort.newsByStarTime.call(this);
+		let articlesList = this.data.articlesList;
+		if (articlesList.length === 0) return;
+		articlesList.sort((news1,news2)=>{
+			if (this.data.descByStarTime) {
+				return (news1.starTime > news2.starTime ? -1 : 1);
+			} else {
+				return (news2.starTime > news1.starTime ? -1 : 1);
+			};
+		});
+		this.setData({
+			articlesList: articlesList,
+			descByStarTime: !this.data.descByStarTime,
+		});
 	},
 	tapBtn_3() {
+		btnFuncs.sortedByTime.call(this);
+	},
+	tapBtn_4() {
+		this.get_favorite(true);
+	},
+	tapBtn_5() {
 		btnFuncs.scrollToUpper.call(this);
 	},
 	handleTouchStart(event) {
