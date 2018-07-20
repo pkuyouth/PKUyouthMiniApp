@@ -7,7 +7,7 @@
         <text class="desc">{{desc}}</text>
     </view>
     <view class="news-count">
-        <image class="icon" src="../../images/Article_num.png" mode="widthFix"></image>
+        <image class="icon" src="../../images/Article_num_grey.png" mode="widthFix"></image>
         <text class="num">{{newsCount}}</text>
     </view>
 </view>

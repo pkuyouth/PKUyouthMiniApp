@@ -1,22 +1,26 @@
 <!--pages/search-reporter/search-reporter.wxml-->
 
-<view class="page-search-reporter">
+<view class="page-search-reporter" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
     <view class="search-box">
         <view class="input-bar">
             <input class="{{focus ? 'onfocus' : 'onblur'}}" placeholder="输入记者的名字" placeholder-class="input-placeholder" confirm-type="search" value="{{name}}" bindinput="nameInput" bind:confirm="tapConfirm" bind:focus="bindFoucs" bind:blur="bindBlur"></input>
             <image class="submit-btn" src="../../images/Search_red.png" mode="aspectFit" bind:tap="search_rpt"></image>
         </view>
-        <view class="recommend">
+        <!--<view class="recommend">
             <text class="label">大家都在搜：</text>
-            <text>啦啦啦</text> <text>啦啦啦</text> <text>啦啦啦</text> <text>啦啦啦</text>
-        </view>
+            <text>（功能尚待开发 ...）</text>
+        </view>-->
         <view class="status">
             <text>{{status}}</text>
         </view>
     </view>
     <view class="rpt-list">
         <block wx:if="{{!rptsInfoList.length}}">
-            <text class="not-found">并没有找到相关记者 ...</text>
+            <view class="not-found">
+                <image src="../../images/No_reporter.png" mode="aspectFit"></image>
+                <text class="not-found">查无此人</text>
+            </view>
+
         </block>
         <block wx:else>
             <view class="line" wx:for="{{rptsInfoList}}" wx:key="name">

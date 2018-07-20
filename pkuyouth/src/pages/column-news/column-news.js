@@ -15,7 +15,7 @@ Page({
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
 	},
-	onLoad: function (options) {
+	onLoad(options) {
 		wx.showNavigationBarLoading();
 		this.setData({
 			column: decodeURIComponent(options.column),
@@ -26,25 +26,34 @@ Page({
 		this.get_column_news();
 	},
 	onReachBottom() {
-		if (this.data.entirelyGet === true) {
+		if (this.data.entirelyGet || this.data.page === 0) { // page = 0 说明 entirelyGet
 			this.setData({
-				entirelyGet: true,
+				entirelyGet: true, // 触发提示
 			});
 		} else {
 			this.get_column_news();
-		};
+		}
 	},
-	get_column_news() {
-		if (!this.onGetColumnNews && !this.entirelyGet) {
-			wx.showNavigationBarLoading();
-			this.setData({
-				onGetColumnNews: true,
-			});
-			requests.post('/get_column_news',{
-				column: this.data.column,
-				page: this.data.page,
-				limit: 10,
-			}).then((data)=>{
+	get_column_news(get_all=false) {
+		if (this.data.entirelyGet || this.data.page === 0 || this.onGetColumnNews) {
+			return;
+		};
+		wx.showNavigationBarLoading();
+		this.setData({
+			onGetColumnNews: true,
+		});
+		requests.post('/get_column_news',{
+			column: this.data.column,
+			page: get_all ? 0 : this.data.page, // get_all 则 page = 0
+			limit: 8,
+		}).then((data)=>{
+			if (get_all) {
+				this.setData({
+					articlesList: data.news,
+					page: 0,
+					onGetColumnNews: false,
+				});
+			} else {
 				this.setData({
 					articlesList: this.data.articlesList.concat(data.news),
 					page: this.data.page + 1,
@@ -55,14 +64,15 @@ Page({
 						entirelyGet: true,
 					});
 				};
-				wx.hideNavigationBarLoading();
-			}).catch((data)=>{
-				this.setData({
-					onGetColumnNews: false,
-				});
-				wx.hideNavigationBarLoading();
+			};
+			wx.hideNavigationBarLoading();
+		}).catch((data)=>{
+			this.setData({
+				onGetColumnNews: false,
 			});
-		};
+			wx.hideNavigationBarLoading();
+		});
+
 	},
 	tapBtn_1() {
 		btnFuncs.feedback.call(this);
@@ -74,6 +84,9 @@ Page({
 		btnFuncs.sortedByReadNum.call(this);
 	},
 	tapBtn_4() {
+		this.get_column_news(true);
+	},
+	tapBtn_5() {
 		btnFuncs.scrollToUpper.call(this);
 	},
 	handleTouchStart(event) {

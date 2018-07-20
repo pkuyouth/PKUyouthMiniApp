@@ -32,14 +32,16 @@
 }
  */
 
+.page-index .news-cols {
+    display: block;
+}
 
-
-.page-index .col-card {
+.page-index .news-cols .col-card {
     display: block;
     width: 750rpx;
     border-top: 10rpx solid #eeeeee;
 }
-.page-index .col-card .cover {
+.page-index .news-cols .col-card .cover {
     display: inline-block;
     width: 150rpx;
     height: 150rpx;
@@ -47,14 +49,14 @@
     box-shadow: 0rpx 4rpx 10rpx #aaaaaa;
     margin: 30rpx 60rpx 30rpx 40rpx;
 }
-.page-index .col-card .text-box {
+.page-index .news-cols .col-card .text-box {
     display: inline-block;
     width: 500rpx;
     height: 100%;
     text-align: justify;
     vertical-align: top;
 }
-.page-index .col-card .text-box .title {
+.page-index .news-cols .col-card .text-box .title {
     display: block;
     margin: 50rpx 0rpx 30rpx 0rpx;
     font-size: 36rpx;
@@ -62,7 +64,7 @@
     color: #353535;
     vertical-align: top;
 }
-.page-index .col-card .text-box .desc {
+.page-index .news-cols .col-card .text-box .desc {
     display: block;
     font-size: 26rpx;
     color: #888888;

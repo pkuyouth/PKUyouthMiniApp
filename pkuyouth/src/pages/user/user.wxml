@@ -32,6 +32,10 @@
 			<image mode="aspectFit" src="../../images/About.png"></image>
 			<text>关于我们</text>
 		</navigator>
+		<navigator class="line" open-type="navigate" url="/pages/setting/setting">
+			<image mode="aspectFit" src="../../images/Setting.png"></image>
+			<text>系统设置</text>
+		</navigator>
 	</view>
 </view>
 

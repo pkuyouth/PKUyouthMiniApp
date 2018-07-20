@@ -14,7 +14,8 @@ Component({
 		},
 		placeholder: { // 搜索栏的提示语
 			type: String,
-			value: "搜索题目｜作者｜内容",
+			//value: "搜索题目｜作者｜内容",
+			value: "搜索标题｜内容",
 		},
 		notFound: { // 无搜索结果的标语
 			type: String,

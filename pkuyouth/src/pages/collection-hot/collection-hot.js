@@ -22,7 +22,7 @@ Page({
         wx.showNavigationBarLoading();
         requests.post('/get_col_hot',{
             page: this.data.page,
-            limit: 5,
+            limit: 8,
         }).then((data)=>{
             this.setData({
                 articlesList: this.data.articlesList.concat(data.news),

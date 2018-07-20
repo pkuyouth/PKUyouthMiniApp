@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "news-li": "/components/news-li/news-li",
+        "news-li-sm": "../../components/news-li-sm/news-li-sm"
+    },
+    "enablePullDownRefresh": true
+}

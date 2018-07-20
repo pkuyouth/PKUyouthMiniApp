@@ -5,7 +5,7 @@
     <view class="info">
         <image class="brand" src="../../images/Brand.png" mode="aspectFit"></image>
         <text class="name">北小青</text>
-        <text class="version">v 0.0.15</text>
+        <text class="version">v {{version_number}}</text>
     </view>
     <view class="acknowledgement">
         <text>《北大青年》微信小程序开发团队</text>

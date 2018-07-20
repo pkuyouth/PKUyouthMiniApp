@@ -4,7 +4,7 @@
 	position: fixed;
 	width: 610rpx;
 	left: 70rpx;
-	top: 100rpx;
+	top: 70rpx;
 	text-align: center;
 	font-size: 24rpx;
 	z-index: 30;
@@ -14,7 +14,7 @@
 	width: 100%;
 	height: 60rpx;
 	line-height: 60rpx;
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(255, 255, 255, 0.4);
 }
 .component-search-bar .input-line .icon {
 	display: inline-block;

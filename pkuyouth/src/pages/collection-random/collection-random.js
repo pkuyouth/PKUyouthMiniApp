@@ -22,7 +22,7 @@ Page({
 		});
 		wx.showNavigationBarLoading();
 		requests.post('/get_col_random',{
-			count: 5,
+			count: 8,
 		}).then((data)=>{
 			this.setData({
 				articlesList: this.data.articlesList.concat(data.news),

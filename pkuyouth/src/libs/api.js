@@ -62,6 +62,8 @@ function login() {
 					}).then((data)=>{
 						setStorage("token", data.token, false);
 						app.globalData.config = data.config;
+						app.globalData.setting = Object.assign(app.globalData.setting, data.setting);
+						// console.log(app.globalData);
 						resolve();
 					});
 				} else {

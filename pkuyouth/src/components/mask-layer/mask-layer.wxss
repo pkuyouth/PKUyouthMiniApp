@@ -6,6 +6,6 @@
 	left: 0;
 	width: 750rpx;
 	height: 100vh;
-	background: rgba(0, 0, 0, 0.4);
+	background: rgba(0, 0, 0, 0.6);
 	z-index: 10;
 }

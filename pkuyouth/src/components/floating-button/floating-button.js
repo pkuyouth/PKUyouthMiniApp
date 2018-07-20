@@ -32,7 +32,7 @@ Component({
 		},
 		searchBarPlaceholder: {
 			type: String,
-			value: "搜索题目｜作者｜内容",
+			value: "搜索题目｜内容",
 		},
 		searchNotFound: {
 			type: String,
@@ -62,6 +62,7 @@ Component({
 		animation_3: {},
 		animation_4: {},
 		animation_5: {},
+		animation_6: {},
 		animationTotal: {},
 	},
 	created() {
@@ -83,7 +84,7 @@ Component({
 				onInit: false
 			});
 		};
-		setTimeout(initDone.bind(this),1000); // 0.7s 后显示图标
+		setTimeout(initDone.bind(this),1000); // 1.0s 后显示图标
 	},
 	methods: {
 		changeStatus() {
@@ -114,11 +115,12 @@ Component({
 		},
 		foldAnimation() {
 			this.setData({
-				animation_1: this.animation.translateX(130).step({delay:250}).export(),
-				animation_2: this.animation.translateX(130).step({delay:200}).export(),
-				animation_3: this.animation.translateX(130).step({delay:150}).export(),
-				animation_4: this.animation.translateX(130).step({delay:100}).export(),
-				animation_5: this.animation.translateX(130).step({delay:50}).export(),
+				animation_1: this.animation.translateX(130).step({delay:300}).export(),
+				animation_2: this.animation.translateX(130).step({delay:250}).export(),
+				animation_3: this.animation.translateX(130).step({delay:200}).export(),
+				animation_4: this.animation.translateX(130).step({delay:150}).export(),
+				animation_5: this.animation.translateX(130).step({delay:100}).export(),
+				animation_6: this.animation.translateX(130).step({delay:50}).export(),
 			});
 		},
 		unfoldAnimation() {
@@ -128,6 +130,7 @@ Component({
 				animation_3: this.animation.translateX(0).step({delay:150}).export(),
 				animation_4: this.animation.translateX(0).step({delay:200}).export(),
 				animation_5: this.animation.translateX(0).step({delay:250}).export(),
+				animation_6: this.animation.translateX(0).step({delay:300}).export(),
 			});
 		},
 		showMenu() {
@@ -169,6 +172,12 @@ Component({
 		tapBtn_5() {
 			this.triggerEvent("tap-btn-five");
 			if (this.data.tapChange[4]) {
+				this.changeStatus();
+			};
+		},
+		tapBtn_6() {
+			this.triggerEvent("tap-btn-six");
+			if (this.data.tapChange[5]) {
 				this.changeStatus();
 			};
 		}

@@ -9,7 +9,7 @@
 		<news-li  wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
 		<floating-button
 			num="{{5}}"
-			icon="{{['/images/Feedback.png','/images/Time_red.png','/images/Shuffle.png','/images/Scroll_to_top_red.png','/images/Homepage_red.png']}}"
+			icon="{{['/images/Feedback.png','/images/Time_red.png','/images/Similarity_match_red.png','/images/Scroll_to_top_red.png','/images/Exit_red.png']}}"
 			text="{{['意见反馈','时间顺序','相关度顺序','回到顶端','退出搜索页']}}"
 			tap-change="{{[true,true,true,true,true]}}"
 			has-search-bar="{{true}}"

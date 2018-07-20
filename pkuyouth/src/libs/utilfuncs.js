@@ -76,5 +76,5 @@ module.exports = {
 	urlJoin: urlJoin,
 	parseQuery: parseQuery,
 	//sleep: sleep,
-	rpx2px: rpx2px,
+	//rpx2px: rpx2px,
 };

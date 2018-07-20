@@ -1,7 +1,7 @@
 /* pages/search-reporter/search-reporter.wxss */
 
 .page-search-reporter {
-    width: 750rpx;
+
 }
 
 .page-search-reporter .search-box {
@@ -71,8 +71,18 @@
 }
 .page-search-reporter .rpt-list .not-found {
     display: block;
-    margin: 40rpx 0rpx 0rpx 40rpx;
-    font-size: 28rpx;
+    text-align: center;
+}
+.page-search-reporter .rpt-list .not-found image {
+    display: block;
+    width: 240rpx;
+    height: 240rpx;
+    margin: 120rpx 235rpx 50rpx 275rpx;
+}
+.page-search-reporter .rpt-list .not-found text {
+    display: block;
+    font-size: 30rpx;
+    color: #888888;
 }
 .page-search-reporter .rpt-list .line {
     border-bottom: 3rpx solid #eeeeee;

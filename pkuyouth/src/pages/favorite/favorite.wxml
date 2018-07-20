@@ -19,6 +19,6 @@
 			move-action="{{moveAction}}"
 			bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3" bind:tap-btn-four="tapBtn_4" bind:tap-btn-five="tapBtn_5">
 		</floating-button>
-		<alert-bar show="{{entirelyGet}}" text="{{'你的收藏只有这么多啦~'}}"></alert-bar>
+		<alert-bar show="{{entirelyGet}}" text="{{'您的收藏只有这么多啦~'}}"></alert-bar>
 	</block>
 </view>

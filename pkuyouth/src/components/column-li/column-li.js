@@ -19,13 +19,12 @@ Component({
 		newsCount: -1,
 	},
 	ready() {
-		let coverPrefix = app.globalData.config.prefix.column;
 		let columnInfo = this.data.columnInfo;
 		this.setData({
 			id: columnInfo.id,
 			title: columnInfo.title,
 			desc: columnInfo.desc,
-			cover: coverPrefix + columnInfo.cover,
+			cover: app.globalData.config.prefix.column + columnInfo.cover,
 			newsCount: columnInfo.newsCount,
 		});
 	},

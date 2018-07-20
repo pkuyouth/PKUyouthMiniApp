@@ -3,5 +3,5 @@
         "news-li": "/components/news-li/news-li",
         "floating-button": "/components/floating-button/floating-button"
     },
-    "navigationBarTitleText": "热门文章"
+    "navigationBarTitleText": "热文推荐"
 }

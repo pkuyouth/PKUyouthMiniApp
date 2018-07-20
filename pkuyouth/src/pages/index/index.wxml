@@ -8,24 +8,26 @@
 		</swiper-item>
 	</swiper>
 
-	<block wx:for="{{colCardData}}" wx:key="id" wx:for-item="col">
-		<navigator class="col-card" url="{{col.navUrl}}" open-type="navigate">
-			<image class="cover" src="{{col.cover}}" mode="aspectFill"></image>
-			<view class="text-box">
-				<text class="title">{{col.title}}</text>
-				<text class="desc">{{col.desc}}</text>
-			</view>
-		</navigator>
-	</block>
+	<view class="news-cols" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+		<block wx:for="{{colCardData}}" wx:key="id" wx:for-item="col">
+			<navigator class="col-card" url="{{col.navUrl}}" open-type="navigate">
+				<image class="cover" src="{{col.cover}}" mode="aspectFill"></image>
+				<view class="text-box">
+					<text class="title">{{col.title}}</text>
+					<text class="desc">{{col.desc}}</text>
+				</view>
+			</navigator>
+		</block>
+	</view>
 
-	<!--<floating-button
-		num="{{3}}"
+	<floating-button
+		num="{{0}}"
 		icon="{{['/images/Feedback.png','/images/Shuffle.png','/images/Shuffle.png']}}"
 		text="{{['意见反馈','热度顺序','回到顶端']}}"
 		tap-change="{{[true,true,true]}}"
 		has-search-bar="{{true}}"
 		move-action="{{moveAction}}"
 		bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3">
-	</floating-button>-->
+	</floating-button>
 </view>
 

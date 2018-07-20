@@ -16,7 +16,9 @@
         "pages/collection-random/collection-random",
         "pages/collection-hot/collection-hot",
         "pages/search-reporter/search-reporter",
-        "pages/update-log/update-log"
+        "pages/update-log/update-log",
+        "pages/blank/blank",
+        "pages/setting/setting"
     ],
     "tabBar": {
         "position": "bottom",
@@ -39,7 +41,7 @@
             },
             {
                 "pagePath": "pages/search-reporter/search-reporter",
-                "text": "看作者",
+                "text": "找作者",
                 "iconPath": "images/Author_grey.png",
                 "selectedIconPath": "images/Author_red.png"
             },

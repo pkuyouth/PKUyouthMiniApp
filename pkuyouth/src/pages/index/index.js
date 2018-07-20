@@ -16,21 +16,21 @@ Page({
 		colCardData: [
 			{
 				id: 1,
-				cover: 'http://mmbiz.qpic.cn/mmbiz/l9iadYXd83Z5OV4NVbHzf2J9mJkbmsNRGPQSomQIjiabHsTMxhsNdicAnbqgElOxibunfxMMZkykUU8VSNJanMYYzw/0',
+				cover: 'https://rabbitzxh.top/static/image/miniprogram_api/bg_cover_compressed/26508266021.jpeg',
 				title: '随便看看',
-				desc: '随机来一些文章噢',
+				desc: '随意翻翻北青的文章',
 				navUrl: '/pages/collection-random/collection-random',
 			}, {
 				id: 2,
-				cover: 'http://mmbiz.qpic.cn/mmbiz_jpg/l9iadYXd83Z6JsLCgGD2zhOPcXibzsf2p4mOElxIllPm2paDBg4FG8vFiabyUGKg4qiaXbxtXkSyr72Y2tKSVjmB3Q/0?wx_fmt=jpeg',
-				title: '热门推荐',
-				desc: '按阅读量排序的文章噢',
+				cover: 'https://rabbitzxh.top/static/image/miniprogram_api/bg_cover_compressed/26508283011.jpeg',
+				title: '热文推荐',
+				desc: '看看那些阅读量最高的文章',
 				navUrl: '/pages/collection-hot/collection-hot',
 			}, {
 				id: 3,
-				cover: 'http://mmbiz.qpic.cn/mmbiz_jpg/l9iadYXd83Z4XUjqCtXonTcyXL1Qb8SgRo5TPiakMCCKg3MFAAW5Qfc0JoFofxIHO5Gicj8qs5iatHxHfaRRlzIYjQ/0?wx_fmt=jpeg',
+				cover: 'https://rabbitzxh.top/static/image/miniprogram_api/bg_cover_compressed/26508251861.jpeg',
 				title: '还有更多',
-				desc: '还可以做其他的文集',
+				desc: '主编们正在努力整理 ...',
 				navUrl: '',
 			},
 		],
@@ -47,11 +47,11 @@ Page({
 			});
 			 */
 
-			/*
+
 			wx.navigateTo({
-				url: '/pages/contribute/contribute',
+				url: '/pages/blank/blank',
 			});
-			 */
+
 
 			/*
 			wx.navigateTo({
@@ -96,12 +96,12 @@ Page({
 	tapBtn_3() {
 		btnFuncs.scrollToUpper.call(this);
 	},
+	*/
 	handleTouchStart(event) {
 		btnFuncs.handleTouchStart.call(this, event);
 	},
 	handleTouchEnd(event) {
 		btnFuncs.handleTouchEnd.call(this, event);
 	}
-	 */
 })
 

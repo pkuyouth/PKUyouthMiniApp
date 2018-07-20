@@ -25,7 +25,6 @@ Page({
 		if (['column','rpt'].indexOf(range.split("-")[0]) !== -1) { // column-xxx | rpt-xxx
 			range = range.split("-")[1];
 		};
-		console.log(range);
 		this.setData({
 			keyword: decodeURIComponent(options.keyword),
 			range: range,
@@ -52,7 +51,7 @@ Page({
 			keyword: this.data.keyword,
 			page: this.data.page,
 			range: this.data.range,
-			limit: 5,
+			limit: 8,
 		}).then((data)=>{
 			this.setData({
 				articlesList: this.data.articlesList.concat(data.news),

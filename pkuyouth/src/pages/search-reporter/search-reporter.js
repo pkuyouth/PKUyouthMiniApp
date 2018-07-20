@@ -61,4 +61,10 @@ Page({
 	tapBtn_2() {
 		this.random_get_rpt();
 	},
+	handleTouchStart(event) {
+		btnFuncs.handleTouchStart.call(this, event);
+	},
+	handleTouchEnd(event) {
+		btnFuncs.handleTouchEnd.call(this, event);
+	},
 })

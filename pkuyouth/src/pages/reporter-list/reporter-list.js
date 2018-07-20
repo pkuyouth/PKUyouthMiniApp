@@ -39,7 +39,7 @@ Page({
         wx.showNavigationBarLoading();
         requests.post('/get_reporter_list',{
             page: this.data.page,
-            limit: 50,
+            limit: 80,
         }).then((data)=>{
             console.log(data);
             this.setData({

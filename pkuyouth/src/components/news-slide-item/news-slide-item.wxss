@@ -6,6 +6,7 @@
 .component-news-slide-item .cover {
     display: block;
     width: 750rpx;
+    height: 422rpx;
 }
 .component-news-slide-item .desc {
     text-align: justify;

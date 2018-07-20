@@ -29,6 +29,7 @@ Page({
 		cardAnimation: {},
 		unfolded: true, // 记者信息卡片是否折叠
 		descByTime: false,
+		descByReadNum: true,
 		onStarPost: false,
 	},
 	onLoad(options) {
@@ -44,6 +45,7 @@ Page({
 			onStarPost: false,
 			unfolded: true,
 			descByTime: false,
+			descByReadNum: true,
 			name: options.name.split('　').join(''),
 			nameOnShow: options.name,
 		});
@@ -53,7 +55,7 @@ Page({
 		this.get_rpt_info();
 	},
 	onReachBottom() {
-		if (this.data.entirelyGet === true) {
+		if (this.data.entirelyGet === true || this.data.page === 0) {
 			this.setData({ // 触发
 				entirelyGet: true,
 			});
@@ -78,28 +80,38 @@ Page({
 			this.get_rpt_news(); // 先获得记者信息 然后再获得图文信息
 		});
 	},
-	get_rpt_news() {
-		if (this.onGetNews || this.entirelyGet) return;
+	get_rpt_news(get_all=false) {
+		if (this.data.onGetNews || this.data.entirelyGet || this.data.page === 0) {
+			return;
+		};
 		this.setData({
 			onGetNews: true,
 		});
 		wx.showNavigationBarLoading();
 		requests.post("get_reporter_news",{
 			name: this.data.name,
-			page: this.data.page,
-			limit: 10,
+			page: get_all ? 0 : this.data.page, // get_all 则 page = 0
+			limit: 8,
 		}).then((data)=>{
-			this.setData({
-				articlesList: this.data.articlesList.concat(data.news),
-				page: this.data.page + 1,
-				onGetNews: false,
-			});
-			wx.hideNavigationBarLoading();
-			if (!data.news.length) {
+			if (get_all) {
 				this.setData({
-					entirelyGet: true,
+					articlesList: data.news,
+					page: 0,
+					onGetNews: false,
 				});
+			} else {
+				this.setData({
+					articlesList: this.data.articlesList.concat(data.news),
+					page: this.data.page + 1,
+					onGetNews: false,
+				});
+				if (!data.news.length) {
+					this.setData({
+						entirelyGet: true,
+					});
+				};
 			};
+			wx.hideNavigationBarLoading();
 		}).catch((data)=>{
 			this.setData({
 				onGetNews: false,
@@ -173,6 +185,7 @@ Page({
 	tapBtn_2() {
 		this.unfoldedCard();
 	},
+	/*
 	tapBtn_3() { // 按权重排序
 		let articlesList = this.data.articlesList;
 		if (articlesList.length === 0) return;
@@ -189,16 +202,22 @@ Page({
 			articlesList: articlesList,
 		});
 	},
-	tapBtn_4() { // 按时间排序
+	 */
+	tapBtn_3() { // 按时间排序
 		btnFuncs.sortedByTime.call(this);
 	},
+	tapBtn_4() {
+		btnFuncs.sortedByReadNum.call(this);
+	},
 	tapBtn_5() {
+		this.get_rpt_news(true);
+	},
+	tapBtn_6() {
 		btnFuncs.scrollToUpper.call(this);
 	},
 	handleTouchStart(event) {
 		if (this.data.unfolded) return;
 		btnFuncs.handleTouchStart.call(this, event);
-
 	},
 	handleTouchEnd(event) {
 		if (this.data.unfolded) return;

@@ -7,9 +7,15 @@ App({
 	globalData: {
 		userInfo: null,
 		systemInfo: {},
+		networkType: 'unknown',
 		config: {},
+		setting: {
+			"auto_change_card": false,
+			"use_small_card": true,
+		},
+
 	},
-	onLaunch: function () {
+	onLaunch() {
 		// 展示本地存储能力
 		/*
 		var logs = wx.getStorageSync('logs') || [];
@@ -58,5 +64,18 @@ App({
 				this.globalData.systemInfo = res;
 			}
 		})
+		wx.getNetworkType({
+			success: (res) => {
+				// 返回网络类型, 有效值：
+				// wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
+				this.globalData.networkType = res.networkType;
+			}
+		});
+		wx.onNetworkStatusChange((res)=>{
+			if (res.isConnected) {
+				this.globalData.networkType = res.networkType;
+			};
+		});
 	},
+
 })

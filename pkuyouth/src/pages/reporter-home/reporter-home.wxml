@@ -13,11 +13,11 @@
                 <text class="like-num">{{like}}</text>
             </view>
         </view>
-        <text class="desc">作者简介：我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介哈哈哈{{desc}}</text>
+        <!--<text class="desc">作者简介： 暂无 ...{{desc}}</text>-->
         <image class="star-btn" src="../../images/Flower_{{star ? 'red' : 'grey'}}.png" mode="scaleToFill" bind:tap="tapStar"></image>
         <view class="slide-tip">
             <text>上拉查看作品</text>
-            <image class="icon" src="../../images/Swipe_up.png" mode="widthFix"></image>
+            <image class="icon" src="../../images/Swipe_up_grey.png" mode="widthFix"></image>
         </view>
         <mask-layer class="mask-layer" style="z-index: {{initDone ? '-1' : '1'}}"></mask-layer>
     </view>
@@ -25,16 +25,16 @@
          <news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
     </view>
     <floating-button
-        num="{{5}}"
-        icon="{{['/images/Feedback.png','/images/Thumbs_up_red.png','/images/Shuffle.png','/images/Time_red.png','/images/Scroll_to_top_red.png']}}"
-        text="{{['意见反馈','点赞作者','推荐顺序','时间顺序','回到顶端']}}"
-        tap-change="{{[true,true,true,true,true]}}"
+        num="{{6}}"
+        icon="{{['/images/Feedback.png','/images/Author_red.png','/images/Time_red.png','/images/Read_num_rank_red.png','/images/Shuffle.png','/images/Scroll_to_top_red.png']}}"
+        text="{{['意见反馈','作者首页','时间顺序','阅读量顺序','加载全部','回到顶端']}}"
+        tap-change="{{[true,true,true,true,true,true]}}"
         has-search-bar="{{true}}"
         search-range="{{'rpt-' + name}}"
         search-bar-placeholder="{{'搜搜' + name + '的主页~'}}"
         search-not-found="{{name + '好像并没有写过这样的文章 ...'}}"
         move-action="{{moveAction}}"
-        bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3" bind:tap-btn-four="tapBtn_4" bind:tap-btn-five="tapBtn_5">
+        bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3" bind:tap-btn-four="tapBtn_4" bind:tap-btn-five="tapBtn_5" bind:tap-btn-six="tapBtn_6">
     </floating-button>
     <alert-bar show="{{entirelyGet}}" text="{{name}}{{'只展示了这么多文章～'}}"></alert-bar>
 </view>

@@ -1,6 +1,10 @@
 <!--components/floating-button/floating-button.wxml-->
 
 <view class="component-floating-button" animation="{{animationTotal}}">
+	<view wx:if="{{num>=6}}" class="button-option" style="display:{{display && !onInit ? 'inline-block' : 'none'}};" animation="{{animation_6}}" catch:tap="tapBtn_6">
+		<image class="icon" src="{{icon[5]}}" mode="aspectFit"></image>
+		<text class="text">{{text[5]}}</text>
+	</view>
 	<view wx:if="{{num>=5}}" class="button-option" style="display:{{display && !onInit ? 'inline-block' : 'none'}};" animation="{{animation_5}}" catch:tap="tapBtn_5">
 		<image class="icon" src="{{icon[4]}}" mode="aspectFit"></image>
 		<text class="text">{{text[4]}}</text>
