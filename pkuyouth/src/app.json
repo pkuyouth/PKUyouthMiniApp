@@ -7,7 +7,7 @@
         "pages/feedback/feedback",
         "pages/about/about",
         "pages/favorite/favorite",
-        "pages/search-result/search-result",
+        "pages/search-keyword-result/search-keyword-result",
         "pages/recommend-result/recommend-result",
         "pages/contribute/contribute",
         "pages/column-news/column-news",
@@ -18,7 +18,10 @@
         "pages/search-reporter/search-reporter",
         "pages/update-log/update-log",
         "pages/blank/blank",
-        "pages/setting/setting"
+        "pages/setting/setting",
+        "pages/retrieve/retrieve",
+        "pages/search-time-result/search-time-result",
+        "pages/search-reporter-result/search-reporter-result"
     ],
     "tabBar": {
         "position": "bottom",
@@ -40,8 +43,8 @@
                 "selectedIconPath": "images/Column_red.png"
             },
             {
-                "pagePath": "pages/search-reporter/search-reporter",
-                "text": "找作者",
+                "pagePath": "pages/retrieve/retrieve",
+                "text": "检索",
                 "iconPath": "images/Author_grey.png",
                 "selectedIconPath": "images/Author_red.png"
             },

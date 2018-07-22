@@ -8,7 +8,7 @@
 		</swiper-item>
 	</swiper>
 
-	<view class="news-cols" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+	<view class="news-cols">
 		<block wx:for="{{colCardData}}" wx:key="id" wx:for-item="col">
 			<navigator class="col-card" url="{{col.navUrl}}" open-type="navigate">
 				<image class="cover" src="{{col.cover}}" mode="aspectFill"></image>
@@ -19,15 +19,5 @@
 			</navigator>
 		</block>
 	</view>
-
-	<floating-button
-		num="{{0}}"
-		icon="{{['/images/Feedback.png','/images/Shuffle.png','/images/Shuffle.png']}}"
-		text="{{['意见反馈','热度顺序','回到顶端']}}"
-		tap-change="{{[true,true,true]}}"
-		has-search-bar="{{true}}"
-		move-action="{{moveAction}}"
-		bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2" bind:tap-btn-three="tapBtn_3">
-	</floating-button>
 </view>
 

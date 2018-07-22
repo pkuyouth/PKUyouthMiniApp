@@ -1,15 +1,20 @@
 <!--pages/favorite/favorite.wxml-->
 
 <view class="page-favorite" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
-	<view class="no-collection" wx:if="{{!articlesList.length}}">
-		<image src="../../images/No_collection.png" mode="aspectFit"></image>
-		<text>快去丰富你的收藏吧～</text>
-	</view>
+	<block wx:if="{{!initDone}}">
+		<image class="loading" src="../../images/Loading.gif" mode="aspectFit"></image>
+	</block>
+	<block wx:elif="{{!articlesList.length}}">
+		<view class="no-collection">
+			<image src="../../images/No_collection.png" mode="aspectFit"></image>
+			<text>快去丰富你的收藏吧～</text>
+		</view>
+	</block>
 	<block wx:else>
 		<news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
 		<floating-button
 			num="{{5}}"
-			icon="{{['/images/Feedback.png','/images/Star_red.png','/images/Time_red.png','/images/Shuffle.png','/images/Scroll_to_top_red.png']}}"
+			icon="{{['/images/Feedback.png','/images/Star_red.png','/images/Time_red.png','/images/Load_all.png','/images/Scroll_to_top_red.png']}}"
 			text="{{['意见反馈','收藏顺序','时间顺序','加载全部','回到顶端']}}"
 			tap-change="{{[true,true,true,true,true]}}"
 			has-search-bar="{{true}}"

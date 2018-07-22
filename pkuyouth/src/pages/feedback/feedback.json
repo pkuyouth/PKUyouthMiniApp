@@ -1,6 +1,6 @@
 {
 	"usingComponents": {
-		"alert-layer": "/components/alert-layer/alert-layer"
+		"alert-layer": "../../components/alert-layer/alert-layer"
 	},
     "navigationBarTitleText": "意见反馈"
 }

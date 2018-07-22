@@ -38,7 +38,7 @@ Component({
 			let [keyword, range, notFound] = Array.from(
 				[this.data.keyword, this.data.range, this.data.notFound], x => encodeURIComponent(x));
 			wx.navigateTo({
-				url: `/pages/search-result/search-result?keyword=${keyword}&range=${range}&notfound=${notFound}`,
+				url: `/pages/search-keyword-result/search-keyword-result?keyword=${keyword}&range=${range}&notfound=${notFound}`,
 			});
 		}
 	}

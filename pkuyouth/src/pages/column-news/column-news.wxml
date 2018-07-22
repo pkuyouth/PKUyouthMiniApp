@@ -4,7 +4,7 @@
     <news-li  wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
     <floating-button
         num="{{5}}"
-        icon="{{['/images/Feedback.png','/images/Time_red.png','/images/Read_num_rank_red.png','/images/Shuffle.png','/images/Scroll_to_top_red.png']}}"
+        icon="{{['/images/Feedback.png','/images/Time_red.png','/images/Read_num_rank_red.png','/images/Load_all.png','/images/Scroll_to_top_red.png']}}"
         text="{{['意见反馈','时间顺序','阅读量顺序','加载全部','回到顶端']}}"
         tap-change="{{[true,true,true,true,true]}}"
         has-search-bar="{{true}}"

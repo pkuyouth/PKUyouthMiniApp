@@ -66,13 +66,11 @@
 	padding-top: 8rpx;
 }
 
-
 .component-news-li .info .detail .right-box .time {
 	display: block;
 	margin-right: 8rpx;
 	margin-bottom: 6rpx;
 }
-
 .component-news-li .info .detail .right-box view {
 	display: inline-block;
 	text-align: right;
@@ -83,7 +81,6 @@
 	margin-left: 25rpx;
 	vertical-align: middle;
 }
-
 .component-news-li .info .detail .right-box view image.btn {
 	display: inline-block;
 	width: 45rpx;

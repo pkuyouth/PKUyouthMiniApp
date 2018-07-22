@@ -1,0 +1,29 @@
+/* pages/search-reporter-result/search-reporter-result.wxss */
+
+
+
+.page-search-reporter-result {
+
+}
+
+.page-search-reporter-result .not-found {
+    display: block;
+    text-align: center;
+}
+.page-search-reporter-result .not-found image {
+    display: block;
+    margin: 240rpx 235rpx 20rpx 275rpx;
+    width: 240rpx;
+    height: 320rpx;
+}
+.page-search-reporter-result .not-found text {
+    display: block;
+    text-align: center;
+    margin: 0rpx 50rpx;
+    width: 650rpx;
+    font-size: 30rpx;
+    color: #888888;
+}
+.page-search-reporter-result .line {
+    border-bottom: 3rpx solid #eeeeee;
+}

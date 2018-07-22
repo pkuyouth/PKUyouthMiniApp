@@ -4,5 +4,5 @@
         "floating-button": "../../components/floating-button/floating-button",
         "alert-bar": "../../components/alert-bar/alert-bar"
     },
-    "navigationBarTitleText": "栏目分类"
+    "navigationBarTitleText": "搜索结果"
 }

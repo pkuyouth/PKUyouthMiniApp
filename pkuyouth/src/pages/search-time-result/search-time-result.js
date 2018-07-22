@@ -1,4 +1,4 @@
-// pages/recommend-result/recommend-result.js
+// pages/search-time-result/search-time-result.js
 
 'use strict';
 
@@ -7,43 +7,54 @@ const btnFuncs = require('../../components/floating-button/page-funcs.js');
 
 
 Page({
+
 	data: {
 		initDone: false,
+		method: '',
 		articlesList: [],
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
 	},
+
 	onLoad(options) {
-		wx.showNavigationBarLoading();
-		requests.post('/recommend',{
-			newsID: options.newsid,
-			limit: 10,
+		this.setData({
+			method: options.method,
+		});
+		requests.post("/search_by_time",{
+			date: options.date,
+			method: options.method,
 		}).then((data)=>{
 			this.setData({
 				articlesList: data.news,
 				initDone: true,
 			});
-			wx.hideNavigationBarLoading();
+			/*     ???   ????     ???   ???
+			if (!data.news.length) {
+				setTimeout(function (){
+					wx.navigateTo({
+						url: '/pages/about/about',
+					});
+				}.bind(this), 2000);
+			};
+			 */
 		}).catch((data)=>{
 			this.setData({
 				initDone: true,
 			});
-			wx.hideNavigationBarLoading();
 		});
 	},
 	tapBtn_1() {
 		btnFuncs.feedback.call(this);
 	},
 	tapBtn_2() {
-		btnFuncs.sortedByTime.call(this);
-	},
-	tapBtn_3() {
-		btnFuncs.pageBack.call(this);
+		btnFuncs.scrollToUpper.call(this);
 	},
 	handleTouchStart(event) {
+		if (!this.data.articlesList.length) return;
 		btnFuncs.handleTouchStart.call(this, event);
 	},
 	handleTouchEnd(event) {
+		if (!this.data.articlesList.length) return;
 		btnFuncs.handleTouchEnd.call(this, event);
 	},
 })

@@ -8,11 +8,11 @@
             <view class="time">
                 <text>{{time}}</text>
             </view>
-            <view class="recommend">
+            <view class="recommend" wx:if="{{in_use}}">
                 <text class="label">找相似</text>
                 <image class="btn" src="../../images/Similarity_match_grey.png" mode="widthFix" catch:tap="tapRecommend"></image>
             </view>
-            <view class="star">
+            <view class="star" wx:if="{{in_use}}">
                 <text class="label">喜欢</text>
                 <image class="btn" src="../../images/Add_to_favorites_{{star ? 'red' : 'grey'}}.png" mode="widthFix" catch:tap="tapStar"></image>
             </view>

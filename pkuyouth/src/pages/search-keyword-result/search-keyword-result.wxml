@@ -1,10 +1,15 @@
-<!--pages/search-result/search-result.wxml-->
+<!--pages/search-keyword-result/search-keyword-result.wxml-->
 
-<view class="page-search-result" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
-	<view class="no-result" wx:if="{{!articlesList.length}}">
-		<image src="../../images/Not_found.png" mode="aspectFit"></image>
-		<text>{{notFound}}</text>
-	</view>
+<view class="page-search-keyword-result" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+	<block wx:if="{{!initDone}}">
+		<image class="loading" src="../../images/Loading.gif" mode="aspectFit"></image>
+	</block>
+	<block wx:elif="{{!articlesList.length}}">
+		<view class="no-result">
+			<image src="../../images/Not_found.png" mode="aspectFit"></image>
+			<text>{{notFound}}</text>
+		</view>
+	</block>
 	<block wx:else>
 		<news-li  wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
 		<floating-button

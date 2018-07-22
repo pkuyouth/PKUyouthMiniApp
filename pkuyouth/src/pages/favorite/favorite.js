@@ -8,6 +8,7 @@ const btnFuncs = require('../../components/floating-button/page-funcs.js');
 
 Page({
 	data: {
+		initDone: false,
 		articlesList: [],
 		descByStarTime: false,
 		page: 1,
@@ -17,12 +18,6 @@ Page({
 		moveAction: '',
 	},
 	onLoad() {
-		this.setData({
-			descByStarTime: false,
-			page: 1,
-			onGetFavorite: false,
-			entirelyGet: false,
-		});
 		this.get_favorite();
 	},
 	onReachBottom() {
@@ -51,12 +46,14 @@ Page({
 					articlesList: data.news,
 					page: 0,
 					onGetFavorite: false,
+					initDone: true,
 				}); // 此时不设置 entirelyGet 而是在随后的触底再设置，并触发提示
 			} else {
 				this.setData({
 					articlesList: this.data.articlesList.concat(data.news),
 					page: this.data.page + 1,
 					onGetFavorite: false,
+					initDone: true,
 				});
 				if (!data.news.length) {
 					this.setData({
@@ -68,6 +65,7 @@ Page({
 		}).catch((data)=>{
 			this.setData({
 				onGetFavorite: false,
+				initDone: true,
 			});
 			wx.hideNavigationBarLoading();
 		});
@@ -106,3 +104,4 @@ Page({
 		btnFuncs.handleTouchEnd.call(this, event);
 	},
 })
+

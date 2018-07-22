@@ -1,8 +1,8 @@
 {
     "usingComponents": {
-        "news-li": "/components/news-li/news-li",
-        "floating-button": "/components/floating-button/floating-button",
-        "mask-layer": "/components/mask-layer/mask-layer",
-        "alert-bar": "/components/alert-bar/alert-bar"
+        "news-li": "../../components/news-li/news-li",
+        "floating-button": "../../components/floating-button/floating-button",
+        "mask-layer": "../../components/mask-layer/mask-layer",
+        "alert-bar": "../../components/alert-bar/alert-bar"
     }
 }

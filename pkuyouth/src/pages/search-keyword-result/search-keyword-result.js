@@ -1,4 +1,4 @@
-// pages/search-result/search-result.js
+// pages/search-keyword-result/search-keyword-result.js
 
 'use strict';
 
@@ -8,6 +8,7 @@ const btnFuncs = require("../../components/floating-button/page-funcs.js");
 
 Page({
 	data: {
+		initDone: false,
 		keyword: '',
 		range: '',
 		notFound: '',
@@ -47,7 +48,7 @@ Page({
 			onSearch: true,
 		});
 		wx.showNavigationBarLoading();
-		requests.post('/search',{
+		requests.post('/search_by_keyword',{
 			keyword: this.data.keyword,
 			page: this.data.page,
 			range: this.data.range,
@@ -57,6 +58,7 @@ Page({
 				articlesList: this.data.articlesList.concat(data.news),
 				page: this.data.page + 1,
 				onSearch: false,
+				initDone: true,
 			});
 			wx.hideNavigationBarLoading();
 			if (!data.news.length) {
@@ -67,6 +69,7 @@ Page({
 		}).catch((data)=>{
 			this.setData({
 				onSearch: false,
+				initDone: true,
 			});
 			wx.hideNavigationBarLoading();
 		});

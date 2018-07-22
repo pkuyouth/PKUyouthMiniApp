@@ -6,8 +6,6 @@
 
 const requests = require('../../libs/requests.js');
 const api = require('../../libs/api.js');
-const btnFuncs = require('../../components/floating-button/page-funcs.js');
-// const sort = require('../../libs/sort.js');
 
 
 Page({
@@ -43,19 +41,19 @@ Page({
 
 			/*
 			wx.switchTab({
-				url: '/pages/search-reporter/search-reporter',
+				url: '/pages/retrieve/retrieve',
 			});
 			 */
 
-
+			/*
 			wx.navigateTo({
-				url: '/pages/blank/blank',
+				url: '/pages/favorite/favorite',
 			});
-
+			 */
 
 			/*
 			wx.navigateTo({
-				url: '/pages/search-result/search-result?keyword=' + '嫁给我',
+				url: '/pages/search-keyword-result/search-keyword-result?keyword=' + '嫁给我',
 			});
 			 */
 
@@ -86,22 +84,5 @@ Page({
 			console.log(data);
 		});
 	},
-	/*
-	tapBtn_1() {
-		btnFuncs.feedback.call(this);
-	},
-	tapBtn_2() {
-		sort.newsByReadNum.call(this);
-	},
-	tapBtn_3() {
-		btnFuncs.scrollToUpper.call(this);
-	},
-	*/
-	handleTouchStart(event) {
-		btnFuncs.handleTouchStart.call(this, event);
-	},
-	handleTouchEnd(event) {
-		btnFuncs.handleTouchEnd.call(this, event);
-	}
 })
 

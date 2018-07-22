@@ -44,7 +44,7 @@ function pageBack() { // 连续退出搜索和推荐页
     for (var i = pageStack.length - 1; i >= 0; i--) {
         let route = pageStack[i].route;
         let path = route.substring(route.lastIndexOf('/')+1);
-        if (["search-result","recommend-result"].indexOf(path) !== -1) {
+        if (["search-keyword-result","recommend-result"].indexOf(path) !== -1) {
             backPageNum++ ;
         } else { // 退出连续的搜索和推荐，一直到其他界面
             break;

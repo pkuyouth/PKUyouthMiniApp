@@ -70,17 +70,19 @@
     display: block;
 }
 .page-search-reporter .rpt-list .not-found {
-    display: block;
-    text-align: center;
+
 }
 .page-search-reporter .rpt-list .not-found image {
     display: block;
+    margin: 290rpx 255rpx 60rpx 255rpx;
     width: 240rpx;
     height: 240rpx;
-    margin: 120rpx 235rpx 50rpx 275rpx;
 }
 .page-search-reporter .rpt-list .not-found text {
     display: block;
+    text-align: center;
+    margin: 0rpx 50rpx;
+    width: 650rpx;
     font-size: 30rpx;
     color: #888888;
 }
