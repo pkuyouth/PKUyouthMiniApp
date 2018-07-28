@@ -1,6 +1,8 @@
 'use strict';
 
+
 const app = getApp();
+
 
 String.prototype.trim = function (char, type) {
 	if (char) {
@@ -68,13 +70,15 @@ function sleep(milliseconds) {
 };
 
 
-function rpx2px(rpx) {
+function rpx2px(rpx) { // 这个函数有问题
 	return rpx / 750 * app.globalData.systemInfo.screenWidth;
 };
 
+
+
 module.exports = {
 	urlJoin: urlJoin,
-	parseQuery: parseQuery,
+	//parseQuery: parseQuery,
 	//sleep: sleep,
 	//rpx2px: rpx2px,
 };

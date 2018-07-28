@@ -11,7 +11,7 @@
             <text class="label">小图模式</text>
             <switch checked="{{use_small_card}}" data-option="use_small_card" color="#993a3a" bind:change="changeSetting"></switch>
         </view>
-        <text class="note">注：大图模式耗流较大，容易卡顿，建议选择小图模式。</text>
+        <text class="note">注：1、大图模式消耗资源，容易卡顿，建议选择小图模式; 2、大图模式下请慎重使用“加载全部”功能。</text>
     </view>
 </view>
 

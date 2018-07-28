@@ -44,5 +44,6 @@
     display: block;
     color: #888888;
     font-size: 26rpx;
-    margin: 40rpx 0rpx 0rpx 40rpx;
+    line-height: 1.5em;
+    margin: 40rpx 40rpx 0rpx 40rpx;
 }

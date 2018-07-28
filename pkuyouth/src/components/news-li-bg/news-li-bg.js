@@ -3,9 +3,8 @@
 'use strict';
 
 const tools = require("../../libs/utilfuncs.js");
-const requests = require("../../libs/requests.js");
+const cardFuncs = require('../news-li/page-funcs.js');
 
-const app = getApp();
 
 Component({
 	properties: {
@@ -22,9 +21,8 @@ Component({
         rank: -1,
         weight: -1,
         cover_url: '',
-        news_url: '',
+        sn: '',
         in_use: false,
-        title_encode: '',
 	},
     ready() { // created 在获得属性之前，如果用 created 则 props 均为 null !
         let newsInfo = this.data.newsInfo;
@@ -38,44 +36,25 @@ Component({
             star: newsInfo.star,
             starTime: newsInfo.starTime === undefined ? -1 : newsInfo.starTime,
             weight: newsInfo.weight === undefined ? -1 : newsInfo.weight,
-            cover_url: app.globalData.config.prefix.bg_cover + newsInfo.cover_url,
-            news_url: encodeURIComponent(this.unifyUrl(newsInfo.news_url)),
+            cover_url: newsInfo.cover_url,
+            sn: newsInfo.sn,
             in_use: newsInfo.in_use,
-            title_encode: encodeURIComponent(newsInfo.title),
-        }); // news_url 需要事先转义，否则其中含有的 ? 会影响 navigator 对参数的匹配
+        });
     },
 	methods: {
-        unifyUrl(url) {
-            let host = "https://mp.weixin.qq.com/s";
-            let querys = tools.parseQuery(url);
-            return tools.urlJoin(host, querys) + "#wechat_redirect";
-        },
         fmtTime(time) {
             //let [year, month, day] = time.split("-");
             //return year+'年'+month+'月'+day+'日'
             return time.split("-").join(" / ")
         },
         tapStar() {
-            this.setData({
-                star: !this.data.star,
-            });
-            requests.post("/star_news",{
-                newsID: this.data.newsID,
-                action: this.data.star ? "star" : "unstar", // tap后的实际状态
-                actionTime: new Date().getTime(),
-            }).then((data)=>{
-            }).catch((data)=>{
-                if (data.errcode && data.errcode !== 0) {
-                    this.setData({
-                        star: !this.data.star,
-                    });
-                };
-            });
+            cardFuncs.handleTapStar.call(this);
         },
         tapRecommend() {
-            wx.navigateTo({
-                url: '/pages/recommend-result/recommend-result?newsid=' + this.data.newsID,
-            });
-        }
+            cardFuncs.handleTapRecommend.call(this);
+        },
+        tapNavigate() {
+            cardFuncs.handleTapNavigate.call(this);
+        },
 	}
 })

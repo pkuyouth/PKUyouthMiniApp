@@ -1,7 +1,7 @@
 <!--components/column-li/column-li.wxml-->
 
 <view class="component-column-li" bind:tap="tapColumnCard">
-    <image class="cover" src="{{cover}}" mode="widthFix"></image>
+    <image class="cover" src="{{cover}}" mode="widthFix" lazy-load="true"></image>
     <view class="text-box">
         <text class="title">{{title}}</text>
         <text class="desc">{{desc}}</text>

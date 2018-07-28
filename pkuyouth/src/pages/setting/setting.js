@@ -19,7 +19,7 @@ Page({
             key: event.target.dataset.option,
             value: event.detail.value,
         }).then((data)=>{
-            console.log(data);
+            // 这里本地设置优于服务器设置，即使这个接口出错，用户仍然可以在当次体验中修改设置
         });
 	},
 })

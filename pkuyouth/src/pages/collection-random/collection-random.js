@@ -4,6 +4,7 @@
 
 const requests = require('../../libs/requests.js');
 const btnFuncs = require('../../components/floating-button/page-funcs.js');
+const cardFuncs = require('../../components/news-li/page-funcs.js');
 
 Page({
 	data: {
@@ -12,7 +13,7 @@ Page({
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
 	},
-	onLoad(options) {
+	onLoad() {
 		this.get_random();
 	},
 	get_random() {
@@ -24,8 +25,9 @@ Page({
 		requests.post('/get_col_random',{
 			count: 8,
 		}).then((data)=>{
+			let newArticles = cardFuncs.filterExisted.call(this, data.news); // 去重
 			this.setData({
-				articlesList: this.data.articlesList.concat(data.news),
+				articlesList: this.data.articlesList.concat(newArticles),
 				onGetRandom: false,
 			});
 			wx.hideNavigationBarLoading();

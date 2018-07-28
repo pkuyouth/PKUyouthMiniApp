@@ -4,6 +4,7 @@
 
 const requests = require('../../libs/requests.js');
 const btnFuncs = require('../../components/floating-button/page-funcs.js');
+const cardFuncs = require('../../components/news-li/page-funcs.js');
 
 
 Page({
@@ -41,16 +42,18 @@ Page({
 			limit: 8,
 			page: get_all ? 0 : this.data.page, // get_all 则 page = 0
 		}).then((data)=>{
+			let newArticles = data.news;
 			if (get_all) {
+				newArticles = cardFuncs.filterExisted.call(this, newArticles); // 去重
 				this.setData({
-					articlesList: data.news,
+					articlesList: this.data.articlesList.concat(newArticles),
 					page: 0,
 					onGetFavorite: false,
 					initDone: true,
 				}); // 此时不设置 entirelyGet 而是在随后的触底再设置，并触发提示
 			} else {
 				this.setData({
-					articlesList: this.data.articlesList.concat(data.news),
+					articlesList: this.data.articlesList.concat(newArticles),
 					page: this.data.page + 1,
 					onGetFavorite: false,
 					initDone: true,

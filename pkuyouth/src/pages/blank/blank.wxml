@@ -1,16 +1,1 @@
 <!--pages/blank/blank.wxml-->
-
-<!--<news-li-sm wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li-sm>-->
-
-<view class="section">
-  <view class="section__title">日期选择器</view>
-  <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
-    <view class="picker">
-      当前选择: {{date}}
-    </view>
-  </picker>
-</view>
-
-<button bind:tap="submitTimeSearch" data-method="month">搜索当月文章</button>
-<button bind:tap="submitTimeSearch" data-method="date">搜索当日文章</button>
-

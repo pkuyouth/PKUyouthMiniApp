@@ -1,22 +1,25 @@
 'use strict';
 
-
 const tools = require('utilfuncs.js');
+const sha224 = require('../vendors/js-sha256.min.js').sha224;
 
-var _updateSessionId = function (resp) { // 带cookie请求，才能保持session连接
+
+function _updateSessionId(resp) { // 带cookie请求，才能保持session连接
 	let cookie = resp.header["Set-Cookie"];
 	if (cookie !== undefined) {
 		wx.setStorageSync('cookie',cookie);
 	};
 };
 
-var requests = function(method="GET") {
+
+function requests(method="GET") {
 	return function(path, data={}) {
 		let ApiUrl = "https://rabbitzxh.top/pkuyouth/miniprogram/api";
 		var url = tools.urlJoin(ApiUrl, path);
 		var cookie = wx.getStorageSync('cookie');
 		data.timestamp = new Date().getTime();
 		data.token = wx.getStorageSync('token');
+		data.signature = sha224(Object.entries(data).sort().join(',').toLowerCase());
 		return new Promise( function(resolve, reject) {
 			wx.request({
 				url: url,

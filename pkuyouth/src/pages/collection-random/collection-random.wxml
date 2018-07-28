@@ -1,7 +1,7 @@
 <!--pages/collection-random/collection-random.wxml-->
 
-<view class="page-collection-random" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
-    <news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+<view class="page page-collection-random" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+    <news-li class="item-{{index}}" wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
     <floating-button
         num="{{4}}"
         icon="{{['/images/Feedback.png','/images/Time_red.png','/images/Read_num_rank_red.png','/images/Scroll_to_top_red.png']}}"

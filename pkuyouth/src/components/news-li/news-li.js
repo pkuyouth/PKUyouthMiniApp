@@ -26,7 +26,4 @@ Component({
 			};
 		});
 	},
-	methods: {
-
-	}
 })

@@ -41,15 +41,16 @@ Page({
 
 			/*
 			wx.switchTab({
-				url: '/pages/retrieve/retrieve',
+				url: '/pages/column-list/column-list',
 			});
 			 */
 
 			/*
 			wx.navigateTo({
-				url: '/pages/favorite/favorite',
+				url: '/pages/blank/blank',
 			});
 			 */
+
 
 			/*
 			wx.navigateTo({

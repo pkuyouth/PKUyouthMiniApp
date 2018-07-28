@@ -1,9 +1,7 @@
 <!--components/news-li/news-li.wxml-->
 
-<view class="component-news-li">
-	<navigator class="cover" url="/pages/web-frame/web-frame?url={{news_url}}&title={{title_encode}}&type=news" open-type="navigate">
-		<image class="image" src="{{cover_url}}" mode="widthFix"></image>
-	</navigator>
+<view class="component-news-li-bg">
+	<image class="cover" src="{{cover_url}}" mode="widthFix" lazy-load="true" bind:tap="tapNavigate"></image>
 	<view class="info">
 		<view class="header">
 			<text class="title">{{title}}</text>

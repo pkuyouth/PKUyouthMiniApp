@@ -3,6 +3,8 @@
 'use strict';
 
 const tools = require('../../libs/utilfuncs.js');
+const cardFuncs = require('../news-li/page-funcs.js');
+
 
 Component({
 
@@ -16,8 +18,7 @@ Component({
 		digest: '',
 		time: '',
 		cover_url: '',
-		news_url: '',
-		title_encode: '',
+        sn: '',
 	},
 	ready() {
 		let newsInfo = this.data.newsInfo;
@@ -27,16 +28,10 @@ Component({
 			digest: this.fmtDigest(newsInfo.digest),
 			time: this.fmtTime(newsInfo.time),
 			cover_url: newsInfo.cover_url,
-			news_url: encodeURIComponent(this.unifyUrl(newsInfo.news_url)),
-			title_encode: encodeURIComponent(newsInfo.title),
+			sn: newsInfo.sn,
 		});
 	},
 	methods: {
-        unifyUrl(url) {
-            let host = "https://mp.weixin.qq.com/s";
-            let querys = tools.parseQuery(url);
-            return tools.urlJoin(host, querys) + "#wechat_redirect";
-        },
         fmtTime(time) {
             let [year, month, day] = time.split("-");
             return year+'年'+month+'月'+day+'日'
@@ -47,6 +42,9 @@ Component({
         	} else {
         		return digest.substring(0, 44) + '……';
         	}
-        }
+        },
+        tapNavigate() {
+            cardFuncs.handleTapNavigate.call(this);
+        },
 	}
 })

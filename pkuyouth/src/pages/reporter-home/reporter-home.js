@@ -4,6 +4,7 @@
 
 const requests = require('../../libs/requests.js');
 const btnFuncs = require('../../components/floating-button/page-funcs.js');
+const cardFuncs = require('../../components/news-li/page-funcs.js');
 
 const app = getApp();
 
@@ -93,15 +94,17 @@ Page({
 			page: get_all ? 0 : this.data.page, // get_all 则 page = 0
 			limit: 8,
 		}).then((data)=>{
+			let newArticles = data.news;
 			if (get_all) {
+				newArticles = cardFuncs.filterExisted.call(this, newArticles); // 去重
 				this.setData({
-					articlesList: data.news,
+					articlesList: this.data.articlesList.concat(newArticles),
 					page: 0,
 					onGetNews: false,
 				});
 			} else {
 				this.setData({
-					articlesList: this.data.articlesList.concat(data.news),
+					articlesList: this.data.articlesList.concat(newArticles),
 					page: this.data.page + 1,
 					onGetNews: false,
 				});

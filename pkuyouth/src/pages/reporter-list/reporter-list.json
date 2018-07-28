@@ -1,8 +1,0 @@
-{
-    "usingComponents": {
-        "reporter-li": "../../components/reporter-li/reporter-li",
-        "floating-button": "../../components/floating-button/floating-button",
-        "alert-bar": "../../components/alert-bar/alert-bar"
-    },
-    "navigationBarTitleText": "作者专栏"
-}
