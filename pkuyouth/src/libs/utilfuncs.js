@@ -75,10 +75,19 @@ function rpx2px(rpx) { // 这个函数有问题
 };
 
 
+function alertNoInput() {
+	wx.showToast({
+		title: "输入内容不得为空",
+		icon: 'none',
+		duration: 1000,
+	});
+}
+
 
 module.exports = {
 	urlJoin: urlJoin,
 	//parseQuery: parseQuery,
 	//sleep: sleep,
 	//rpx2px: rpx2px,
+	alertNoInput: alertNoInput,
 };

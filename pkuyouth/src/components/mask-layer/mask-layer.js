@@ -9,9 +9,6 @@ Component({
 			value: true,
 		}
 	},
-	data: {
-
-	},
 	methods: {
 		shield() {
 			// console.log('shield !');

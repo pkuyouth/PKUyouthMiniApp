@@ -2,7 +2,8 @@
 
 'use strict';
 
-const requests = require("../../libs/requests.js")
+const requests = require("../../libs/requests.js");
+const utils = require('../../libs/utilfuncs.js');
 
 Page({
 	data: {
@@ -28,7 +29,10 @@ Page({
 		});
 	},
 	feedback() {
-		if (this.data.showStatus === true || this.data.feedbackText === "") {
+		if (this.data.showStatus === true) {
+			return;
+		} else if (this.data.feedbackText === '') {
+			utils.alertNoInput();
 			return;
 		};
 		this.setData({
@@ -43,14 +47,14 @@ Page({
 				feedbackStatus: true,
 				showStatus: true,
 			});
-			setTimeout(this.showStatusDown.bind(this),1500)
+			setTimeout(this.showStatusDown.bind(this),1500);
 		}).catch((data)=>{
 			this.setData({
 				onFeedback: false,
 				feedbackStatus: false,
 				showStatus: true,
 			});
-			setTimeout(this.showStatusDown.bind(this),1500)
+			setTimeout(this.showStatusDown.bind(this),1500);
 		});
 	},
 	showStatusDown() {

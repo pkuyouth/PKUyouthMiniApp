@@ -2,7 +2,7 @@
 
 'use strict';
 
-const tools = require("../../libs/utilfuncs.js");
+const utils = require("../../libs/utilfuncs.js");
 const cardFuncs = require('../news-li/page-funcs.js');
 
 const app = getApp();
@@ -22,6 +22,7 @@ Component({
         rank: -1,
         weight: -1,
         cover_url: '',
+        cover_url_sm: '',
         sn: '',
         in_use: false,
 	},
@@ -35,7 +36,8 @@ Component({
             star: newsInfo.star,
             starTime: newsInfo.starTime === undefined ? -1 : newsInfo.starTime,
             weight: newsInfo.weight === undefined ? -1 : newsInfo.weight,
-            cover_url: app.globalData.config.prefix.sm_cover + newsInfo.newsID + '.jpeg',
+            cover_url: newsInfo.cover_url,
+            cover_url_sm: app.globalData.config.prefix.sm_cover + newsInfo.newsID + '.jpeg',
             sn: newsInfo.sn,
             in_use: newsInfo.in_use,
         });

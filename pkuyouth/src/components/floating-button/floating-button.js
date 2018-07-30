@@ -2,7 +2,7 @@
 
 'use strict';
 
-const tools = require('../../libs/utilfuncs.js');
+const utils = require('../../libs/utilfuncs.js');
 
 Component({
 	properties: {
@@ -79,12 +79,11 @@ Component({
 		});
 		this.playanimation();
 
-		let initDone = function () {
+		setTimeout(function() {
 			this.setData({
 				onInit: false
 			});
-		};
-		setTimeout(initDone.bind(this),1000); // 1.0s 后显示图标
+		}.bind(this),1000); // 1.0s 后显示图标
 	},
 	methods: {
 		changeStatus() {

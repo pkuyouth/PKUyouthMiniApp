@@ -11,79 +11,53 @@ const api = require('../../libs/api.js');
 Page({
 	data: {
 		sliderArticles: [],
-		colCardData: [
-			{
-				id: 1,
-				cover: 'https://rabbitzxh.top/static/image/miniprogram_api/bg_cover_compressed/26508266021.jpeg',
-				title: '随便看看',
-				desc: '随意翻翻北青的文章',
-				navUrl: '/pages/collection-random/collection-random',
-			}, {
-				id: 2,
-				cover: 'https://rabbitzxh.top/static/image/miniprogram_api/bg_cover_compressed/26508283011.jpeg',
-				title: '热文推荐',
-				desc: '看看那些阅读量最高的文章',
-				navUrl: '/pages/collection-hot/collection-hot',
-			}, {
-				id: 3,
-				cover: 'https://rabbitzxh.top/static/image/miniprogram_api/bg_cover_compressed/26508251861.jpeg',
-				title: '还有更多',
-				desc: '主编们正在努力整理 ...',
-				navUrl: '',
-			},
-		],
-		descByHot: false,
-		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
-		moveAction: '',
+		colCardData: [],
 	},
-	onLoad() {
-		let init = function () {
-
-			/*
-			wx.switchTab({
-				url: '/pages/column-list/column-list',
-			});
-			 */
-
-			/*
-			wx.navigateTo({
-				url: '/pages/blank/blank',
-			});
-			 */
-
-
-			/*
-			wx.navigateTo({
-				url: '/pages/search-keyword-result/search-keyword-result?keyword=' + '嫁给我',
-			});
-			 */
-
-			this.get_latest_news();
-
-		}.bind(this);
-
+	onLoad(options) {
 		api.login().then((res)=>{
 			api.getUserInfo().then((res)=>{});
-			init();
+			this.init_page();
 		});
 	},
-	get_latest_news() {
+	init_page() {
 		wx.showNavigationBarLoading();
-		requests.post('/get_latest_news',{
+		const get_latest_news = requests.post('/get_latest_news',{
 			count: 8,
 		}).then((data)=>{
 			this.setData({
 				sliderArticles: data.news,
 			});
+		});
+		const get_col_desc = requests.get('/get_col_desc').then((data)=>{
+			this.setData({
+				colCardData: data.col_desc, // ?????
+			});
+		});
+		Promise.all([get_latest_news, get_col_desc]).then(()=>{
 			wx.hideNavigationBarLoading();
-		}).catch((data)=>{
+		}).catch(()=>{
 			wx.hideNavigationBarLoading();
 		});
 	},
-	get_col_info() {
-		requests.get('/get_col_info',).then((data)=>{
-			console.log(data);
+	init_page_test() {
+		/*
+		wx.switchTab({
+			url: '/pages/column-list/column-list',
 		});
-	},
+		 */
+
+		/*
+		wx.navigateTo({
+			url: '/pages/blank/blank',
+		});
+		 */
+
+
+		/*
+		wx.navigateTo({
+			url: '/pages/search-keyword-result/search-keyword-result?keyword=' + '嫁给我',
+		});
+		*/
+	}
 })
 

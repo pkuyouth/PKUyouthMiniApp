@@ -3,6 +3,8 @@
 'use strict';
 
 const requests = require('../../libs/requests.js');
+const utils = require('../../libs/utilfuncs.js');
+
 
 Page({
 
@@ -17,8 +19,8 @@ Page({
 		keywordSearchRange: 'all',
 		keywordSearchNotFound: '你好像发现了北青未涉及的领地～',
 	},
-	onLoad(options) {
-		this.get_date_range()
+	onLoad() {
+		this.get_date_range();
 	},
 	get_date_range() {
 		requests.get("/get_date_range").then((data)=>{
@@ -77,7 +79,10 @@ Page({
 		});
 	},
 	submitKeywordSearch() {
-		if (!this.data.keyword.length) return;
+		if (!this.data.keyword.length) {
+			utils.alertNoInput();
+			return;
+		};
 		let [keyword, range, notFound] = Array.from(
 			[this.data.keyword, this.data.keywordSearchRange, this.data.keywordSearchNotFound], x => encodeURIComponent(x));
 		wx.navigateTo({
@@ -85,9 +90,12 @@ Page({
 		});
 	},
 	submitRptSearch() {
-		if (!this.data.rptName.length) return;
+		if (!this.data.rptName.length) {
+			utils.alertNoInput();
+			return;
+		};
 		wx.navigateTo({
 			url: `/pages/search-reporter-result/search-reporter-result?name=${encodeURIComponent(this.data.rptName)}`,
 		});
-	},
+	}
 })

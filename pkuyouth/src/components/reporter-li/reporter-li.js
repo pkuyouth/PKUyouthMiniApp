@@ -31,7 +31,7 @@ Component({
 	methods: {
 		tapRptCard() {
 			wx.navigateTo({
-				url: '/pages/reporter-home/reporter-home?name=' + this.data.name,
+				url: '/pages/reporter-home/reporter-home?name=' + encodeURIComponent(this.data.name),
 			})
 		}
 	}

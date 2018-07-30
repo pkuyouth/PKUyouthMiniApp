@@ -2,18 +2,15 @@
 
 'use strict';
 
-const app = getApp();
-
 Page({
 
 	data: {
-		version_number: -1,
-	},
+        name: '',
+        version: '',
+    },
 
-	onLoad(options) {
-		this.setData({
-			version_number: app.globalData.config.version.number,
-		});
-	},
+    onReady() {
+        this.setData(getApp().globalData.config.app_info);
+    }
 
 })

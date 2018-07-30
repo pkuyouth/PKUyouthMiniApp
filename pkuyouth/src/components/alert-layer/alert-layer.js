@@ -12,19 +12,14 @@ Component({
 			value: false,
 			observer(newVal) {
 				if (newVal === true) {
-					setTimeout(this.autoHide.bind(this),2000);
+					setTimeout(function() {
+						this.setData({
+							show: false,
+						});
+					}.bind(this),2000);
 				}; // 2s 后自动隐藏
 			}
 		}
 	},
-	data: {
 
-	},
-	methods: {
-		autoHide() {
-			this.setData({
-				show: false,
-			});
-		}
-	}
 })

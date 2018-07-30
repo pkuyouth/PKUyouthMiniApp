@@ -2,7 +2,7 @@
 
 'use strict';
 
-const tools = require('../../libs/utilfuncs.js');
+const utils = require('../../libs/utilfuncs.js');
 const cardFuncs = require('../news-li/page-funcs.js');
 
 

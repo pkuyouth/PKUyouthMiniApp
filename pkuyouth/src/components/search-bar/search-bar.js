@@ -2,6 +2,8 @@
 
 'use strict';
 
+const utils = require('../../libs/utilfuncs.js');
+
 Component({
 	properties: {
 		show: {
@@ -35,6 +37,10 @@ Component({
 			this.searchSubmit();
 		},
 		searchSubmit() {
+			if (!this.data.keyword.length) {
+				utils.alertNoInput();
+				return;
+			};
 			let [keyword, range, notFound] = Array.from(
 				[this.data.keyword, this.data.range, this.data.notFound], x => encodeURIComponent(x));
 			wx.navigateTo({

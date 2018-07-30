@@ -34,12 +34,10 @@
     color: #353535;
     font-size: 36rpx;
     font-weight: bold;
-    letter-spacing: 9rpx;
 }
 .page-about .info text.version {
     margin-top: 20rpx;
 }
-
 
 .page-about .footer text {
 

@@ -73,8 +73,11 @@ function handleTapRecommend() {
 };
 
 function handleTapNavigate() {
+    let url = encodeURIComponent(getNewsUrl(this.data));
+    let title = encodeURIComponent(this.data.title);
+    let cover = encodeURIComponent(this.data.cover_url);
     wx.navigateTo({
-        url: `/pages/web-frame/web-frame?url=${encodeURIComponent(getNewsUrl(this.data))}&title=${encodeURIComponent(this.data.title)}&type=news"`
+        url: `/pages/web-frame/web-frame?url=${url}&title=${title}&cover=${cover}&type=news"`,
     });
 };
 

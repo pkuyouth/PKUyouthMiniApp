@@ -1,6 +1,6 @@
 'use strict';
 
-const tools = require('utilfuncs.js');
+const utils = require('utilfuncs.js');
 const sha224 = require('../vendors/js-sha256.min.js').sha224;
 
 
@@ -15,8 +15,8 @@ function _updateSessionId(resp) { // 带cookie请求，才能保持session连接
 function requests(method="GET") {
 	return function(path, data={}) {
 		let ApiUrl = "https://rabbitzxh.top/pkuyouth/miniprogram/api";
-		var url = tools.urlJoin(ApiUrl, path);
-		var cookie = wx.getStorageSync('cookie');
+		let url = utils.urlJoin(ApiUrl, path);
+		let cookie = wx.getStorageSync('cookie');
 		data.timestamp = new Date().getTime();
 		data.token = wx.getStorageSync('token');
 		data.signature = sha224(Object.entries(data).sort().join(',').toLowerCase());

@@ -8,7 +8,7 @@
 		<block wx:else>
 			<image class="avatar" src="../../images/Puppet_avatar.png" style="opacity: 0.6" mode="aspectFit"></image>
 			<button wx:if="{{canIUse}}" class="get-info-btn" open-type="getUserInfo" bind:getuserinfo="getUserInfo"> 点我获取头像 </button>
-			<text wx:else class="nickname">微信版本过低，无法获取头像 orz ...</text>
+			<text wx:else class="nickname">微信版本过低，无法获取头像 ...</text>
 		</block>
 	</view>
 	<view class="menu-lines">

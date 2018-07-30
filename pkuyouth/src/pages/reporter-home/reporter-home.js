@@ -38,6 +38,7 @@ Page({
 			duration: 500,
 			timingFunction: 'ease',
 		});
+		let name = decodeURIComponent(options.name);
 		this.setData({
 			page: 1,
 			onGetNews: false,
@@ -47,11 +48,11 @@ Page({
 			unfolded: true,
 			descByTime: false,
 			descByReadNum: true,
-			name: options.name.split('　').join(''),
-			nameOnShow: options.name,
+			name: name.split('　').join(''),
+			nameOnShow: name,
 		});
 		wx.setNavigationBarTitle({
-			title: this.data.name + '的主页',
+			title: name + '的主页',
 		});
 		this.get_rpt_info();
 	},
