@@ -54,5 +54,29 @@ Page({
 			hasUserInfo: false,
 		});
 	},
-
+	tapContactUs() {
+		wx.showActionSheet({
+			itemList: ['意见反馈','我要投稿'],
+			itemColor: '#353535',
+			success(res) {
+				switch (res.tapIndex) {
+					case 0:
+						wx.navigateTo({
+							url: '/pages/feedback/feedback',
+						});
+						break;
+					case 1:
+						wx.navigateTo({
+							url: '/pages/contribute/contribute',
+						});
+						break;
+				};
+			},
+		});
+	},
+	tapJoinUs() {
+		wx.navigateTo({
+			url: '/pages/recruit/recruit',
+		});
+	}
 })

@@ -1,20 +1,15 @@
 <!--pages/feedback/feedback.wxml-->
 
 <view class="page-feedback">
-    <view class="custom">
-        <text class="header">匿名反馈</text>
-        <textarea class="{{focus ? 'onfocus' : 'onblur'}}" value="{{feedbackText}}" bindinput="feedbackInput" placeholder="请输入你的宝贵意见 ~" show-confirm-bar="false" maxlength="-1" bind:focus="bindFoucs" bind:blur="bindBlur"></textarea>
-        <button bind:tap="feedback">{{onFeedback ? '反馈中 ...' : '反　馈'}}</button>
-    </view>
     <view class="official">
         <text class="header">微信官方接口反馈</text>
-        <text class="desc">您如果需要上传截图，或是需要我们进行后续回复，也可以通过微信提供的官方接口进行反馈！</text>
+        <text class="desc">感谢您对我们项目的支持！我们推荐您通过微信官方接口对我们进行反馈：</text>
         <button open-type="feedback">反　馈</button>
     </view>
     <view class="mail">
         <text class="header">邮箱反馈</text>
-        <text class="desc">《北大青年》公邮： 　pkuyouth@163.com</text>
+        <text class="desc">您也可以选择通过邮件进行反馈！</text>
+        <text class="desc">请联系《北大青年》公邮： pkuyouth@163.com</text>
     </view>
-
 </view>
-<alert-layer show="{{showStatus}}" image="{{feedbackStatus ? '/images/Ok.png' : '/images/Failed.png'}}" text="{{feedbackStatus ? '反馈成功！' : '反馈失败!'}}"></alert-layer>
+

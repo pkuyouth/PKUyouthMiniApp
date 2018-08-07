@@ -9,10 +9,10 @@
 }
 .page-update-log text.header {
     display: block;
-    font-size: 40rpx;
+    font-size: 42rpx;
     font-weight: bold;
     letter-spacing: 20rpx;
-    padding: 40rpx 0rpx 10rpx 20rpx;
+    padding: 40rpx 0rpx 30rpx 20rpx;
 }
 .page-update-log .log .title {
     display: block;
@@ -37,5 +37,4 @@
 }
 .page-update-log .log text.strong {
     font-weight: bold;
-    color: #e64340;
 }

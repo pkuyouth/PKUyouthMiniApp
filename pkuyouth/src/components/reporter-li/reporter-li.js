@@ -2,7 +2,7 @@
 
 'use strict';
 
-const app = getApp()
+const app = getApp();
 
 Component({
 
@@ -11,28 +11,23 @@ Component({
 	},
 	data: {
 		name: '',
-		nameSpell: '',
-		like: -1,
 		avatar: '',
 		newsCount: -1,
 	},
 	ready() {
-		let avatarPrefix = app.globalData.config.prefix.avatar;
 		let rptInfo = this.data.rptInfo;
 		let name = rptInfo.name;
 		this.setData({
 			name: name.length == 2 ? name.split('').join('　') : name,
-			nameSpell: rptInfo.nameSpell,
-			like: rptInfo.like,
-			avatar: avatarPrefix + rptInfo.avatar,
+			avatar: rptInfo.avatar === 'default' ? '../../images/Default_reporter_avatar.jpg' : app.globalData.config.prefix.avatar + rptInfo.avatar,
 			newsCount: rptInfo.newsCount,
 		});
 	},
 	methods: {
 		tapRptCard() {
 			wx.navigateTo({
-				url: '/pages/reporter-home/reporter-home?name=' + encodeURIComponent(this.data.name),
-			})
+				url: `/pages/reporter-news/reporter-news?name=${encodeURIComponent(this.data.name)}`,
+			});
 		}
 	}
 })

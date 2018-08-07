@@ -33,21 +33,3 @@
 	display: block;
 	margin-top: 60rpx;
 }
-.page-feedback .custom textarea {
-	display: block;
-	width: 600rpx;
-	height: 200rpx;
-	padding: 30rpx;
-	border-radius: 15rpx;
-	font-size: 28rpx;
-}
-.page-feedback .custom textarea.onblur {
-	border: 2rpx solid #dddddd;
-	box-shadow: none;
-	transition-duration: 0.15s;
-}
-.page-feedback .custom textarea.onfocus {
-	border: 1rpx solid #993a3a;
-	box-shadow: 0rpx 0rpx 6rpx #993a3a;
-	transition-duration: 0.15s;
-}

@@ -1,7 +1,7 @@
 <!--components/news-li/news-li.wxml-->
 
 <view class="component-news-li-bg">
-	<image class="cover" src="{{cover_url}}" mode="widthFix" lazy-load="true" bind:tap="tapNavigate"></image>
+	<image class="cover" src="{{cover_url_bg}}" mode="widthFix" lazy-load="true" bind:tap="tapNavigate"></image>
 	<view class="info">
 		<view class="header">
 			<text class="title">{{title}}</text>

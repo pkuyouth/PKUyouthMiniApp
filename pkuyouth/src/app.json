@@ -11,7 +11,6 @@
         "pages/recommend-result/recommend-result",
         "pages/contribute/contribute",
         "pages/column-news/column-news",
-        "pages/reporter-home/reporter-home",
         "pages/collection-random/collection-random",
         "pages/collection-hot/collection-hot",
         "pages/update-log/update-log",
@@ -19,7 +18,9 @@
         "pages/setting/setting",
         "pages/retrieve/retrieve",
         "pages/search-time-result/search-time-result",
-        "pages/search-reporter-result/search-reporter-result"
+        "pages/search-reporter-result/search-reporter-result",
+        "pages/reporter-news/reporter-news",
+        "pages/recruit/recruit"
     ],
     "tabBar": {
         "position": "bottom",
@@ -43,8 +44,8 @@
             {
                 "pagePath": "pages/retrieve/retrieve",
                 "text": "检索",
-                "iconPath": "images/Author_grey.png",
-                "selectedIconPath": "images/Author_red.png"
+                "iconPath": "images/Search_grey.png",
+                "selectedIconPath": "images/Search_red.png"
             },
             {
                 "pagePath": "pages/user/user",

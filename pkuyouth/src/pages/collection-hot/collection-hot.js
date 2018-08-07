@@ -12,6 +12,9 @@ Page({
 		articlesList: [],
 	},
 	onLoad(options) {
+        wx.setNavigationBarTitle({
+            title: decodeURIComponent(options.title),
+        });
         this.get_hot();
 	},
     get_hot() {

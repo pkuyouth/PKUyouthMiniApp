@@ -19,6 +19,7 @@ Page({
 				rptsInfoList: data.reporters,
 				initDone: true,
 			});
+			console.log(data.reporters);
 		}).catch((data)=>{
 			this.setData({
 				initDone: true,

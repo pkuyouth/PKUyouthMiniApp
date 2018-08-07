@@ -1,7 +1,6 @@
 {
 	"usingComponents": {
-		"column-li": "../../components/column-li/column-li",
-		"floating-button": "../../components/floating-button/floating-button"
+		"column-li": "../../components/column-li/column-li"
 	},
     "navigationBarTitleText": "栏目分类"
 }

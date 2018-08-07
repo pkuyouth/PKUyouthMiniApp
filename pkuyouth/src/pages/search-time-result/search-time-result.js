@@ -28,15 +28,6 @@ Page({
 				articlesList: data.news,
 				initDone: true,
 			});
-			/*     ???   ????     ???   ???
-			if (!data.news.length) {
-				setTimeout(function (){
-					wx.navigateTo({
-						url: '/pages/about/about',
-					});
-				}.bind(this), 2000);
-			};
-			 */
 		}).catch((data)=>{
 			this.setData({
 				initDone: true,

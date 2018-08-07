@@ -1,0 +1,20 @@
+/* pages/recruit/recruit.wxss */
+
+.page-recruit canvas {
+    position: fixed;
+    left: 0;
+    width: 750rpx;
+    height: 100vh;
+}
+
+.page-recruit canvas.hidden {
+    bottom: -100rpx;
+    opacity: 0;
+    transition-duration: 1s;
+}
+
+.page-recruit canvas.show {
+    bottom: 0rpx;
+    opacity: 1;
+    transition-duration: 1s;
+}

@@ -1,9 +1,6 @@
 'use strict';
 
 
-const app = getApp();
-
-
 String.prototype.trim = function (char, type) {
 	if (char) {
 		if (type == 'left') {
@@ -60,34 +57,17 @@ function parseQuery(url) {
 };
 
 
-function sleep(milliseconds) {
-	var start = new Date().getTime();
-	for (var i = 0; i < 1e7; i++) {
-		if ((new Date().getTime() - start) > milliseconds) {
-			break;
-		}
-	}
-};
-
-
-function rpx2px(rpx) { // 这个函数有问题
-	return rpx / 750 * app.globalData.systemInfo.screenWidth;
-};
-
-
 function alertNoInput() {
 	wx.showToast({
 		title: "输入内容不得为空",
 		icon: 'none',
 		duration: 1000,
 	});
-}
+};
 
 
 module.exports = {
 	urlJoin: urlJoin,
 	//parseQuery: parseQuery,
-	//sleep: sleep,
-	//rpx2px: rpx2px,
 	alertNoInput: alertNoInput,
 };

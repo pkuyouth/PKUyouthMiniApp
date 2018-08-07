@@ -3,8 +3,6 @@
 'use strict';
 
 const requests = require("../../libs/requests.js");
-const btnFuncs = require("../../components/floating-button/page-funcs.js");
-
 
 Page({
 	data: {
@@ -19,15 +17,4 @@ Page({
 			})
 		});
 	},
-	/*
-	tapBtn_1() {
-		btnFuncs.feedback.call(this);
-	},
-	handleTouchStart(event) {
-		btnFuncs.handleTouchStart.call(this, event);
-	},
-	handleTouchEnd(event) {
-		btnFuncs.handleTouchEnd.call(this, event);
-	},
-	 */
 })

@@ -15,6 +15,11 @@
 	"appid": "wx6213212a86e2986f",
 	"projectname": "%E5%8C%97%E5%B0%8F%E9%9D%92",
 	"isGameTourist": false,
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
 	"condition": {
 		"search": {
 			"current": -1,

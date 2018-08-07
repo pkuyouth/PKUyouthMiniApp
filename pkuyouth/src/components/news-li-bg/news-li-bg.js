@@ -5,6 +5,7 @@
 const utils = require("../../libs/utilfuncs.js");
 const cardFuncs = require('../news-li/page-funcs.js');
 
+const app = getApp();
 
 Component({
 	properties: {
@@ -19,8 +20,8 @@ Component({
         star: false,
         starTime: -1,
         rank: -1,
-        weight: -1,
-        cover_url: '',
+        // cover_url: '',
+        cover_url_bg: '',
         sn: '',
         in_use: false,
 	},
@@ -35,8 +36,8 @@ Component({
             rank: newsInfo.rank === undefined ? -1 : newsInfo.rank, // 默认值 -1
             star: newsInfo.star,
             starTime: newsInfo.starTime === undefined ? -1 : newsInfo.starTime,
-            weight: newsInfo.weight === undefined ? -1 : newsInfo.weight,
-            cover_url: newsInfo.cover_url,
+            // cover_url: newsInfo.cover_url,
+            cover_url_bg: app.globalData.config.prefix.bg_cover + newsInfo.newsID + '.jpeg',
             sn: newsInfo.sn,
             in_use: newsInfo.in_use,
         });

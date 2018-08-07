@@ -46,18 +46,43 @@ Page({
 		});
 		 */
 
-		/*
-		wx.navigateTo({
+		/*wx.navigateTo({
 			url: '/pages/blank/blank',
 		});
-		 */
+		*/
 
+		/*
+		wx.navigateTo({
+			url: '/pages/recruit/recruit',
+		})
+		 */
 
 		/*
 		wx.navigateTo({
 			url: '/pages/search-keyword-result/search-keyword-result?keyword=' + '嫁给我',
 		});
 		*/
+
+		/*
+		wx.navigateTo({
+			url: `/pages/search-reporter-result/search-reporter-result?name=${encodeURIComponent("心怡")}`,
+		});
+		 */
+
+	},
+	tapColCard(event) {
+		let data = this.data.colCardData[event.currentTarget.dataset.id];
+		if (data.path === '') {
+			wx.showToast({
+				title: "尚未开发，敬请期待~",
+				icon: 'none',
+				duration: 1000,
+			});
+		} else {
+			wx.navigateTo({
+				url: `${data.path}?title=${encodeURIComponent(data.title)}`,
+			});
+		};
 	}
 })
 

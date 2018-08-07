@@ -1,4 +1,4 @@
-// pages/column-news/column-news.js
+// pages/reporter-home/reporter-home.js
 
 'use strict';
 
@@ -6,48 +6,55 @@ const requests = require('../../libs/requests.js');
 const btnFuncs = require('../../components/floating-button/page-funcs.js');
 const cardFuncs = require('../../components/news-li/page-funcs.js');
 
+const app = getApp();
+
+
 Page({
 	data: {
-		column: '',
 		page: 1,
-		articlesList: [],
-		onGetColumnNews: false,
 		entirelyGet: false,
+		onGetRptNews: false,
+		name: '',
+		nameOnShow: '',
+		articlesList: [],
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
+		descByTime: false,
+		descByReadNum: true,
+
 	},
 	onLoad(options) {
-		let column = decodeURIComponent(options.column);
-		wx.setNavigationBarTitle({
-            title: column,
-        });
+		let name = decodeURIComponent(options.name);
 		this.setData({
-			column: column,
-			page: 1,
-			onGetColumnNews: false,
-			entirelyGet: false,
+			name: name.split('　').join(''),
+			nameOnShow: name,
+			descByTime: false,
+			descByReadNum: true,
 		});
-		this.get_column_news();
+		wx.setNavigationBarTitle({
+			title: name + '的文章',
+		});
+		this.get_rpt_news();
 	},
 	onReachBottom() {
-		if (this.data.entirelyGet || this.data.page === 0) { // page = 0 说明 entirelyGet
-			this.setData({
-				entirelyGet: true, // 触发提示
+		if (this.data.entirelyGet === true || this.data.page === 0) {
+			this.setData({ // 触发
+				entirelyGet: true,
 			});
 		} else {
-			this.get_column_news();
-		}
+			this.get_rpt_news();
+		};
 	},
-	get_column_news(get_all=false) {
-		if (this.data.entirelyGet || this.data.page === 0 || this.onGetColumnNews) {
+	get_rpt_news(get_all=false) {
+		if (this.data.entirelyGet || this.data.page === 0 || this.data.onGetRptNews) {
 			return;
 		};
 		this.setData({
-			onGetColumnNews: true,
+			onGetRptNews: true,
 		});
 		wx.showNavigationBarLoading();
-		requests.post('/get_column_news',{
-			column: this.data.column,
+		requests.post("get_reporter_news",{
+			name: this.data.name,
 			page: get_all ? 0 : this.data.page, // get_all 则 page = 0
 			limit: 8,
 		}).then((data)=>{
@@ -57,13 +64,13 @@ Page({
 				this.setData({
 					articlesList: this.data.articlesList.concat(newArticles),
 					page: 0,
-					onGetColumnNews: false,
+					onGetRptNews: false,
 				});
 			} else {
 				this.setData({
 					articlesList: this.data.articlesList.concat(newArticles),
 					page: this.data.page + 1,
-					onGetColumnNews: false,
+					onGetRptNews: false,
 				});
 				if (!data.news.length) {
 					this.setData({
@@ -74,22 +81,22 @@ Page({
 			wx.hideNavigationBarLoading();
 		}).catch((data)=>{
 			this.setData({
-				onGetColumnNews: false,
-			});
+				onGetRptNews: false,
+			})
 			wx.hideNavigationBarLoading();
 		});
 	},
 	tapBtn_1() {
 		btnFuncs.feedback.call(this);
 	},
-	tapBtn_2() { // 时间排序
+	tapBtn_2() { // 按时间排序
 		btnFuncs.sortedByTime.call(this);
 	},
-	tapBtn_3() { // 热度排序
+	tapBtn_3() {
 		btnFuncs.sortedByReadNum.call(this);
 	},
 	tapBtn_4() {
-		this.get_column_news(true);
+		this.get_rpt_news(true);
 	},
 	tapBtn_5() {
 		btnFuncs.scrollToUpper.call(this);

@@ -8,13 +8,13 @@
 	</swiper>
 	<view class="news-cols">
 		<block wx:for="{{colCardData}}" wx:key="id" wx:for-item="col">
-			<navigator class="col-card" url="{{col.navUrl}}" open-type="navigate">
+			<view class="col-card" data-id="{{col.id}}" bind:tap="tapColCard">
 				<image class="cover" src="{{col.cover}}" mode="aspectFill"></image>
 				<view class="text-box">
 					<text class="title">{{col.title}}</text>
 					<text class="desc">{{col.desc}}</text>
 				</view>
-			</navigator>
+			</view>
 		</block>
 	</view>
 </view>

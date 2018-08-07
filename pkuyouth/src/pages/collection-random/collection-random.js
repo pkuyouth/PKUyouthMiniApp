@@ -13,7 +13,10 @@ Page({
 		touch: {start:{X:0, Y:0}, end:{X:0, Y:0}},
 		moveAction: '',
 	},
-	onLoad() {
+	onLoad(options) {
+        wx.setNavigationBarTitle({
+            title: decodeURIComponent(options.title),
+        });
 		this.get_random();
 	},
 	get_random() {

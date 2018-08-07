@@ -7,12 +7,12 @@ const requests = require('../../libs/requests.js');
 Page({
 
 	data: {
-		log: [],
+		logInfo: [],
 	},
 	onLoad() {
         requests.get("/get_update_log").then((data)=>{
             this.setData({
-                log: data.log,
+                logInfo: data.log,
             });
         });
 	},
