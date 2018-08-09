@@ -1,7 +1,0 @@
-<!--components/alert-layer/alert-layer.wxml-->
-
-<view wx:if="{{show}}" class="component-alert-layer">
-	<image class="image" src="{{image}}" mode="aspectFit"></image>
-	<text class="text">{{text}}</text>
-</view>
-<mask-layer show="{{show}}"></mask-layer>

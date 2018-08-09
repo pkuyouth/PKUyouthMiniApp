@@ -1,9 +1,0 @@
-/* pages/blank/blank.wxss */
-
-canvas {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 750rpx;
-    height: 100vh;
-}
