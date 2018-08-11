@@ -1,0 +1,27 @@
+<!--pages/search-time-result/search-time-result.wxml-->
+
+<view class="page-search-time-result" bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">
+    <block wx:if="{{!initDone}}">
+        <image class="loading" src="../../images/Loading.gif" mode="aspectFit"></image>
+    </block>
+    <block wx:elif="{{!articlesList.length}}">
+        <view class="no-result">
+            <image src="../../images/No_news.png" mode="aspectFit"></image>
+            <text wx:if="{{method == 'month'}}">休刊的季节</text>
+            <text wx:elif="{{method == 'date'}}">这天啥也没发</text>
+        </view>
+    </block>
+    <block wx:else>
+        <news-li wx:for="{{articlesList}}" wx:key="newsID" news-info="{{item}}"></news-li>
+        <floating-button
+            num="{{2}}"
+            icon="{{['/images/Feedback.png','/images/Scroll_to_top_red.png']}}"
+            text="{{['意见反馈','回到顶端']}}"
+            tap-change="{{[true,true]}}"
+            has-search-bar="{{false}}"
+            move-action="{{moveAction}}"
+            bind:tap-btn-one="tapBtn_1" bind:tap-btn-two="tapBtn_2">
+        </floating-button>
+    </block>
+</view>
+

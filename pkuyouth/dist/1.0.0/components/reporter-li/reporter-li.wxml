@@ -1,0 +1,10 @@
+<!--components/reporter-li/reporter-li.wxml-->
+
+<view class="component-reporter-li" bind:tap="tapRptCard">
+    <image class="avatar" src="{{avatar}}" mode="widthFix"></image>
+    <text class="name">{{name}}</text>
+    <view class="news-count">
+        <image class="icon" src="../../images/Article_num_grey.png" mode="widthFix"></image>
+        <text class="num">{{newsCount}}</text>
+    </view>
+</view>

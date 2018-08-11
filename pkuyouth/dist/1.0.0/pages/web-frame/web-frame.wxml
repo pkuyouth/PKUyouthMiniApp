@@ -1,0 +1,6 @@
+<!--pages/web_tmp/web_tmp.wxml-->
+
+<view class="page-web-frame" wx:if="{{url !== ''}}">
+    <web-view src="{{url}}"></web-view>
+</view>
+

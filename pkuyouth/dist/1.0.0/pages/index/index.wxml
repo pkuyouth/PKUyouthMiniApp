@@ -1,0 +1,21 @@
+<!--index.wxml-->
+
+<view class="page-index"><!-- bind:touchstart="handleTouchStart" bind:touchend="handleTouchEnd">-->
+	<swiper class="slider" autoplay="true" interval="5000" indicator-dots="true" indicator-active-color="#993a3a" circular="true">
+		<swiper-item wx:for="{{sliderArticles}}" wx:key="newsID" item-id="{{item.newsID}}">
+			<news-slide-item news-info="{{item}}"></news-slide-item>
+		</swiper-item>
+	</swiper>
+	<view class="news-cols">
+		<block wx:for="{{colCardData}}" wx:key="id" wx:for-item="col">
+			<view class="col-card" data-id="{{col.id}}" bind:tap="tapColCard">
+				<image class="cover" src="{{col.cover}}" mode="aspectFill"></image>
+				<view class="text-box">
+					<text class="title">{{col.title}}</text>
+					<text class="desc">{{col.desc}}</text>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+

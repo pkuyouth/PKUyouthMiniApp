@@ -1,0 +1,8 @@
+/* pages/web_tmp/web_tmp.wxss */
+
+.page-web-frame {
+
+}
+.page-web-frame web-view {
+	z-index: 0;
+}

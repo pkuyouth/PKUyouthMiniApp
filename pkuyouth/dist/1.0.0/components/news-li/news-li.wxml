@@ -1,0 +1,23 @@
+<!--components/news-li/news-li.wxml-->
+
+<view class="component-news-li">
+    <block wx:if="{{auto_change_card}}">
+        <block wx:if="{{networkType !== 'wifi'}}">
+            <news-li-sm news-info="{{newsInfo}}"></news-li-sm>
+        </block>
+        <block wx:else>
+            <news-li-bg news-info="{{newsInfo}}"></news-li-bg>
+        </block>
+    </block>
+    <block wx:else>
+        <block wx:if="{{use_small_card}}">
+            <news-li-sm news-info="{{newsInfo}}"></news-li-sm>
+        </block>
+        <block wx:else>
+            <news-li-bg news-info="{{newsInfo}}"></news-li-bg>
+        </block>
+    </block>
+</view>
+
+
+

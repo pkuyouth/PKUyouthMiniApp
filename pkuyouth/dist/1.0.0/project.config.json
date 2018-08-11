@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.9",
 	"appid": "wx6213212a86e2986f",
-	"projectname": "%E5%8C%97%E5%A4%A7%E9%9D%92%E5%B9%B4",
+	"projectname": "%E5%8C%97%E5%A4%A7%E9%9D%92%E5%B9%B4-1.0.0",
 	"isGameTourist": false,
 	"scripts": {
 		"beforeCompile": "",

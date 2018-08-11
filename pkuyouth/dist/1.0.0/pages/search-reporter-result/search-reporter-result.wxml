@@ -1,0 +1,19 @@
+<!--pages/search-reporter-result/search-reporter-result.wxml-->
+
+<view class="page-search-reporter-result">
+    <block wx:if="{{!initDone}}">
+        <image class="loading" src="../../images/Loading.gif" mode="aspectFit"></image>
+    </block>
+    <block wx:elif="{{!rptsInfoList.length}}">
+        <view class="not-found">
+            <image src="../../images/No_reporter.png" mode="aspectFit"></image>
+            <text>查无此人</text>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="line" wx:for="{{rptsInfoList}}" wx:key="name">
+            <reporter-li rpt-info="{{item}}"></reporter-li>
+        </view>
+    </block>
+</view>
+

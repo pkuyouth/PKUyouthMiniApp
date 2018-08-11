@@ -1,0 +1,7 @@
+<!--pages/column/column.wxml-->
+
+<view class="page-column-list">
+    <view class="column-li" wx:for="{{columnsInfo}}" wx:key="id">
+        <column-li column-info="{{item}}"></column-li>
+    </view>
+</view>

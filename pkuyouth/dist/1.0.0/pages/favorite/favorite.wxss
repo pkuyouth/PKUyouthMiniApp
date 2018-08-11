@@ -1,0 +1,21 @@
+/* pages/favorite/favorite.wxss */
+
+
+.page-favorite .no-collection {
+
+}
+
+.page-favorite .no-collection image {
+	display: block;
+	margin: 240rpx 255rpx 50rpx 255rpx;
+	width: 240rpx;
+	height: 320rpx;
+}
+.page-favorite .no-collection text {
+	display: block;
+	text-align: center;
+	margin: 0rpx 50rpx;
+	width: 650rpx;
+	font-size: 30rpx;
+	color: #888888;
+}

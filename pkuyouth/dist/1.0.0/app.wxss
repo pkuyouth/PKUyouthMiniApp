@@ -1,0 +1,9 @@
+/**app.wxss**/
+
+image.loading {
+    display: flex;
+    position: fixed;
+    top: 20%;
+    left: 200rpx;
+    width: 350rpx;
+}

@@ -1,0 +1,16 @@
+<!--pages/update-log/update-log.wxml-->
+
+<view class="page-update-log">
+    <text class="header">更新日志</text>
+    <view class="log">
+        <block wx:for="{{logInfo}}" wx:for-item="version" wx:key="number">
+            <view class="title">
+                <text class="version">$ version {{version.number}}</text>
+                <text class="time">( {{version.time}} )</text>
+            </view>
+            <text wx:for="{{version.content}}" wx:for-item="para" wx:key="row" class="content {{para.strong ? 'strong' : ''}}">{{para.row}}. {{para.text}}</text>
+        </block>
+    </view>
+</view>
+
+

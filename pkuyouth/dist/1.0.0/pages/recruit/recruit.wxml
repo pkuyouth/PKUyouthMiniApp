@@ -1,0 +1,6 @@
+<!--pages/recruit/recruit.wxml-->
+
+<view class="page-recruit">
+    <canvas class="{{drawDone ? 'show' : 'hidden'}}" canvas-id="recruit-card" bind:longpress="previewQRcode"></canvas>
+</view>
+

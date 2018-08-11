@@ -1,0 +1,13 @@
+<!--components/column-li/column-li.wxml-->
+
+<view class="component-column-li" bind:tap="tapColumnCard">
+    <image class="cover" src="{{cover}}" mode="widthFix" lazy-load="true"></image>
+    <view class="text-box">
+        <text class="title">{{title}}</text>
+        <text class="desc">{{desc}}</text>
+    </view>
+    <view class="news-count">
+        <image class="icon" src="../../images/Article_num_grey.png" mode="widthFix"></image>
+        <text class="num">{{newsCount}}</text>
+    </view>
+</view>

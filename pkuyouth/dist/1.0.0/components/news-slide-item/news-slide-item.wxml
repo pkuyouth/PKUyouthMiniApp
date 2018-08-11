@@ -1,0 +1,11 @@
+<!--components/news-slide-item/news-slide-item.wxml-->
+
+<view class="component-news-slide-item">
+    <image class="cover" src="{{cover_url}}" mode="aspectFill" bind:tap="tapNavigate"></image>
+    <view class="desc">
+        <text class="title">{{title}}</text>
+        <text class="digest">{{digest}}</text>
+        <text class="time">{{time}}</text>
+    </view>
+</view>
+
